@@ -111,10 +111,10 @@ directives.directive('scene3d', function ($log, $timeout) {
 
 //            var holder = elem.find('#holder');
 
-//            scope.controls = controls = new THREE.OrbitControls(scope.camera, renderer.domElement);
-//            scope.controls = controls = new THREE.TrackYControls(scope.camera, renderer.domElement);
             scope.controls = controls = new THREE.TrackballControls(scope.camera, renderer.domElement);
             controls.rotateSpeed = 0.5;
+            controls.noZoom = true;
+            controls.noPan = true;
             controls.addEventListener('change', render);
 
             scope.transform = transform;
