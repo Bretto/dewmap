@@ -39,10 +39,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index_.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index_.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="66" selection-start="0" selection-end="2172" vertical-scroll-proportion="-11.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="10" selection-start="420" selection-end="420" vertical-scroll-proportion="0.3482143">
+            <state line="7" column="6" selection-start="223" selection-end="223" vertical-scroll-proportion="0.1875">
               <folding />
             </state>
           </provider>
@@ -111,18 +120,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/screen.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="1" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1352975378000" expanded="true" signature="1615:1758" placeholder="{...}" />
-                <marker date="1352975378000" expanded="true" signature="2799:2915" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -150,6 +147,7 @@
         <option value="$PROJECT_DIR$/views/partials/nav.ejs" />
         <option value="$PROJECT_DIR$/public/sass/screen.scss" />
         <option value="$PROJECT_DIR$/public/sass/base.scss" />
+        <option value="$PROJECT_DIR$/views/index.ejs.html" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
       </list>
     </option>
@@ -242,6 +240,7 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="JavaScript.Libraries" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dewmap-blog" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -383,13 +382,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -493,9 +485,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/index_.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="66" selection-start="0" selection-end="2172" vertical-scroll-proportion="-11.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="10" selection-start="420" selection-end="420" vertical-scroll-proportion="0.3482143">
+        <state line="7" column="6" selection-start="223" selection-end="223" vertical-scroll-proportion="0.1875">
           <folding />
         </state>
       </provider>
