@@ -51,7 +51,7 @@
       <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="6" selection-start="223" selection-end="223" vertical-scroll-proportion="0.1875">
+            <state line="8" column="7" selection-start="85" selection-end="85" vertical-scroll-proportion="0.21428572">
               <folding />
             </state>
           </provider>
@@ -494,7 +494,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="223" selection-end="223" vertical-scroll-proportion="0.1875">
+        <state line="8" column="7" selection-start="85" selection-end="85" vertical-scroll-proportion="0.21428572">
           <folding />
         </state>
       </provider>
