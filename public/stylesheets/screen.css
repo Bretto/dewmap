@@ -1,0 +1,230 @@
+/* line 4, ../sass/base.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 10, ../sass/base.scss */
+body, html {
+  background: #000;
+  height: 100%;
+  background-image: url("../assets/img/bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* line 18, ../sass/base.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 22, ../sass/base.scss */
+#main-content {
+  margin: 20px auto 20px auto;
+  width: auto !important;
+  max-width: 960px;
+  max-height: 700px;
+  height: 100%;
+}
+
+/* line 30, ../sass/base.scss */
+#content-wrap {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+/* line 36, ../sass/base.scss */
+#scene-wrap {
+  padding: 0;
+  max-width: 960px;
+  max-height: 700px;
+}
+
+/* line 44, ../sass/base.scss */
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 4, ../sass/screen.scss */
+#interface-img {
+  top: 5px;
+  left: 5px;
+  pointer-events: none;
+}
+
+/* line 14, ../sass/screen.scss */
+#scene-3d {
+  position: absolute;
+  overflow: hidden;
+}
+
+/* line 19, ../sass/screen.scss */
+#camera-3d {
+  -webkit-transform-style: preserve-3d;
+}
+
+/* line 24, ../sass/screen.scss */
+#item-wrap-3d {
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* line 30, ../sass/screen.scss */
+.item3d {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  -webkit-transition: opacity .3s ease-in-out .3s;
+}
+
+/* line 45, ../sass/screen.scss */
+.hideAnim {
+  opacity: 0;
+}
+
+/* line 53, ../sass/screen.scss */
+.element {
+  -webkit-transform: scale3d(1, -1, 1);
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  cursor: default;
+}
+/* line 77, ../sass/screen.scss */
+.element .cross-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 83, ../sass/screen.scss */
+.element .cross-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 88, ../sass/screen.scss */
+.element .cross-bl {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+}
+/* line 93, ../sass/screen.scss */
+.element .cross-br {
+  position: absolute;
+  bottom: 45px;
+  right: 0;
+}
+
+/* line 110, ../sass/screen.scss */
+.element:hover .cross-tl {
+  color: red;
+}
+/* line 114, ../sass/screen.scss */
+.element:hover .cross-tr {
+  color: red;
+}
+/* line 117, ../sass/screen.scss */
+.element:hover .cross-bl {
+  color: red;
+}
+/* line 120, ../sass/screen.scss */
+.element:hover .cross-br {
+  color: red;
+}
+/* line 130, ../sass/screen.scss */
+.element:hover .details {
+  color: white;
+  text-shadow: 0px 1px 0px black;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+/* line 138, ../sass/screen.scss */
+.element .details {
+  margin-top: 10px;
+  padding: 4px;
+  font-size: 18px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* line 151, ../sass/screen.scss */
+.controls-wrap {
+  max-width: 960px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* line 158, ../sass/screen.scss */
+.arrow-center {
+  width: 6px;
+  margin: auto;
+}
+
+/* line 163, ../sass/screen.scss */
+.right-arrow {
+  float: right;
+}
+
+/* line 168, ../sass/screen.scss */
+.left-arrow {
+  float: left;
+}
+
+/* line 173, ../sass/screen.scss */
+.comp-title {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+/* line 179, ../sass/screen.scss */
+.logo-wrap {
+  max-width: 960px;
+}
+
+/* line 183, ../sass/screen.scss */
+.logo-center {
+  width: 200px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+/* line 190, ../sass/screen.scss */
+.layout-wrap {
+  max-width: 960px;
+  padding-top: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+/* line 199, ../sass/screen.scss */
+.sphere-btn {
+  width: 30px;
+  margin: auto;
+}
+
+/* line 206, ../sass/screen.scss */
+.h-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
+/* line 213, ../sass/screen.scss */
+.v-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  height: 100%;
+  right: 50%;
+  top: 0;
+}
