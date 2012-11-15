@@ -14,12 +14,12 @@ body, html {
   background-position: center;
 }
 
-/* line 18, ../sass/base.scss */
+/* line 19, ../sass/base.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 22, ../sass/base.scss */
+/* line 23, ../sass/base.scss */
 #main-content {
   margin: 20px auto 20px auto;
   width: auto !important;
@@ -28,21 +28,21 @@ a:hover {
   height: 100%;
 }
 
-/* line 30, ../sass/base.scss */
+/* line 31, ../sass/base.scss */
 #content-wrap {
   position: absolute;
   width: 100%;
   height: auto;
 }
 
-/* line 36, ../sass/base.scss */
+/* line 37, ../sass/base.scss */
 #scene-wrap {
   padding: 0;
   max-width: 960px;
   max-height: 700px;
 }
 
-/* line 44, ../sass/base.scss */
+/* line 45, ../sass/base.scss */
 ul, li {
   list-style: none;
   margin: 0;

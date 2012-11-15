@@ -134,7 +134,7 @@ $default-text-shadow-v-offset: 1px;
     color: rgba(255, 255, 255, 1);
     @include single-text-shadow;
     @include border-radius(5px);
-    background-color: rgba(255, 0, 00, .5);
+    background-color: rgba(255, 0, 0, .2);
   }
 }
 
