@@ -34,6 +34,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     var geoPointsElem = [];
 
     var theta = 45;
+    var worldRay = 450;
 
 
     function init(){
@@ -76,17 +77,17 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
 
         var sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world.png");
-        var sphere = new THREE.Mesh(new THREE.SphereGeometry(300, 15, 15), new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xff0000, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending}));
+        var sphere = new THREE.Mesh(new THREE.SphereGeometry(worldRay, 15, 15), new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xff0000, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending}));
         scene.add(sphere);
 
-        var planeX = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 2, 2), new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0xff0000, opacity:.2, depthTest: false, linewidth:1, transparent:false, wireframe:true, blending:THREE.NormalBlending}));
-        planeX.rotation.x = -Math.PI / 2;
-        scene.add(planeX);
+//        var planeX = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 2, 2), new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0x154492, opacity:1, depthTest: true, linewidth:1, transparent:false, wireframe:true, blending:THREE.NormalBlending}));
+//        planeX.rotation.x = -Math.PI / 2;
+//        scene.add(planeX);
 
-        var planeY = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 2, 2), new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0xff0000, opacity:.2, depthTest: false, linewidth:1, transparent:false, wireframe:true, blending:THREE.NormalBlending}));
-        planeY.rotation.x = -Math.PI / 2;
-        planeY.rotation.y = -Math.PI / 2;
-        scene.add(planeY);
+//        var planeY = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 2, 2), new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0x154492, opacity:1, depthTest: true, linewidth:1, transparent:false, wireframe:true, blending:THREE.NormalBlending}));
+//        planeY.rotation.x = -Math.PI / 2;
+//        planeY.rotation.y = -Math.PI / 2;
+//        scene.add(planeY);
 
         canvasWrap.appendChild(renderer.domElement);
 
@@ -100,8 +101,6 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
 
     function onWindowResize() {
-
-        $log.info('resize');
 
         camera.aspect = interfaceImg.width() / interfaceImg.height();
         camera.updateProjectionMatrix();
@@ -136,6 +135,8 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
         var controls = new THREE.TrackballControls(camera, renderer.domElement);
         controls.rotateSpeed = 0.5;
+        controls.noZoom = true;
+        controls.noPan = true;
         controls.addEventListener('change', render);
 
         return controls
@@ -151,19 +152,11 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     function makeParticleMaterial(){
 
-        var particleGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/particleA.png");
-        particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0xffffff, size: 150,
+        var particleGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/particleB.png");
+        particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0xffffff, size: 100,
             blending: THREE.AdditiveBlending, transparent:true,
-            depthWrite: false, vertexColors: true,
-            sizeAttenuation: true, wireframe:true } );
-
-        var vertices = particles.vertices;
-
-        for( var v = 0; v < vertices.length; v++ ) {
-            particleColors[ v ] = new THREE.Color(0x154492);
-        }
-
-        particles.colors = particleColors;
+            depthWrite: true,
+            sizeAttenuation: true } );
 
         return particleMaterial;
     }
@@ -177,11 +170,11 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
             var phi = Math.acos(-1 + ( 2 * i ) / l);
             var theta = Math.sqrt(l * Math.PI) * phi;
-            var ray = 300;
+            var offset = worldRay + 10;
 
-            var pX = ray * Math.cos(theta) * Math.sin(phi);
-            var pY = ray * Math.sin(theta) * Math.sin(phi);
-            var pZ = ray * Math.cos(phi);
+            var pX = offset * Math.cos(theta) * Math.sin(phi);
+            var pY = offset * Math.sin(theta) * Math.sin(phi);
+            var pZ = offset * Math.cos(phi);
 
             var particle = new THREE.Vector3(pX, pY, pZ);
 
@@ -204,7 +197,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
             }
 
             var curveGeometry = makeConnectionLineGeometry(p1, p2);
-            var material = new THREE.LineBasicMaterial({ color:0x154492, opacity:1, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
+            var material = new THREE.LineBasicMaterial({ color:0xaa0000, opacity:.5, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
 
             var line = new THREE.Line(curveGeometry, material);
 
@@ -257,13 +250,13 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     function makeConnectionLineGeometry(exporter, importer) {
 
         var distanceBetweenCountryCenter = exporter.clone().subSelf(importer).length();
-        var anchorHeight = 300 + distanceBetweenCountryCenter * 0.7;
+        var anchorHeight = 100 + distanceBetweenCountryCenter * 0.5;
         var start = exporter;
         var end = importer;
         var mid = start.clone().lerpSelf(end, 0.5);
         var midLength = mid.length()
         mid.normalize();
-        mid.multiplyScalar(midLength + distanceBetweenCountryCenter * 0.7);
+        mid.multiplyScalar(midLength + distanceBetweenCountryCenter * 0.5);
         var normal = (new THREE.Vector3()).sub(start, end);
         normal.normalize();
         var distanceHalf = distanceBetweenCountryCenter * 0.5;
@@ -278,11 +271,11 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         points = points.splice(0, points.length - 1);
         points = points.concat(splineCurveB.getPoints(vertexCountDesired));
         //points.push(vec3_origin);
-        var val = 1 * 0.0003;
-        var size = (10 + Math.sqrt(val));
-        size = constrain(size, 0.1, 60);
+//        var val = 1 * 0.0003;
+//        var size = 10;//(10 + Math.sqrt(val));
+//        size = constrain(size, 0.1, 1);
         var curveGeometry = createLineGeometry(points);
-        curveGeometry.size = size;
+//        curveGeometry.size = .01;
         return curveGeometry;
     }
 

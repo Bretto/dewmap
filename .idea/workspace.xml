@@ -40,7 +40,25 @@
       <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/experiment/1/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="31" selection-start="3276" selection-end="3276" vertical-scroll-proportion="0.6225989">
+            <state line="145" column="47" selection-start="4614" selection-end="4614" vertical-scroll-proportion="0.45762712">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/experiment/1/stylesheets/screen.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -49,7 +67,7 @@
       <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="24" selection-start="1258" selection-end="1258" vertical-scroll-proportion="-11.538462">
+            <state line="104" column="35" selection-start="2750" selection-end="2750" vertical-scroll-proportion="-21.923077">
               <folding />
             </state>
           </provider>
@@ -58,7 +76,7 @@
       <file leaf-file-name="three.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/libs/three/three.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="10" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.0">
+            <state line="111" column="25" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -111,7 +129,6 @@
         <option value="$PROJECT_DIR$/public/experiment/1/partial/world.html" />
         <option value="$PROJECT_DIR$/public/experiment/1/js/directives.js" />
         <option value="$PROJECT_DIR$/views/partial/include-experiment.ejs" />
-        <option value="$PROJECT_DIR$/public/experiment/1/stylesheets/screen.css" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/libs/three/three.js" />
         <option value="$PROJECT_DIR$/views/experiment/1.ejs" />
@@ -119,6 +136,7 @@
         <option value="$PROJECT_DIR$/views/experiment/2.ejs" />
         <option value="$PROJECT_DIR$/public/js/directives.js" />
         <option value="$PROJECT_DIR$/public/js/controllers.js" />
+        <option value="$PROJECT_DIR$/public/experiment/1/stylesheets/screen.css" />
         <option value="$PROJECT_DIR$/public/experiment/1/js/services.js" />
       </list>
     </option>
@@ -366,11 +384,11 @@
       <recent name="$PROJECT_DIR$/public/sass" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/experiment/1/assets/img" />
       <recent name="$PROJECT_DIR$/public/assets/2" />
       <recent name="$PROJECT_DIR$/public/assets/1" />
       <recent name="$PROJECT_DIR$/views/comp/1" />
       <recent name="$PROJECT_DIR$/public/assets/1/assets" />
-      <recent name="$PROJECT_DIR$/public/assets" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
@@ -511,13 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/1/stylesheets/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="0.35413152">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.6323776">
@@ -567,27 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/libs/three/three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="10" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="24" selection-start="1258" selection-end="1258" vertical-scroll-proportion="-11.538462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="250" column="0" selection-start="7158" selection-end="7158" vertical-scroll-proportion="-14.038462">
@@ -595,9 +585,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/libs/three/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="25" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/experiment/1/stylesheets/screen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="35" selection-start="2750" selection-end="2750" vertical-scroll-proportion="-21.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/experiment/1/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="31" selection-start="3276" selection-end="3276" vertical-scroll-proportion="0.6225989">
+        <state line="145" column="47" selection-start="4614" selection-end="4614" vertical-scroll-proportion="0.45762712">
           <folding />
         </state>
       </provider>
