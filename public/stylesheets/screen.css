@@ -49,6 +49,11 @@ ul, li {
   padding: 0;
 }
 
+/* line 51, ../sass/base.scss */
+.experiment-wrap {
+  position: absolute;
+}
+
 /* line 4, ../sass/screen.scss */
 #interface-img {
   top: 5px;

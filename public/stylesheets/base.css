@@ -48,3 +48,8 @@ ul, li {
   margin: 0;
   padding: 0;
 }
+
+/* line 51, ../sass/base.scss */
+.experiment-wrap {
+  position: absolute;
+}
