@@ -197,7 +197,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
             }
 
             var curveGeometry = makeConnectionLineGeometry(p1, p2);
-            var material = new THREE.LineBasicMaterial({ color:0xaa0000, opacity:.5, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
+            var material = new THREE.LineBasicMaterial({ color:0xaa0000, opacity:.8, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
 
             var line = new THREE.Line(curveGeometry, material);
 
