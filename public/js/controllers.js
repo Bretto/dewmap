@@ -1,9 +1,10 @@
 'use strict';
 /* App Controllers */
 
+var controllers = angular.module('myApp.controllers', []);
 
 
-function AppCtrl($scope, $rootScope, $log, AppModel, $location, $routeParams, LAYOUT){
+controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, $location, $routeParams, LAYOUT){
 
 
 
@@ -35,10 +36,10 @@ function AppCtrl($scope, $rootScope, $log, AppModel, $location, $routeParams, LA
         //$location.path('nav');
     }
 
-}
+});
 
-// changes the url path and load the selected composition
-function CompCtrl($scope, $rootScope, $log, AppModel, $routeParams, $location, LAYOUT){
+// changes the url path and load the selected experiment
+controllers.controller('ExperimentCtrl', function($scope, $rootScope, $log, AppModel, $routeParams, $location, LAYOUT){
 
     if(getItemById($routeParams.idx)){
         $scope.appModel.currentItem = getItemById($routeParams.idx);
@@ -57,9 +58,9 @@ function CompCtrl($scope, $rootScope, $log, AppModel, $routeParams, $location, L
         return currentItem;
     }
 
-}
+});
 
-function NavCtrl($scope, $timeout, AppModel, LAYOUT, $location, $log){
+controllers.controller('NavCtrl', function($scope, $timeout, AppModel, LAYOUT, $location, $log){
 
     var objects = [];
     var targets = {};
@@ -80,8 +81,8 @@ function NavCtrl($scope, $timeout, AppModel, LAYOUT, $location, $log){
 
         for (var i = 0; i < objects.length; i++) {
             var object = objects[ i ];
-            var objectScope = $(object.element).scope();
-            if(objectScope.item['show'])
+//            var objectScope = $(object.element).scope();
+//            if(objectScope.item['show'])
                 showObjects.push(object);
         }
 
@@ -229,6 +230,7 @@ function NavCtrl($scope, $timeout, AppModel, LAYOUT, $location, $log){
             updateLayout();
         },true);
 
+        $log.info('animate INIT');
         $scope.animate();
     }
 
@@ -257,9 +259,10 @@ function NavCtrl($scope, $timeout, AppModel, LAYOUT, $location, $log){
 
     }
 
-    $scope.onCompClick = function(item){
+    $scope.onExperimentClick = function(item){
         $scope.appModel.currentItem = item;
-        $location.path('comp/'+item.idx);
+        $location.path('experiment/'+item.idx);
+        $scope.stopAnimate();
     }
 
 
@@ -285,16 +288,12 @@ function NavCtrl($scope, $timeout, AppModel, LAYOUT, $location, $log){
 
 
 
-}
+});
 
 
-
-
-
-
-
-
-
+controllers.controller('Experiment1Ctrl', function ($scope, $log){
+    $log.info('Experiment1Ctrl INIT WRONG');
+});
 
 
 

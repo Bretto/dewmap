@@ -1,0 +1,24 @@
+
+<div id="GeoConnections">
+
+    <link rel="stylesheet" href="/experiment/2/stylesheets/screen.css"/>
+
+    <div ng-controller="GeoConnectionsCtrl">
+
+        <div id="world" ng-controller="WorldCtrl">
+            <div id="canvas-wrap"></div>
+            <ul>
+                <li ng-repeat="geoPoint in geoConnectionsModel.geoPoints" class="geo-point">
+                    <geopoint-label></geopoint-label>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        angular.element(document).ready(function() {
+            angular.bootstrap('#GeoConnections', ['GeoConnections']);
+        });
+    </script>
+</div>

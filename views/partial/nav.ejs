@@ -1,0 +1,15 @@
+<div id="scene-wrap">
+    <div scene-3d width="960" height="700" fov="68" near="1" far="5000" z="650" id="scene-3d" ng-controller="NavCtrl">
+        <ul camera-3d id="camera-3d">
+            <div obj-3d id="item-wrap-3d">
+                <li ng-repeat="item in appModel.items | testFilter:searchText" class="item3d"
+                    ng-class="{hideAnim:!item.show}">
+                    <experiment-tile></experiment-tile>
+                </li>
+            </div>
+        </ul>
+        <!--<div class="h-line"></div>-->
+        <!--<div class="v-line"></div>-->
+    </div>
+</div>
+

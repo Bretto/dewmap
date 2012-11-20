@@ -1,0 +1,14 @@
+
+
+/* line 3, ../sass/screen.scss */
+#world {
+  position: absolute;
+}
+
+/* line 7, ../sass/screen.scss */
+.geo-point {
+  color: white;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}

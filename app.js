@@ -28,11 +28,9 @@ app.configure('development', function(){
 });
 
 
-
 app.get('/', routes.index);
-//app.get('/users', user.list);
-app.get('/partials/:name', routes.partials);
-app.get('/experiments/:id', routes.experiments);
+app.get('/partial/:name', routes.partial);
+app.get('/experiment/:id', routes.experiment);
 
 
 

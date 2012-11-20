@@ -11,6 +11,7 @@ directives.directive('scene3d', function ($log, $timeout) {
 
     var controls;
     var theta = 0;
+    var requestAnimationFrameId = null;
 
 
     function transform(targets, duration) {
@@ -35,22 +36,25 @@ directives.directive('scene3d', function ($log, $timeout) {
 
         }
 
-//        new TWEEN.Tween(this)
-//            .to({}, duration * 2)
-//            .onUpdate(render)
-//            .start();
+        new TWEEN.Tween(this)
+            .to({}, duration * 2)
+            .onUpdate(render)
+            .start();
 
 
     }
 
 
+
+
     function animate() {
 
-        requestAnimationFrame(animate);
+        $log.info('animate CSS 3');
+        requestAnimationFrameId = requestAnimationFrame(animate);
 
         TWEEN.update();
 
-        render();
+//        render();
 
         if (controls)
             controls.update();
@@ -58,30 +62,15 @@ directives.directive('scene3d', function ($log, $timeout) {
 
     }
 
+    function stopAnimate() {
+        window.cancelAnimationFrame(requestAnimationFrameId);
+    }
+
     function render() {
 
-
+        $log.info('render CSS 3');
         renderer.render(scene, camera);
 
-//        theta += .01;
-
-//        itemsObj3D.rotation.x = Math.PI/2;
-//        itemsObj3D.rotation.z = theta;
-//
-//        itemsEle.style.WebkitTransform = renderer.getObjectCSSMatrix( itemsObj3D.matrixWorld );
-
-//        itemsEle.style.WebkitTransform = "rotateZ("+ theta + "deg)";
-
-
-//        if(camera){
-//            theta += 1;
-//            camera.position.x = 500 * Math.sin( theta * Math.PI / 360 );
-//            camera.position.z = 500 * Math.cos( theta * Math.PI / 360 );
-//        }
-
-//        camera.lookAt(new THREE.Vector3());
-
-        //console.log(camera.x, camera.z);
     }
 
 
@@ -119,17 +108,17 @@ directives.directive('scene3d', function ($log, $timeout) {
 
             scope.transform = transform;
             scope.animate = animate;
-
+            scope.stopAnimate = stopAnimate;
         }
     }
 
 });
 
-directives.directive('comp', function ($log) {
+directives.directive('experimentTile', function ($log) {
     return {
         replace:true,
         restrict:'E',
-        templateUrl:'partials/comp',
+        templateUrl:'partial/experiment-tile',
         link:function (scope, elem, attr, ctrl) {
 
             scope.addItem(elem.parent()[0]);
@@ -141,3 +130,52 @@ directives.directive('comp', function ($log) {
     }
 });
 
+
+// based on the ngInclude, this directive includes the content but don' compile it
+// perfect for including ng-app in ng-app
+directives.directive('ngappInclude', function ($http, $templateCache, $compile) {
+    return {
+        restrict:'ECA',
+        terminal:true,
+        compile:function (element, attr) {
+            var srcExp = attr.ngappInclude || attr.src,
+                onloadExp = attr.onload || '',
+                autoScrollExp = attr.autoscroll;
+
+            return function (scope, element) {
+                var changeCounter = 0,
+                    childScope;
+
+                var clearContent = function () {
+                    if (childScope) {
+                        childScope.$destroy();
+                        childScope = null;
+                    }
+
+                    element.html('');
+                };
+
+                scope.$watch(srcExp, function ngIncludeWatchAction(src) {
+                    var thisChangeId = ++changeCounter;
+
+                    if (src) {
+                        $http.get(src, {cache:$templateCache}).success(function (response) {
+                            if (thisChangeId !== changeCounter) return;
+
+                            if (childScope) childScope.$destroy();
+                            childScope = scope.$new();
+
+                            element.html(response);
+//                            $compile(element.contents())(childScope);
+
+                            childScope.$emit('$includeContentLoaded');
+                            scope.$eval(onloadExp);
+                        }).error(function () {
+                                if (thisChangeId === changeCounter) clearContent();
+                            });
+                    } else clearContent();
+                });
+            };
+        }
+    };
+});
