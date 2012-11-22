@@ -6,9 +6,6 @@ var controllers = angular.module('myApp.controllers', []);
 
 controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, $location, $routeParams, LAYOUT){
 
-
-
-
     $scope.appModel = AppModel;
 
     $scope.onGrid = function(){
@@ -36,6 +33,10 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
         //$location.path('nav');
     }
 
+    $scope.destroy = function(){
+//        $rootScope.$broadcast(':destroy-nav');
+    }
+
 });
 
 // changes the url path and load the selected experiment
@@ -60,23 +61,9 @@ controllers.controller('ExperimentCtrl', function($scope, $rootScope, $log, AppM
 
 });
 
-controllers.controller('NavCtrl', function($scope, $timeout, AppModel, LAYOUT, $location, $log){
+controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppModel, LAYOUT, $location, $log){
 
-    var objects = [];
-    var targets = {};
-
-    function addObject3D(item){
-        var object = new THREE.Object3D();
-        object.element = item;
-        object.position.x = 0;
-        object.position.y = 0;
-        object.position.z = -5000;
-        $scope.scene.add(object);
-        objects.push(object);
-    }
-
-
-    function getShowObjects(){
+    function getShowObjects(objects){
         var showObjects = [];
 
         for (var i = 0; i < objects.length; i++) {
@@ -89,131 +76,14 @@ controllers.controller('NavCtrl', function($scope, $timeout, AppModel, LAYOUT, $
         return showObjects;
     }
 
-    function getGridLayout(showObjects){
-
-        var layout = [];
-        var col = 0, row = 0;
-
-        for (var i = 0; i < showObjects.length; i++) {
-
-
-            var object = showObjects[ i ];
-
-            var objId = 'comp'+i;
-            var obj = showObjects[i];
-            var objTarget = new THREE.Object3D();
-
-            objTarget.position.x = ( col * 220 ) - 330;
-            objTarget.position.y = -( row * 200 ) + 300;
-
-            row = col === 3 ? ++row : row;
-            col = col === 3 ? 0 : ++col;
-            //console.log(row);
-
-            layout[objId] = {obj:obj, objTarget:objTarget};
-
-        }
-
-        var itemsTarget = new THREE.Object3D();
-        layout['itemsObj3D'] = {obj:$scope.itemsObj3D, objTarget:itemsTarget};
-
-
-        var cameraTarget = new THREE.Object3D();
-        cameraTarget.position.z = 650;
-        cameraTarget.rotation.z = 0;
-
-        layout['camera'] = {obj:$scope.camera, objTarget:cameraTarget};
-
-        return layout;
-    }
-
-    function getSphereLayout(showObjects){
-
-        var layout = {};
-        var vector = new THREE.Vector3();
-
-        for (var i = 0, l = showObjects.length; i < l; i++) {
-
-            var object = showObjects[ i ];
-
-            var phi = Math.acos(-1 + ( 2 * i ) / l);
-            var theta = Math.sqrt(l * Math.PI) * phi;
-            var ray = 350;
-
-            var objId = 'comp'+i;
-            var obj = showObjects[i];
-            var objTarget = new THREE.Object3D();
-
-
-            objTarget.position.x = ray * Math.cos(theta) * Math.sin(phi);
-            objTarget.position.y = ray * Math.sin(theta) * Math.sin(phi);
-            objTarget.position.z = ray * Math.cos(phi);
-
-            vector.copy(objTarget.position).multiplyScalar(2);
-
-            objTarget.lookAt(vector);
-
-            layout[objId] = {obj:obj, objTarget:objTarget};
-
-        }
-
-        var itemsTarget = new THREE.Object3D();
-        itemsTarget.rotation.y = Math.PI;
-        layout['itemsObj3D'] = {obj:$scope.itemsObj3D, objTarget:itemsTarget};
-
-        var cameraTarget = new THREE.Object3D();
-        cameraTarget.position.z = 650;
-        cameraTarget.rotation.z = 0;
-        layout['camera'] = {obj:$scope.camera, objTarget:cameraTarget};
-
-        return layout;
-    }
-
-    function getDiskLayout(showObjects){
-
-        var layout = {};
-        var vector = new THREE.Vector3();
-        var angleIncrement = 360 / showObjects.length;
-        var circleRadius = 650;
-        for (var i = 0; i < showObjects.length; i++) {
-
-            var objId = 'comp'+i;
-            var obj = showObjects[i];
-            var objTarget = new THREE.Object3D();
-
-            objTarget.position.x = (circleRadius * Math.cos((angleIncrement * i) * (Math.PI / 180)));
-            objTarget.position.y = (circleRadius * Math.sin((angleIncrement * i) * (Math.PI / 180)));
-            objTarget.rotation.x = Math.PI/2;
-            objTarget.rotation.y = Math.atan2(objTarget.position.y, objTarget.position.x) + Math.PI/2;
-
-
-//            vector.copy(objTarget.position).multiplyScalar(2);
-//            objTarget.up = new THREE.Vector3(1,0,0);
-//            objTarget.lookAt(vector);
-
-
-            layout[objId] = {obj:obj, objTarget:objTarget};
-        }
-
-        var itemsTarget = new THREE.Object3D();
-        itemsTarget.rotation.x = Math.PI/2;
-        layout['itemsObj3D'] = {obj:$scope.itemsObj3D, objTarget:itemsTarget};
-
-
-        var cameraTarget = new THREE.Object3D();
-        cameraTarget.position.z = 1100;
-        cameraTarget.rotation.z = 0;
-        layout['camera'] = {obj:$scope.camera, objTarget:cameraTarget};
-
-        return layout;
-    }
 
 
     function init(){
 
-        if($scope.controls){
+        if($scope.getControls())
+        {
 
-            AppModel.controls = $scope.controls;
+            AppModel.controls = $scope.getControls();
             var constraintToAxis =      AppModel.layout === LAYOUT.GRID     ? 'none' :
                                         AppModel.layout === LAYOUT.SPHERE   ? 'XY' :
                                         AppModel.layout === LAYOUT.DISK     ? 'X' :
@@ -223,52 +93,59 @@ controllers.controller('NavCtrl', function($scope, $timeout, AppModel, LAYOUT, $
 
         }
 
-        onWindowResize();
         updateLayout();
 
         $scope.$watch(function() { return AppModel.layout }, function(newValue, oldValue){
             updateLayout();
         },true);
 
-        $log.info('animate INIT');
+//        $log.info('animate INIT');
         $scope.animate();
+
+
     }
 
 
+    function destroy(){
+
+    }
+
+    $rootScope.$on(':destroy-nav', function(){
+
+        destroy();
+
+    });
+
+
     function updateLayout(){
-        var showObjects = getShowObjects();
-        var layout =    AppModel.layout === LAYOUT.GRID     ? getGridLayout(showObjects) :
-                        AppModel.layout === LAYOUT.SPHERE   ? getSphereLayout(showObjects) :
-                        AppModel.layout === LAYOUT.DISK     ? getDiskLayout(showObjects) :
-                        getGridLayout(showObjects);
+        var showObjects     = getShowObjects($scope.getObjects3D());
+        var camera          = $scope.getCamera();
+        var objects3DWrap   = $scope.getObjects3DWrap();
+
+        var layout =    AppModel.layout === LAYOUT.GRID     ? AppModel.getGridLayout(showObjects, camera, objects3DWrap) :
+                        AppModel.layout === LAYOUT.SPHERE   ? AppModel.getSphereLayout(showObjects, camera, objects3DWrap) :
+                        AppModel.layout === LAYOUT.DISK     ? AppModel.getDiskLayout(showObjects, camera, objects3DWrap) :
+                        AppModel.getGridLayout(showObjects, camera, objects3DWrap);
 
         $scope.transform(layout, 500);
     }
 
-    window.addEventListener( 'resize', onWindowResize, false );
-    var interfaceImg = $('#interface-img');
 
 
-    function onWindowResize() {
 
-        $scope.camera.aspect = interfaceImg.width() / interfaceImg.height();
-        $scope.camera.updateProjectionMatrix();
 
-        $scope.renderer.setSize( interfaceImg.width(), interfaceImg.height() );
-        $scope.renderer.render($scope.scene,$scope.camera)
-
-    }
 
     $scope.onExperimentClick = function(item){
-        $scope.appModel.currentItem = item;
-        $location.path('experiment/'+item.idx);
-        $scope.stopAnimate();
+//        $scope.appModel.currentItem = item;
+//        $location.path('experiment/'+item.idx);
+//        $scope.stopAnimate();
+        $rootScope.$broadcast(':destroy-nav');
     }
 
 
-    $scope.addItem = function(item) {
-        addObject3D(item);
-    }
+//    $scope.addItem = function(item) {
+//        addObject3D(item);
+//    }
 
     $scope.renderComplete = function() {
 
@@ -291,9 +168,7 @@ controllers.controller('NavCtrl', function($scope, $timeout, AppModel, LAYOUT, $
 });
 
 
-controllers.controller('Experiment1Ctrl', function ($scope, $log){
-    $log.info('Experiment1Ctrl INIT WRONG');
-});
+
 
 
 

@@ -17,20 +17,18 @@ services.factory('GeoConnectionsModel', function ($http, $log, $rootScope, $rout
 });
 
 
-services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, $location, GeoConnectionsModel) {
+services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, $timeout, GeoConnectionsModel) {
 
     var camera, scene, controls, renderer;
+    var sphere, sphereMaterial, sphereGraphic, sphereGeometry;
+    var particleSystem, particlesGeometry, particleGraphic, particleMaterial;
+    var curves, curveGeometry, curveMaterial;
 
     var canvasWrap = $('#canvas-wrap')[0];
     var interfaceImg = $('#interface-img');
 
-
     var projector = new THREE.Projector();
 
-    var particleSystem;
-    var particleMaterial;
-    var particles = new THREE.Geometry();
-    var particleColors = [];
     var geoPointsElem = [];
 
     var theta = 45;
@@ -39,16 +37,25 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     function init(){
 
+        console.log('init WORLD');
+
         scene = new THREE.Scene();
         camera = makeCamera();
         renderer = makeRenderer();
         controls = makeControls();
 
-
         particleMaterial = makeParticleMaterial();
-        particles = makeParticles();
+        particlesGeometry = makeParticlesGeometry();
         particleSystem = makeParticleSystem();
-        makeLineConnections();
+
+        curves = [];
+        for (var i = 0; i < particleSystem.geometry.vertices.length; i++) {
+            var p1 = particleSystem.geometry.vertices[i];
+            var connections = findConnections(p1);
+            var curveObj = makeCurve(connections.p1, connections.p2);
+            curves.push(curveObj);
+            scene.add(curveObj.curve);
+        }
 
         particleSystem.update = function () {
 
@@ -75,9 +82,12 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
         scene.add(particleSystem);
 
+        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world.png");
+        sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xff0000, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
 
-        var sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world.png");
-        var sphere = new THREE.Mesh(new THREE.SphereGeometry(worldRay, 15, 15), new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xff0000, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending}));
+        sphereGeometry = new THREE.SphereGeometry(worldRay, 50, 50);
+        sphere = new THREE.Mesh(sphereGeometry, sphereMaterial );
+        sphere.name = 'world';
         scene.add(sphere);
 
 //        var planeX = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 2, 2), new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0x154492, opacity:1, depthTest: true, linewidth:1, transparent:false, wireframe:true, blending:THREE.NormalBlending}));
@@ -93,11 +103,130 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
 //        $log.info('animate')
         animate();
+
+//        setTimeout(doIt, 1000);
+
+        function doIt(){
+            console.log('doit')
+            controls.update();
+            particleSystem.update();
+            render();
+        }
+
         onWindowResize();
 
         window.addEventListener( 'resize', onWindowResize, false );
 
     }
+
+    function destroy(){
+        $log.info('destroy WORLD');
+
+
+        if(sphere)
+        {
+            scene.remove( sphere );
+            sphere.deallocate();
+            sphere.geometry.deallocate();
+            sphere.material.deallocate();
+            renderer.deallocateObject( sphere );
+            sphere = null;
+        }
+
+        if(sphereGraphic){
+            sphereGraphic.deallocate();
+            renderer.deallocateTexture(sphereGraphic);
+            sphereGraphic = null;
+        }
+
+        if(sphereMaterial){
+            sphereMaterial.deallocate();
+            renderer.deallocateMaterial(sphereMaterial);
+            sphereMaterial = null;
+        }
+
+        if(sphereGeometry){
+            sphereGeometry.deallocate();
+            renderer.deallocateObject(sphereGeometry);
+            sphereGeometry = null;
+        }
+
+        //---------------------
+
+        if(particleSystem)
+        {
+            scene.remove( particleSystem );
+            particleSystem.deallocate();
+            particleSystem.geometry.deallocate();
+            particleSystem.material.deallocate();
+            renderer.deallocateObject( particleSystem );
+            particleSystem = null;
+        }
+
+
+        if(particleMaterial){
+            particleMaterial.deallocate();
+            renderer.deallocateMaterial(particleMaterial);
+            particleMaterial = null;
+        }
+
+        if(particlesGeometry){
+            particlesGeometry.deallocate();
+            renderer.deallocateObject(particlesGeometry);
+            particlesGeometry = null;
+        }
+
+        if(particleGraphic){
+            particleGraphic.deallocate();
+            renderer.deallocateTexture(particleGraphic);
+            particleGraphic = null;
+        }
+
+        //---------------------
+
+        if(curves)
+        {
+            for (var i = 0; i < curves.length; i++) {
+                var curve = curves[i].curve;
+                scene.remove( curve );
+                curve.deallocate();
+                curve.geometry.deallocate();
+                curve.material.deallocate();
+                renderer.deallocateObject( curve );
+                curve = null;
+
+                var curveMaterial = curves[i].curveMaterial;
+                curveMaterial.deallocate();
+                renderer.deallocateObject(curveMaterial);
+                curveMaterial = null;
+
+                var curveGeometry = curves[i].curveGeometry;
+                curveGeometry.deallocate();
+                renderer.deallocateObject(curveGeometry);
+                curveGeometry = null;
+            }
+
+            curves = null;
+        }
+
+
+        $timeout(function() {
+            camera = null;
+            scene = null;
+            controls = null;
+            renderer = null;
+            projector = null;
+            geoPointsElem = null;
+        }, 0, false);
+
+    }
+
+
+    $rootScope.$on(':destroy-experiment', function(){
+
+       destroy();
+
+    });
 
 
     function onWindowResize() {
@@ -144,7 +273,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     function makeParticleSystem(){
         var pSystem = new THREE.ParticleSystem(
-            particles,
+            particlesGeometry,
             particleMaterial);
 
         return pSystem;
@@ -152,7 +281,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     function makeParticleMaterial(){
 
-        var particleGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/particleB.png");
+        particleGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/particleB.png");
         particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0xffffff, size: 100,
             blending: THREE.AdditiveBlending, transparent:true,
             depthWrite: true,
@@ -162,7 +291,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     }
 
 
-    function makeParticles(){
+    function makeParticlesGeometry(){
 
         var particles = new THREE.Geometry();
 
@@ -186,9 +315,9 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         return particles;
     }
 
-    function makeLineConnections(){
+    function findConnections(p1){
         for (var i = 0; i < particleSystem.geometry.vertices.length; i++) {
-            var p1 = particleSystem.geometry.vertices[i];
+//            var p1 = particleSystem.geometry.vertices[i];
             var p2 = undefined;
 
             while (p2 === p1 || p2 === undefined) {
@@ -196,28 +325,37 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
                 var p2 = particleSystem.geometry.vertices[index];
             }
 
-            var curveGeometry = makeConnectionLineGeometry(p1, p2);
-            var material = new THREE.LineBasicMaterial({ color:0xaa0000, opacity:.8, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
-
-            var line = new THREE.Line(curveGeometry, material);
-
-            scene.add(line);
+            return {p1:p1, p2:p2};
         }
+    }
+
+    function makeCurve(p1, p2){
+
+        curveGeometry = makeConnectionLineGeometry(p1, p2);
+        curveMaterial = new THREE.LineBasicMaterial({ color:0xaa0000, opacity:.8, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
+        var curve = new THREE.Line(curveGeometry, curveMaterial);
+        return { curve:curve, curveGeometry:curveGeometry, curveMaterial:curveMaterial };
     }
 
 
     function animate() {
 
         requestAnimationFrame(animate);
-        controls.update();
-        particleSystem.update();
+
+        if(controls)
+            controls.update();
+
+        if(particleSystem)
+            particleSystem.update();
+
         render();
     }
 
     function render() {
 
 //        $log.info('World Render', camera);
-        renderer.render(scene, camera);
+        if(renderer && scene && camera)
+            renderer.render(scene, camera);
     }
 
     function getObjectScreenPosition(object)
@@ -294,12 +432,12 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     }
 
 
-    init();
-
-
     var worldModel = {
-        setGeoPointsElem: setGeoPointsElem
+        setGeoPointsElem: setGeoPointsElem,
+        init: init,
+        destroy: destroy
     };
+
 
     return worldModel;
 });

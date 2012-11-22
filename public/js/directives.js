@@ -4,14 +4,25 @@
 var directives = angular.module('myApp.directives', []);
 
 
-directives.directive('scene3d', function ($log, $timeout) {
+directives.directive('scene3d', function ($log, $timeout, $rootScope) {
 
-    var camera, scene, renderer, itemsObj3D;
+    var camera, scene, renderer, objects3DWrap, controls, objects3D;
     var cameraEle, rendererEle, itemsEle;
 
-    var controls;
     var theta = 0;
     var requestAnimationFrameId = null;
+
+    var interfaceImg = $('#interface-img');
+    window.addEventListener( 'resize', onWindowResize, false );
+    function onWindowResize() {
+
+        camera.aspect = interfaceImg.width() / interfaceImg.height();
+        camera.updateProjectionMatrix();
+
+        renderer.setSize( interfaceImg.width(), interfaceImg.height() );
+        renderer.render(scene,camera)
+
+    }
 
 
     function transform(targets, duration) {
@@ -34,12 +45,15 @@ directives.directive('scene3d', function ($log, $timeout) {
                 .easing(TWEEN.Easing.Exponential.InOut)
                 .start();
 
+//            targets[obj].obj = null;
+//            targets[obj].objTarget = null;
+
         }
 
-        new TWEEN.Tween(this)
-            .to({}, duration * 2)
-            .onUpdate(render)
-            .start();
+//        new TWEEN.Tween(this)
+//            .to({}, duration * 2)
+//            .onUpdate(render)
+//            .start();
 
 
     }
@@ -49,12 +63,12 @@ directives.directive('scene3d', function ($log, $timeout) {
 
     function animate() {
 
-        $log.info('animate CSS 3');
+//        $log.info('animate CSS 3');
         requestAnimationFrameId = requestAnimationFrame(animate);
 
         TWEEN.update();
 
-//        render();
+        render();
 
         if (controls)
             controls.update();
@@ -68,8 +82,43 @@ directives.directive('scene3d', function ($log, $timeout) {
 
     function render() {
 
-        $log.info('render CSS 3');
-        renderer.render(scene, camera);
+//        $log.info('render CSS 3');
+        if(renderer && scene && camera)
+            renderer.render(scene, camera);
+
+    }
+
+
+    function makeCamera(attr){
+        var camera = new THREE.PerspectiveCamera(attr.fov, attr.width / attr.height, attr.near, attr.far);
+        camera.position.z = attr.z;
+
+        return camera;
+    }
+
+    function makeObjects3DWrap(itemsEle){
+        var objects3DWrap = new THREE.Object3D();
+        objects3DWrap.element = itemsEle;
+
+        return objects3DWrap;
+    }
+
+    function makeRenderer(rendererEle, cameraEle, attr)
+    {
+        var renderer = new THREE.CSS3DRenderer(rendererEle, cameraEle);
+        renderer.setSize(attr.width, attr.height);
+
+        return renderer;
+    }
+
+    function makeControls(camera, rendererElem)
+    {
+        var controls = new THREE.TrackballControls(camera, rendererElem);
+        controls.rotateSpeed = 0.5;
+        controls.noZoom = true;
+        controls.noPan = true;
+
+        return controls;
 
     }
 
@@ -80,35 +129,77 @@ directives.directive('scene3d', function ($log, $timeout) {
 
         link:function (scope, elem, attr, ctrl) {
 
-            scope.scene = scene = new THREE.Scene();
 
-            scope.camera = camera = new THREE.PerspectiveCamera(attr.fov, attr.width / attr.height, attr.near, attr.far);
-            camera.position.z = attr.z;
-//            camera.matrixAutoUpdate = false;
+            scene = new THREE.Scene();
+            camera = makeCamera(attr);
+            objects3D = [];
 
+            itemsEle = elem.find('#item-wrap-3d')[0];
+            objects3DWrap = makeObjects3DWrap(itemsEle);
+            scene.add(objects3DWrap);
 
             rendererEle = elem[0];
-            scope.cameraEle = cameraEle = elem.find('[camera-3d]')[0];
-            scope.itemsEle = itemsEle = elem.find('#item-wrap-3d')[0];
+            cameraEle = elem.find('[camera-3d]')[0];
+            renderer = makeRenderer(rendererEle, cameraEle, attr)
 
-            scope.itemsObj3D = itemsObj3D = new THREE.Object3D();
-            itemsObj3D.element = itemsEle;
-            scene.add(itemsObj3D);
-
-            scope.renderer = renderer = new THREE.CSS3DRenderer(rendererEle, cameraEle);
-            renderer.setSize(attr.width, attr.height);
-
-//            var holder = elem.find('#holder');
-
-            scope.controls = controls = new THREE.TrackballControls(scope.camera, renderer.domElement);
-            controls.rotateSpeed = 0.5;
-            controls.noZoom = true;
-            controls.noPan = true;
+            controls = makeControls(camera, renderer.domElement);
             controls.addEventListener('change', render);
 
+            //API
             scope.transform = transform;
             scope.animate = animate;
             scope.stopAnimate = stopAnimate;
+
+            scope.getObjects3D = function(){ return objects3D};
+            scope.getObjects3DWrap = function(){ return objects3DWrap};
+            scope.getControls = function(){ return controls};
+            scope.getCamera = function(){ return camera};
+
+            scope.addObj3D = function(elem){
+
+                var object = new THREE.Object3D();
+                object.element = elem;
+                object.position.x = 0;
+                object.position.y = 0;
+                object.position.z = -5000;
+                scene.add(object);
+                objects3D.push(object);
+            }
+
+
+
+            $rootScope.$on(':destroy-nav', function(){
+
+                destroy();
+
+            });
+
+
+            function destroy(){
+
+                for (var i = 0; i < objects3D.length; i++) {
+                    var obj = objects3D[i];
+                    if(obj)
+                    {
+                        scene.remove( obj );
+                        obj.deallocate();
+                        obj = null;
+                    }
+                }
+
+
+                $timeout(function() {
+                    console.log('directive destroy');
+                    scene = null;
+                    camera = null;
+                    objects3DWrap = null;
+                    renderer = null;
+                    controls = null;
+                }, 0, false);
+
+            }
+
+            onWindowResize();
         }
     }
 
@@ -121,7 +212,7 @@ directives.directive('experimentTile', function ($log) {
         templateUrl:'partial/experiment-tile',
         link:function (scope, elem, attr, ctrl) {
 
-            scope.addItem(elem.parent()[0]);
+            scope.addObj3D(elem.parent()[0]);
 
             if (scope.$last === true) {
                 scope.renderComplete();
