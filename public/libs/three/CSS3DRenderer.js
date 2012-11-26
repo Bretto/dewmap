@@ -5,13 +5,13 @@
 
 
 
-THREE.CSS3DRenderer = function (domElement, cameraElement) {
+THREE.CSS3DRenderer = function (domElement, cameraElement, projector) {
 
     console.log( 'THREE.CSS3DRenderer', THREE.REVISION );
 
     var _width, _height;
     var _widthHalf, _heightHalf;
-    var _projector = new THREE.Projector();
+    var _projector = projector;
 
     this.domElement = domElement;
 

@@ -4,9 +4,9 @@
 var directives = angular.module('myApp.directives', []);
 
 
-directives.directive('scene3d', function ($log, $timeout, $rootScope) {
+directives.directive('scene3d', function ($log, $timeout, $rootScope, AppModel) {
 
-    var camera, scene, renderer, objects3DWrap, controls, objects3D;
+    var camera, scene, renderer, objects3DWrap, controls, objects3D, projector;
     var cameraEle, rendererEle, itemsEle;
 
     var theta = 0;
@@ -16,11 +16,15 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
     window.addEventListener( 'resize', onWindowResize, false );
     function onWindowResize() {
 
-        camera.aspect = interfaceImg.width() / interfaceImg.height();
-        camera.updateProjectionMatrix();
+        if(camera){
+            camera.aspect = interfaceImg.width() / interfaceImg.height();
+            camera.updateProjectionMatrix();
+        }
 
-        renderer.setSize( interfaceImg.width(), interfaceImg.height() );
-        renderer.render(scene,camera)
+        if(renderer && scene && camera){
+            renderer.setSize( interfaceImg.width(), interfaceImg.height() );
+            renderer.render(scene,camera)
+        }
 
     }
 
@@ -82,9 +86,12 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
 
     function render() {
 
-//        $log.info('render CSS 3');
+
         if(renderer && scene && camera)
+        {
+//            $log.info('render CSS 3');
             renderer.render(scene, camera);
+        }
 
     }
 
@@ -103,10 +110,9 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
         return objects3DWrap;
     }
 
-    function makeRenderer(rendererEle, cameraEle, attr)
+    function makeRenderer(rendererEle, cameraEle, projector)
     {
-        var renderer = new THREE.CSS3DRenderer(rendererEle, cameraEle);
-        renderer.setSize(attr.width, attr.height);
+        var renderer = new THREE.CSS3DRenderer(rendererEle, cameraEle, projector);
 
         return renderer;
     }
@@ -130,6 +136,7 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
         link:function (scope, elem, attr, ctrl) {
 
 
+            console.log('directive link')
             scene = new THREE.Scene();
             camera = makeCamera(attr);
             objects3D = [];
@@ -138,12 +145,15 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
             objects3DWrap = makeObjects3DWrap(itemsEle);
             scene.add(objects3DWrap);
 
+
             rendererEle = elem[0];
             cameraEle = elem.find('[camera-3d]')[0];
-            renderer = makeRenderer(rendererEle, cameraEle, attr)
+            projector = new THREE.Projector();
+            renderer = makeRenderer(rendererEle, cameraEle, projector);
 
             controls = makeControls(camera, renderer.domElement);
             controls.addEventListener('change', render);
+
 
             //API
             scope.transform = transform;
@@ -167,8 +177,13 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
             }
 
 
-
             $rootScope.$on(':destroy-nav', function(){
+
+                destroy();
+
+            });
+
+            scope.$on('$destroy', function(){
 
                 destroy();
 
@@ -177,25 +192,82 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
 
             function destroy(){
 
-                for (var i = 0; i < objects3D.length; i++) {
-                    var obj = objects3D[i];
-                    if(obj)
-                    {
-                        scene.remove( obj );
-                        obj.deallocate();
-                        obj = null;
+                console.log('directive destroy');
+
+//                console.log('projector.projectScene( scene, camera, false ).objects.length', projector.projectScene( scene, camera, false ).objects.length);
+//                console.log('THREE.Object3DLibrary.length', THREE.Object3DLibrary.length);
+//                console.log('projector.projectScene( scene, camera, false ).objects.length', projector.projectScene( scene, camera, false ).objects.length);
+//                console.log('scene.children.length', scene.children.length);
+
+                // remove the obj added to the scene
+                if(projector && scene && camera){
+                    var renderables = projector.projectScene( scene, camera, false ).objects;
+
+                    for ( var i = 0, il = renderables.length; i < il; i ++ ) {
+                        var renderable = renderables[ i ];
+                        scene.remove( renderable.object );
+                        renderable.object.deallocate();
+                        renderable.object = null;
+                        renderable = null;
+                    }
+                }
+
+                // remove obj helpers
+                while(THREE.Object3DLibrary.length){
+
+                    var obj = THREE.Object3DLibrary[0];
+                    obj.deallocate();
+                    obj = null;
+                }
+
+
+//                console.log('scene.__objectsRemoved.length', scene.__objectsRemoved.length);
+                // clear threejs removed cache
+
+                if(scene){
+                    while ( scene.__objectsRemoved.length ) {
+                        scene.__objectsRemoved.splice( 0, 1 );
                     }
                 }
 
 
-                $timeout(function() {
-                    console.log('directive destroy');
-                    scene = null;
-                    camera = null;
-                    objects3DWrap = null;
-                    renderer = null;
-                    controls = null;
-                }, 0, false);
+                renderables = [];
+                objects3D = [];
+                projector = null;
+                scene = null;
+                camera = null;
+                objects3DWrap = null;
+                renderer = null;
+
+                if(controls)
+                    controls.destroy();
+                AppModel.controls = null;
+                controls = null;
+
+
+
+//                function hasObject3D(){
+//                    var hasObject3D = false;
+//                    for (var i = 0; i < THREE.Object3DLibrary.length; i++) {
+//                        var obj = THREE.Object3DLibrary[i];
+//                        //if(obj && ( !( obj instanceof THREE.Camera) && !( obj instanceof THREE.Scene) && !( obj instanceof THREE.PerspectiveCamera) ) )
+//                        //{
+//                            hasObject3D = true;
+//                        //}
+//                    }
+//                    return hasObject3D;
+//                }
+
+
+//                $timeout(function() {
+////                  console.log('directive des//oy');
+//                    projector = null;
+//                    scene = null;
+//                    camera = null;
+//                    objects3DWrap = null;
+//                    renderer = null;
+//                    controls = null;
+//                }, 0, false);
 
             }
 

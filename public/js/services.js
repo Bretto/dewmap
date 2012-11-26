@@ -15,6 +15,7 @@ services.constant('LAYOUT', {
 services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $location, LAYOUT) {
 
 
+
     function getGridLayout(showObjects, camera, objects3DWrap ){
 
         var layout = [];
@@ -140,7 +141,7 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
 
     var items = [];
 
-    for(var i=0; i<1; i++)
+    for(var i=0; i<16; i++)
     {
         var idx = (i+1);
         items.push({name:'Dynamic filter system Angularjs ' + idx, url:'comp'+ idx, idx:idx})

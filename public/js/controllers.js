@@ -33,9 +33,6 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
         //$location.path('nav');
     }
 
-    $scope.destroy = function(){
-//        $rootScope.$broadcast(':destroy-nav');
-    }
 
 });
 
@@ -106,16 +103,6 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
     }
 
 
-    function destroy(){
-
-    }
-
-    $rootScope.$on(':destroy-nav', function(){
-
-        destroy();
-
-    });
-
 
     function updateLayout(){
         var showObjects     = getShowObjects($scope.getObjects3D());
@@ -136,10 +123,9 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 
 
     $scope.onExperimentClick = function(item){
-//        $scope.appModel.currentItem = item;
-//        $location.path('experiment/'+item.idx);
-//        $scope.stopAnimate();
-        $rootScope.$broadcast(':destroy-nav');
+        $scope.appModel.currentItem = item;
+        $location.path('experiment/'+item.idx);
+        $scope.stopAnimate();
     }
 
 

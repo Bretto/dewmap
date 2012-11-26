@@ -467,6 +467,21 @@ THREE.TrackballControls = function ( object, domElement ) {
 
     }
 
+
+    this.destroy = function (){
+        this.domElement.removeEventListener( 'mousedown', mousedown);
+
+        this.domElement.removeEventListener( 'mousewheel', mousewheel);
+        this.domElement.removeEventListener( 'DOMMouseScroll', mousewheel); // firefox
+
+        this.domElement.removeEventListener( 'touchstart', touchstart);
+        this.domElement.removeEventListener( 'touchend', touchstart);
+        this.domElement.removeEventListener( 'touchmove', touchmove);
+
+        window.removeEventListener( 'keydown', keydown);
+        window.removeEventListener( 'keyup', keyup);
+    }
+
 //    this.domElement.addEventListener( 'contextmenu', function ( event ) { event.preventDefault(); }, false );
 
     this.domElement.addEventListener( 'mousedown', mousedown, false );
