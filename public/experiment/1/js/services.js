@@ -210,6 +210,11 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         }
 
 
+
+        $rootScope.$$childHead.$destroy();
+        $rootScope.$$childHead = null;
+
+
         $timeout(function() {
             camera = null;
             scene = null;
@@ -227,6 +232,8 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
        destroy();
 
     });
+
+
 
 
     function onWindowResize() {
