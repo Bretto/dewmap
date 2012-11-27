@@ -50,3 +50,27 @@ ul, li {
 .experiment-wrap {
   position: absolute;
 }
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* line 68, ../sass/base.scss */
+  #main-content {
+    margin: 0 auto;
+  }
+
+  /* line 72, ../sass/base.scss */
+  .logo-wrap {
+    display: none;
+  }
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* line 83, ../sass/base.scss */
+  #main-content {
+    margin: 150px auto;
+  }
+}

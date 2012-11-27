@@ -69,3 +69,19 @@ angular.module('myApp', ['myApp.controllers', 'myApp.filters', 'myApp.services',
     }
     )( jQuery );
 
+
+
+//$().isLandscape()
+
+(function($,W,D){
+    $.fn.extend({
+        isLandscape : function()
+        {
+            var w = D.width;
+            var h = D.height;
+
+            var orientation = (w >= h) ? "landscape" : "portrait";
+            return (orientation === "landscape") ? true : false;
+        }
+    })
+})(jQuery,window,document);

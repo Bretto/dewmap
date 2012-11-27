@@ -241,6 +241,9 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
             geoPointsElem = null;
         }, 0, false);
 
+
+        window.removeEventListener( 'resize', onWindowResize);
+
     }
 
 

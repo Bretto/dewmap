@@ -6,14 +6,16 @@ var directives = angular.module('myApp.directives', []);
 
 directives.directive('scene3d', function ($log, $timeout, $rootScope, AppModel) {
 
+    console.log('directive scene3d');
+
     var camera, scene, renderer, objects3DWrap, controls, objects3D, projector;
     var cameraEle, rendererEle, itemsEle;
 
     var theta = 0;
     var requestAnimationFrameId = null;
 
-    var interfaceImg = $('#interface-img');
-    window.addEventListener( 'resize', onWindowResize, false );
+    var interfaceImg;
+
     function onWindowResize() {
 
         if(camera){
@@ -141,6 +143,9 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope, AppModel) 
             camera = makeCamera(attr);
             objects3D = [];
 
+            interfaceImg = $('#interface-img');
+            window.addEventListener( 'resize', onWindowResize, false );
+
             itemsEle = elem.find('#item-wrap-3d')[0];
             objects3DWrap = makeObjects3DWrap(itemsEle);
             scene.add(objects3DWrap);
@@ -244,29 +249,7 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope, AppModel) 
                 controls = null;
 
 
-
-//                function hasObject3D(){
-//                    var hasObject3D = false;
-//                    for (var i = 0; i < THREE.Object3DLibrary.length; i++) {
-//                        var obj = THREE.Object3DLibrary[i];
-//                        //if(obj && ( !( obj instanceof THREE.Camera) && !( obj instanceof THREE.Scene) && !( obj instanceof THREE.PerspectiveCamera) ) )
-//                        //{
-//                            hasObject3D = true;
-//                        //}
-//                    }
-//                    return hasObject3D;
-//                }
-
-
-//                $timeout(function() {
-////                  console.log('directive des//oy');
-//                    projector = null;
-//                    scene = null;
-//                    camera = null;
-//                    objects3DWrap = null;
-//                    renderer = null;
-//                    controls = null;
-//                }, 0, false);
+                window.removeEventListener( 'resize', onWindowResize );
 
             }
 
