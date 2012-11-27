@@ -10,9 +10,6 @@
 body, html{
   background: #000;
   height: 100%;
-  background-image: url("../assets/img/bg.png");
-  background-repeat: no-repeat;
-  background-position:center;
   //background-size: 100%;
 }
 
@@ -26,12 +23,14 @@ a:hover{
   max-width: 960px;
   max-height: 700px;
   height: 100%;
+
 }
 
 #content-wrap{
   position: absolute;
   width: 100%;
   height: auto;
+
 }
 
 #scene-wrap{

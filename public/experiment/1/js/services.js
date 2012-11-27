@@ -82,13 +82,35 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
         scene.add(particleSystem);
 
-        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world.png");
-        sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xff0000, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
+        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world2.png");
+        sphereGraphic.offset.x = -.025;
+        sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xffffff, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
 
         sphereGeometry = new THREE.SphereGeometry(worldRay, 50, 50);
         sphere = new THREE.Mesh(sphereGeometry, sphereMaterial );
         sphere.name = 'world';
         scene.add(sphere);
+
+
+//        var geo = new THREE.SphereGeometry(5, 5, 5);
+//        var mat = new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0x00ff00, opacity:1, depthTest: true, wireframeLinewidth:1, transparent:false, wireframe:false, blending:THREE.NormalBlending});
+//        var me = new THREE.Mesh(geo, mat );
+//        me.name = 'me';
+//
+//        var lat = 48.85;
+//        var lon = 2.3;
+//
+//        var phi     = Math.PI / 2 - lat * Math.PI / 180;
+//        var theta   = 2 * Math.PI - lon * Math.PI / 180;
+//
+//
+//        me.position.x = Math.sin(phi) * Math.cos(theta) * 450;
+//        me.position.y = Math.cos(phi) * 450;
+//        me.position.z = Math.sin(phi) * Math.sin(theta) * 450;
+//
+//
+//        scene.add(me);
+
 
 //        var planeX = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 2, 2), new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0x154492, opacity:1, depthTest: true, linewidth:1, transparent:false, wireframe:true, blending:THREE.NormalBlending}));
 //        planeX.rotation.x = -Math.PI / 2;
@@ -104,14 +126,9 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 //        $log.info('animate')
         animate();
 
-//        setTimeout(doIt, 1000);
 
-        function doIt(){
-            console.log('doit')
-            controls.update();
-            particleSystem.update();
-            render();
-        }
+
+
 
         onWindowResize();
 
@@ -262,7 +279,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         });
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-        //renderer.autoClearColor = false;
+//        renderer.autoClearColor = false;
 
         return renderer;
     }

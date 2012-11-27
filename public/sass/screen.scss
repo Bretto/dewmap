@@ -8,6 +8,10 @@
   top: 5px;
   left: 5px;
   pointer-events:none;
+
+  background-image: url("../assets/img/bg.png");
+  background-repeat: no-repeat;
+  background-position:center;
 }
 
 
@@ -71,6 +75,7 @@
   cursor: default;
   //background-color: rgba(0,0,0,0.25);
   //background: rgba(255, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 
   //image{
   //  margin: 10px;

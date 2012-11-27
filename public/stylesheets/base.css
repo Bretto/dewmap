@@ -9,17 +9,14 @@
 body, html {
   background: #000;
   height: 100%;
-  background-image: url("../assets/img/bg.png");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
-/* line 19, ../sass/base.scss */
+/* line 16, ../sass/base.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 23, ../sass/base.scss */
+/* line 20, ../sass/base.scss */
 #main-content {
   margin: 20px auto 20px auto;
   width: auto !important;
@@ -28,28 +25,28 @@ a:hover {
   height: 100%;
 }
 
-/* line 31, ../sass/base.scss */
+/* line 29, ../sass/base.scss */
 #content-wrap {
   position: absolute;
   width: 100%;
   height: auto;
 }
 
-/* line 37, ../sass/base.scss */
+/* line 36, ../sass/base.scss */
 #scene-wrap {
   padding: 0;
   max-width: 960px;
   max-height: 700px;
 }
 
-/* line 45, ../sass/base.scss */
+/* line 44, ../sass/base.scss */
 ul, li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 51, ../sass/base.scss */
+/* line 50, ../sass/base.scss */
 .experiment-wrap {
   position: absolute;
 }

@@ -231,16 +231,15 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope, AppModel) 
                 }
 
 
-                renderables = [];
-                objects3D = [];
+                renderables.length = 0;
+                objects3D.length = 0;
                 projector = null;
                 scene = null;
                 camera = null;
                 objects3DWrap = null;
                 renderer = null;
 
-                if(controls)
-                    controls.destroy();
+                controls.destroy();
                 AppModel.controls = null;
                 controls = null;
 
