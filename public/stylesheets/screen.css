@@ -51,25 +51,42 @@ ul, li {
   position: absolute;
 }
 
+/* line 54, ../sass/base.scss */
+.h-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
+/* line 61, ../sass/base.scss */
+.v-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  height: 100%;
+  right: 50%;
+  top: 0;
+}
+
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   /* Styles */
 }
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* line 68, ../sass/base.scss */
+  /* line 83, ../sass/base.scss */
   #main-content {
     margin: 0 auto;
   }
 
-  /* line 72, ../sass/base.scss */
+  /* line 87, ../sass/base.scss */
   .logo-wrap {
     display: none;
   }
 }
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* line 83, ../sass/base.scss */
+  /* line 98, ../sass/base.scss */
   #main-content {
     margin: 150px auto;
   }
@@ -191,80 +208,50 @@ ul, li {
 /* line 159, ../sass/screen.scss */
 .controls-wrap {
   max-width: 960px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-top: 20px;
+  padding-left: 200px;
+  padding-right: 210px;
+}
+/* line 165, ../sass/screen.scss */
+.controls-wrap img {
+  opacity: .5;
+}
+/* line 168, ../sass/screen.scss */
+.controls-wrap img:hover {
+  opacity: 1;
 }
 
-/* line 166, ../sass/screen.scss */
-.arrow-center {
-  width: 6px;
+/* line 175, ../sass/screen.scss */
+.controls-center {
+  width: 30px;
   margin: auto;
 }
 
-/* line 171, ../sass/screen.scss */
-.right-arrow {
+/* line 180, ../sass/screen.scss */
+.controls-right {
   float: right;
 }
 
-/* line 176, ../sass/screen.scss */
-.left-arrow {
+/* line 185, ../sass/screen.scss */
+.controls-left {
   float: left;
 }
 
-/* line 181, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .comp-title {
   text-align: center;
   margin-bottom: 0;
   margin-top: 5px;
 }
 
-/* line 187, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 .logo-wrap {
   max-width: 960px;
 }
 
-/* line 191, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 .logo-center {
   width: 200px;
   margin: auto;
   margin-bottom: 10px;
-}
-
-/* line 198, ../sass/screen.scss */
-.layout-wrap {
-  max-width: 960px;
-  padding-top: 20px;
-  padding-left: 200px;
-  padding-right: 210px;
-}
-/* line 205, ../sass/screen.scss */
-.layout-wrap img {
-  opacity: .5;
-}
-/* line 208, ../sass/screen.scss */
-.layout-wrap img:hover {
-  opacity: 1;
-}
-
-/* line 215, ../sass/screen.scss */
-.sphere-btn {
-  width: 30px;
-  margin: auto;
-}
-
-/* line 222, ../sass/screen.scss */
-.h-line {
-  border: solid rgba(255, 0, 0, 0.5) 1px;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-}
-
-/* line 229, ../sass/screen.scss */
-.v-line {
-  border: solid rgba(255, 0, 0, 0.5) 1px;
-  position: absolute;
-  height: 100%;
-  right: 50%;
-  top: 0;
 }

@@ -158,22 +158,31 @@ $default-text-shadow-v-offset: 1px;
 
 .controls-wrap{
   max-width: 960px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-top: 20px;
+  padding-left: 200px;
+  padding-right: 210px;
+
+  img{
+    opacity: .5;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
 
 }
 
-.arrow-center{
-  width: 6px;
+.controls-center{
+  width: 30px;
   margin: auto;
 }
 
-.right-arrow{
+.controls-right{
   float: right;
 }
 
 
-.left-arrow{
+.controls-left{
   float: left;
 }
 
@@ -192,47 +201,10 @@ $default-text-shadow-v-offset: 1px;
   width: 200px;
   margin: auto;
   margin-bottom: 10px;
-  //opacity: .75;
-}
-
-.layout-wrap{
-
-  max-width: 960px;
-  padding-top: 20px;
-  padding-left: 200px;
-  padding-right: 210px;
-
-  img{
-    opacity: .5;
-
-    &:hover{
-      opacity: 1;
-    }
-  }
-
-}
-
-.sphere-btn{
-  width: 30px;
-  margin: auto;
-  
 }
 
 
-.h-line{
-  border: solid rgba(255, 0, 0, .5) 1px;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-}
 
-.v-line{
-  border: solid rgba(255, 0, 0, .5) 1px;
-  position: absolute;
-  height: 100%;
-  right: 50%;
-  top: 0;
-}
 
 
 

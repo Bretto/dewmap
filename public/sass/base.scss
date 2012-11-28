@@ -51,6 +51,21 @@ ul, li {
   position: absolute;
 }
 
+.h-line{
+  border: solid rgba(255, 0, 0, .5) 1px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
+.v-line{
+  border: solid rgba(255, 0, 0, .5) 1px;
+  position: absolute;
+  height: 100%;
+  right: 50%;
+  top: 0;
+}
+
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen
