@@ -173,6 +173,7 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope, AppModel) 
             scope.addObj3D = function(elem){
 
                 var object = new THREE.Object3D();
+                object.name = elem.name;
                 object.element = elem;
                 object.position.x = 0;
                 object.position.y = 0;
@@ -265,7 +266,7 @@ directives.directive('experimentTile', function ($log) {
         restrict:'E',
         templateUrl:'partial/experiment-tile',
         link:function (scope, elem, attr, ctrl) {
-
+            elem.parent()[0].name = scope.$index;
             scope.addObj3D(elem.parent()[0]);
 
             if (scope.$last === true) {
@@ -276,7 +277,7 @@ directives.directive('experimentTile', function ($log) {
 });
 
 
-// based on the ngInclude, this directive includes the content but don' compile it
+// based on the ngInclude, this directive includes the content but don't compile it
 // perfect for including ng-app in ng-app
 directives.directive('ngappInclude', function ($http, $templateCache, $compile) {
     return {

@@ -31,7 +31,7 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
             var objTarget = new THREE.Object3D();
 
             objTarget.position.x = ( col * 220 ) - 330;
-            objTarget.position.y = -( row * 200 ) + 300;
+            objTarget.position.y = ( row * 200 ) - 300;
 
             row = col === 3 ? ++row : row;
             col = col === 3 ? 0 : ++col;

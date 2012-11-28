@@ -105,7 +105,15 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 
 
     function updateLayout(){
+
+
+
         var showObjects     = getShowObjects($scope.getObjects3D());
+
+        // making sure that the tile are always in the same order
+        if(showObjects[0].element.name !== 0)showObjects.reverse();
+
+
         var camera          = $scope.getCamera();
         var objects3DWrap   = $scope.getObjects3DWrap();
 
