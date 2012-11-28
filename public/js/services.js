@@ -121,6 +121,7 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
 
         var itemsTarget = new THREE.Object3D();
         itemsTarget.rotation.x = Math.PI/2;
+        itemsTarget.rotation.z = Math.PI/2;
         layout['itemsObj3D'] = {obj:objects3DWrap, objTarget:itemsTarget};
 
 
@@ -150,12 +151,16 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
 
     var AppModel = {
         items : items,
-        layout: LAYOUT.GRID,
+        layout: LAYOUT.DISK,
+        isDiskLayout: true,
         currentItem: null,
         controls: null,
         getGridLayout:getGridLayout,
         getSphereLayout:getSphereLayout,
-        getDiskLayout:getDiskLayout
+        getDiskLayout:getDiskLayout,
+        isControlActive: function (value){
+            return (value === AppModel.layout)? true : false;
+        }
     };
 
 

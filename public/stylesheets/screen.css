@@ -270,19 +270,24 @@ ul, li {
   margin-top: 30px;
 }
 
-/* line 221, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
+.controlsactive {
+  opacity: 1 !important;
+}
+
+/* line 225, ../sass/screen.scss */
 .comp-title {
   text-align: center;
   margin-bottom: 0;
   margin-top: 5px;
 }
 
-/* line 227, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .logo-wrap {
   max-width: 960px;
 }
 
-/* line 231, ../sass/screen.scss */
+/* line 235, ../sass/screen.scss */
 .logo-center {
   width: 200px;
   margin: auto;

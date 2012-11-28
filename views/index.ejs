@@ -52,15 +52,19 @@
         </div>
 
         <div class="layout-controls-wrap" ng-show="!appModel.currentItem">
-            <a ng-click="onDisk()">
-                <img src="/assets/img/disk.png" class="controls-left"/>
+            <a ng-click="onSphere()">
+                <img src="/assets/img/sphere.png" class="controls-left"
+                     ng-class="{controlsactive: appModel.isControlActive('sphere')}"/>
             </a>
+
             <a ng-click="onGrid()">
-                <img src="/assets/img/grid.png" class="controls-right"/>
+                <img src="/assets/img/grid.png" class="controls-right"
+                     ng-class="{controlsactive: appModel.isControlActive('grid')}"/>
             </a>
             <div class="controls-center">
-                <a ng-click="onSphere()">
-                    <img src="/assets/img/sphere.png"/>
+                <a ng-click="onDisk()">
+                    <img src="/assets/img/disk.png"
+                         ng-class="{controlsactive: appModel.isControlActive('disk')}"/>
                 </a>
             </div>
         </div>
