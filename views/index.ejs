@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html id="myApp">
 <head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
     <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="/stylesheets/screen.css"/>
-    <title></title>
+    <title>Dewmap</title>
 </head>
 <body>
 <div ng-controller="AppCtrl" id="main-content">
@@ -12,8 +17,8 @@
             <img src="/assets/img/logo-100.png"/>
         </div>
     </div>
-    <div id="content-wrap">
-        <ng-view></ng-view>
+    <div id="content-wrap" ng-click="destroy()">
+        <ng-view class="experiment-wrap"></ng-view>
         <img src="/assets/img/interface.png" id="interface-img"/>
 
         <div class="controls-wrap" ng-show="appModel.currentItem">
@@ -59,6 +64,26 @@
 <script src="/js/controllers.js"></script>
 <script src="/js/filters.js"></script>
 <script src="/js/directives.js"></script>
+
+<!--Experiment 1-->
+<link rel="stylesheet" href="/experiment/1/stylesheets/screen.css"/>
+<script src="/experiment/1/js/app.js"></script>
+<script src="/experiment/1/js/services.js"></script>
+<script src="/experiment/1/js/controllers.js"></script>
+<script src="/experiment/1/js/filters.js"></script>
+<script src="/experiment/1/js/directives.js"></script>
+
+<script src="/js/shaders/ConvolutionShader.js"></script>
+<script src="/js/shaders/CopyShader.js"></script>
+<script src="/js/shaders/FXAAShader.js"></script>
+
+<script src="/js/postprocessing/EffectComposer.js"></script>
+<script src="/js/postprocessing/MaskPass.js"></script>
+<script src="/js/postprocessing/RenderPass.js"></script>
+<script src="/js/postprocessing/ShaderPass.js"></script>
+<script src="/js/postprocessing/BloomPass.js"></script>
+
+
 <script>
     angular.element(document).ready(function() {
         angular.bootstrap('#myApp', ['myApp']);
