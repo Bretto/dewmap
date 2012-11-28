@@ -28,10 +28,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="2458" selection-end="2458" vertical-scroll-proportion="0.7894737">
+            <state line="35" column="24" selection-start="1169" selection-end="1169" vertical-scroll-proportion="-6.25">
               <folding />
             </state>
           </provider>
@@ -79,7 +79,16 @@
       <file leaf-file-name="1.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/experiment/1.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="6" selection-start="466" selection-end="466" vertical-scroll-proportion="-10.0">
+            <state line="29" column="0" selection-start="881" selection-end="881" vertical-scroll-proportion="-18.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2.ejs" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/experiment/2.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="374" selection-end="374" vertical-scroll-proportion="0.5400697">
               <folding />
             </state>
           </provider>
@@ -128,7 +137,6 @@
         <option value="$PROJECT_DIR$/views/partial/include-experiment.ejs" />
         <option value="$PROJECT_DIR$/public/libs/three/three.js" />
         <option value="$PROJECT_DIR$/views/experiment/2.ejs.html" />
-        <option value="$PROJECT_DIR$/views/experiment/2.ejs" />
         <option value="$PROJECT_DIR$/public/experiment/1/stylesheets/screen.css" />
         <option value="$PROJECT_DIR$/public/experiment/1/js/services.js" />
         <option value="$PROJECT_DIR$/views/partials/nav.ejs" />
@@ -141,6 +149,7 @@
         <option value="$PROJECT_DIR$/public/js/services.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
+        <option value="$PROJECT_DIR$/views/experiment/2.ejs" />
       </list>
     </option>
   </component>
@@ -293,6 +302,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -373,12 +426,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1681" y="0" width="1679" height="1046" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6605405" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6605405" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33945945" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -462,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/experiment/2.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/libs/three/three.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="111" column="25" selection-start="2778" selection-end="2778" vertical-scroll-proportion="0.0">
@@ -497,13 +543,6 @@
             <marker date="1354071111000" expanded="true" signature="20:581" placeholder="..." />
             <marker date="1354071111000" expanded="true" signature="139:574" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/experiment/1.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="466" selection-end="466" vertical-scroll-proportion="-10.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -558,7 +597,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2458" selection-end="2458" vertical-scroll-proportion="0.7894737">
+        <state line="35" column="24" selection-start="1169" selection-end="1169" vertical-scroll-proportion="-6.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/experiment/1.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="881" selection-end="881" vertical-scroll-proportion="-18.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/experiment/2.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="374" selection-end="374" vertical-scroll-proportion="0.5400697">
           <folding />
         </state>
       </provider>
