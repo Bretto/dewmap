@@ -21,8 +21,22 @@
         <ng-view class="experiment-wrap"></ng-view>
         <img src="/assets/img/interface.png" id="interface-img"/>
 
+
+
+
+
+
         <div class="controls-wrap" ng-show="appModel.currentItem">
             <!--<p class="comp-title">{{appModel.currentItem.name}}</p>-->
+
+            <div class="info-wrap">
+                <div class="controls-info">
+                    <a ng-click="onInfo()">
+                        <img src="/assets/img/info.png"/>
+                    </a>
+                </div>
+            </div>
+
 
             <a ng-click="onPrevious()">
                 <img src="/assets/img/left-arrow.png" class="controls-left"/>
@@ -37,7 +51,7 @@
             </div>
         </div>
 
-        <div class="controls-wrap" ng-show="!appModel.currentItem">
+        <div class="layout-controls-wrap" ng-show="!appModel.currentItem">
             <a ng-click="onDisk()">
                 <img src="/assets/img/disk.png" class="controls-left"/>
             </a>

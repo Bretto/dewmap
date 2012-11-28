@@ -208,7 +208,7 @@ ul, li {
 /* line 159, ../sass/screen.scss */
 .controls-wrap {
   max-width: 960px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 200px;
   padding-right: 210px;
 }
@@ -222,34 +222,67 @@ ul, li {
 }
 
 /* line 175, ../sass/screen.scss */
+.layout-controls-wrap {
+  max-width: 960px;
+  padding-top: 10px;
+  padding-left: 200px;
+  padding-right: 210px;
+  margin-top: -30px;
+}
+/* line 182, ../sass/screen.scss */
+.layout-controls-wrap img {
+  opacity: .5;
+}
+/* line 185, ../sass/screen.scss */
+.layout-controls-wrap img:hover {
+  opacity: 1;
+}
+
+/* line 192, ../sass/screen.scss */
+.info-wrap {
+  margin-top: -60px;
+  position: relative;
+}
+
+/* line 197, ../sass/screen.scss */
+.controls-info {
+  width: 30px;
+  margin: auto;
+  display: block;
+}
+
+/* line 203, ../sass/screen.scss */
 .controls-center {
   width: 30px;
   margin: auto;
+  margin-top: 30px;
 }
 
-/* line 180, ../sass/screen.scss */
+/* line 209, ../sass/screen.scss */
 .controls-right {
   float: right;
+  margin-top: 30px;
 }
 
-/* line 185, ../sass/screen.scss */
+/* line 215, ../sass/screen.scss */
 .controls-left {
   float: left;
+  margin-top: 30px;
 }
 
-/* line 190, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 .comp-title {
   text-align: center;
   margin-bottom: 0;
   margin-top: 5px;
 }
 
-/* line 196, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 .logo-wrap {
   max-width: 960px;
 }
 
-/* line 200, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .logo-center {
   width: 200px;
   margin: auto;

@@ -158,7 +158,7 @@ $default-text-shadow-v-offset: 1px;
 
 .controls-wrap{
   max-width: 960px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 200px;
   padding-right: 210px;
 
@@ -172,18 +172,49 @@ $default-text-shadow-v-offset: 1px;
 
 }
 
+.layout-controls-wrap{
+  max-width: 960px;
+  padding-top: 10px;
+  padding-left: 200px;
+  padding-right: 210px;
+  margin-top: -30px;
+
+  img{
+    opacity: .5;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+
+
+.info-wrap{
+  margin-top: -60px;
+  position: relative;
+}
+
+.controls-info{
+  width: 30px;
+  margin: auto;
+  display: block;
+}
+
 .controls-center{
   width: 30px;
   margin: auto;
+  margin-top: 30px;
 }
 
 .controls-right{
   float: right;
+  margin-top: 30px;
 }
 
 
 .controls-left{
   float: left;
+  margin-top: 30px;
 }
 
 
