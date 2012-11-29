@@ -1,0 +1,26 @@
+
+
+
+#box2dWorld{
+    position: absolute;
+    top: 80px;
+    left: 200px;
+
+    width: 500px;
+    height: 500px;
+    border: solid red 1px;
+}
+
+.box2d-obj{
+    position: absolute;
+    top:0;
+    left:0;
+    background: #ffffff; /* Old browsers */
+
+
+}
+
+.box2d-obj p{
+    text-align: center;
+    padding-top: 15px;
+}

@@ -145,7 +145,7 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
     for(var i=0; i<16; i++)
     {
         var idx = (i+1);
-        items.push({name:'Dynamic filter system Angularjs ' + idx, url:'comp'+ idx, idx:idx})
+        items.push({name:'One Dynamic filter system Angularjs ' + idx, url:'comp'+ idx, idx:idx})
     }
 
 

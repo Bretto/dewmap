@@ -43,7 +43,7 @@ function newpos(x, y, z) {
 }
 
 
-function createPlane(url, w, h, pos) {
+function createPlane(url, w, h, pos, blend) {
 
 
     var geometry = new THREE.PlaneGeometry(w, h);
@@ -52,7 +52,9 @@ function createPlane(url, w, h, pos) {
     map.minFilter = map.magFilter = THREE.LinearFilter;
     map.anisotropy = 4;
 
-    this.plane = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({opacity:1, depthTest: true, map: map, transparent: true}));
+
+
+    this.plane = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({opacity:1, depthTest: true, map: map, transparent: true, blending: (blend)? THREE.AdditiveBlending : THREE.NormalBlending}));
 
     this.plane.position.x = pos.x;
     this.plane.position.y = pos.y;
@@ -79,19 +81,23 @@ function init() {
     scene = new THREE.Scene();
 
 
-    createPlane('3d2.png', 508, 359, {x:0,y:-100,z:0} );
+    createPlane('3d2.png', 508, 359, {x:0,y:-100,z:100} );
 
-    createPlane('red2.png', 642, 434, {x:0,y:50,z:50} );
+    createPlane('red2.png', 642, 434, {x:0,y:50,z:-50} );
 
-    createPlane('red1.png', 471, 252, {x:-100,y:0,z:100} );
+    createPlane('red1.png', 471, 252, {x:-100,y:0,z:0} );
 
-    createPlane('screen2.png', 383, 206, {x:0,y:0,z:150} );
+    createPlane('screen2.png', 383, 206, {x:0,y:0,z:50} );
 
-    createPlane('3d1.png', 351, 122, {x:-100,y:0,z:200} );
+    createPlane('3d1.png', 351, 122, {x:-100,y:0,z:250} );
 
-    createPlane('screen1.png', 486, 311, {x:-100,y:50,z:250} );
+    createPlane('screen1.png', 486, 311, {x:-100,y:50,z:350} );
 
+    createPlane('white1.png', 859, 595, {x:-50,y:50,z:25},'add' );
 
+    createPlane('red_spectre1.png', 859, 595, {x:-150,y:100,z:300},'add' );
+
+    createPlane('red_spectre2.png', 859, 595, {x:150,y:-100,z:200},'add' );
 
 
 

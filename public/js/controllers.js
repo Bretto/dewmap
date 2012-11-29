@@ -131,6 +131,7 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 
 
     $scope.onExperimentClick = function(item){
+//        $('body').css('backgroundColor', '#ff0000');
         $scope.appModel.currentItem = item;
         $location.path('experiment/'+item.idx);
         $scope.stopAnimate();
