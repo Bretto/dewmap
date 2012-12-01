@@ -1,0 +1,31 @@
+<div id="PieMenu">
+
+    <link rel="stylesheet" href="/experiment/3/stylesheets/screen.css"/>
+
+    <div ng-controller="PieMenuCtrl">
+
+        <div id="pieMenuWorld" ng-click="onMouseClick($event)">
+
+            <!--<pie-menu id="svgPie1" width="300" height="300" radius="50" data="pieMenuModel.data1"></pie-menu>-->
+
+            <!--<pie-menu id="svgPie1" width="300" height="300" radius="60" data="pieMenuModel.data2"></pie-menu>-->
+
+            <!--<pie-menu id="svgPie1" width="300" height="300" radius="120" data="pieMenuModel.data3"></pie-menu>-->
+
+        </div>
+
+
+        <!--<script src="/libs/Box2dWeb-2.1.a.3.js"></script>-->
+        <!--<script src="/experiment/3/js/app.js"></script>-->
+        <!--<script src="/experiment/3/js/services.js"></script>-->
+        <!--<script src="/experiment/3/js/controllers.js"></script>-->
+        <!--<script src="/experiment/3/js/filters.js"></script>-->
+        <!--<script src="/experiment/3/js/directives.js"></script>-->
+        <script>
+            angular.element(document).ready(function () {
+                angular.bootstrap('#PieMenu', ['PieMenu']);
+            });
+        </script>
+    </div>
+
+</div>

@@ -134,12 +134,6 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
     }
 
 
-
-
-
-
-
-
     var items = [];
 
     for(var i=0; i<16; i++)

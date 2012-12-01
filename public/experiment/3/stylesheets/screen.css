@@ -15,9 +15,8 @@
     position: absolute;
     top:0;
     left:0;
-    background: #ffffff; /* Old browsers */
-
-
+    background: #ffffff;
+    /*opacity: .2;*/
 }
 
 .box2d-obj p{

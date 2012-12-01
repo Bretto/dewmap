@@ -23,7 +23,7 @@ controllers.controller('Box2dDomCtrl', function ($scope, $rootScope, $location, 
     var w = 500;
     var h = 500;
 
-    var fps = 30;
+    var fps = 60;
 
 // Multiply to convert degrees to radians.
     var D2R = Math.PI / 180;
@@ -58,14 +58,25 @@ controllers.controller('Box2dDomCtrl', function ($scope, $rootScope, $location, 
 
 
 
-
-
-
-
     world = new b2World(
         new b2Vec2(0, 10) //gravity
         , true //allow sleep
     );
+
+
+    //setup debug draw
+    var debugDraw = new b2DebugDraw();
+    canvas = $("#canvas");
+    debugDraw.SetSprite(canvas[0].getContext("2d"));
+    debugDraw.SetDrawScale(SCALE);
+    debugDraw.SetFillAlpha(0.3);
+    debugDraw.SetLineThickness(1.0);
+    debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
+    world.SetDebugDraw(debugDraw);
+
+
+    resizeHandler();
+    $(window).bind('resize', resizeHandler);
 
 
     $scope.box2dDomModel = Box2dDomModel;
@@ -83,37 +94,13 @@ controllers.controller('Box2dDomCtrl', function ($scope, $rootScope, $location, 
 
 
 
-
-
-
-
-//    init();
-
-
-
-
     function init(){
-        //Create the Box2D World with horisontal and vertical gravity (10 is close enough to 9.8)
-
-
-        //Create DOB OBjects
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-//        createDOMObjects(Math.random()* (w-size),Math.random()* (h-size),size, Math.random() > .5);
-
 
         //bounding box
         createBox(0, 0 , w, 5, true);
         createBox(0, h , w, 5, true);
         createBox(0,0,5,h, true);
         createBox(w,0,5,h, true);
-
 
         animate();
     }
@@ -142,7 +129,7 @@ controllers.controller('Box2dDomCtrl', function ($scope, $rootScope, $location, 
         var fixDef = new b2FixtureDef;
         fixDef.density = 1.5;
         fixDef.friction = 0.01;
-        fixDef.restitution = 1;
+        fixDef.restitution = .8;
 
         if (circle) {
             var circleShape = new b2CircleShape;
@@ -211,25 +198,124 @@ controllers.controller('Box2dDomCtrl', function ($scope, $rootScope, $location, 
         for (var i = 0; i < data.length; i ++) {
             var css = data[i];
             var div = divs[i];
-
-//            if (!div) {
-//                $('#box2dWorld').append('<div id="id' + i + '"></div>')
-//                div = divs[i] = $('#id' + i);
-//            }
-
             div.css(css);
         }
+
+        if (debug) {
+            world.DrawDebugData();
+        }
+
+
+        updateMouseDrag();
 
 
         world.Step(
             1 / fps //frame-rate
-            , 10 //velocity iterations
-            , 10 //position iterations
+            ,10 //velocity iterations
+            ,10 //position iterations
         );
 
         world.ClearForces();
     }
 
+    //Keep the canvas size correct for debug drawing
+    function resizeHandler() {
+        canvas.attr('width', 500);
+        canvas.attr('height', 500);
+    }
+
+
+    //----------------------------------------------------
+
+    var mouseX, mouseY, mousePVec, isMouseDown, selectedBody, mouseJoint;
+    var canvasPosition = getElementPosition(document.getElementById("canvas"));
+
+    var mouse = MouseAndTouch(document, downHandler, upHandler, moveHandler);
+
+    function downHandler(x,y) {
+        isMouseDown = true;
+        moveHandler(x,y);
+    }
+
+    function upHandler(x,y) {
+        isMouseDown = false;
+        mouseX = undefined;
+        mouseY = undefined;
+    }
+
+    function moveHandler(x,y) {
+        mouseX = (x - canvasPosition.x) / 30;
+        mouseY = (y - canvasPosition.y) / 30;
+    }
+
+    function getBodyAtMouse() {
+        mousePVec = new b2Vec2(mouseX, mouseY);
+        var aabb = new b2AABB();
+        aabb.lowerBound.Set(mouseX - 0.001, mouseY - 0.001);
+        aabb.upperBound.Set(mouseX + 0.001, mouseY + 0.001);
+
+        // Query the world for overlapping shapes.
+
+        selectedBody = null;
+        world.QueryAABB(getBodyCB, aabb);
+        return selectedBody;
+    }
+
+    function getBodyCB(fixture) {
+        if(fixture.GetBody().GetType() != b2Body.b2_staticBody) {
+            if(fixture.GetShape().TestPoint(fixture.GetBody().GetTransform(), mousePVec)) {
+                selectedBody = fixture.GetBody();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getElementPosition(element) {
+        var elem=element, tagname="", x=0, y=0;
+
+        while((typeof(elem) == "object") && (typeof(elem.tagName) != "undefined")) {
+            y += elem.offsetTop;
+            x += elem.offsetLeft;
+            tagname = elem.tagName.toUpperCase();
+
+            if(tagname == "BODY")
+                elem=0;
+
+            if(typeof(elem) == "object") {
+                if(typeof(elem.offsetParent) == "object")
+                    elem = elem.offsetParent;
+            }
+        }
+
+        return {x: x, y: y};
+    }
+
+
+    function updateMouseDrag() {
+        if(isMouseDown && (!mouseJoint)) {
+            var body = getBodyAtMouse();
+            if(body) {
+                var md = new b2MouseJointDef();
+                md.bodyA = world.GetGroundBody();
+                md.bodyB = body;
+                md.target.Set(mouseX, mouseY);
+                md.collideConnected = true;
+                md.maxForce = 300.0 * body.GetMass();
+                mouseJoint = world.CreateJoint(md);
+                body.SetAwake(true);
+            }
+        }
+
+        if(mouseJoint) {
+            if(isMouseDown) {
+                mouseJoint.SetTarget(new b2Vec2(mouseX, mouseY));
+            } else {
+                world.DestroyJoint(mouseJoint);
+                mouseJoint = null;
+            }
+        }
+    }
 
 
 });

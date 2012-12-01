@@ -1,0 +1,25 @@
+#pieMenuWorld{
+    width: 900px;
+    height: 600px;
+}
+
+
+.svgPie{
+    position: absolute;
+}
+
+g text{
+    fill: white;
+    pointer-events:none;
+}
+
+path{
+    cursor: pointer;
+    fill: rgba(256, 0, 0, 0.2);
+    stroke: rgba(256, 0, 0, 0.2);
+}
+
+g:hover path{
+    fill: rgba(256, 0, 0, 0.5);
+}
+
