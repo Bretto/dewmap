@@ -18,12 +18,8 @@
         </div>
     </div>
     <div id="content-wrap" ng-click="destroy()">
-        <ng-view class="experiment-wrap"></ng-view>
+        <ng-view id="view-loader"></ng-view>
         <img src="/assets/img/interface.png" id="interface-img"/>
-
-
-
-
 
 
         <div class="controls-wrap" ng-show="appModel.currentItem">
@@ -38,31 +34,31 @@
             </div>
 
 
-            <a ng-click="onPrevious()">
+            <a ng-click="onPrevious()" hm-tap="onPrevious()">
                 <img src="/assets/img/left-arrow.png" class="controls-left"/>
             </a>
-            <a ng-click="onNext()">
+            <a ng-click="onNext()" hm-tap="onNext()">
                 <img src="/assets/img/right-arrow.png" class="controls-right"/>
             </a>
             <div class="controls-center">
-                <a ng-click="onBack()">
+                <a ng-click="onBack()" hm-tap="onBack()">
                     <img src="/assets/img/down-arrow.png"/>
                 </a>
             </div>
         </div>
 
         <div class="layout-controls-wrap" ng-show="!appModel.currentItem">
-            <a ng-click="onSphere()">
+            <a ng-click="onSphere()" hm-tap="onSphere()">
                 <img src="/assets/img/sphere.png" class="controls-left"
                      ng-class="{controlsactive: appModel.isControlActive('sphere')}"/>
             </a>
 
-            <a ng-click="onGrid()">
+            <a ng-click="onGrid()" hm-tap="onGrid()">
                 <img src="/assets/img/grid.png" class="controls-right"
                      ng-class="{controlsactive: appModel.isControlActive('grid')}"/>
             </a>
             <div class="controls-center">
-                <a ng-click="onDisk()">
+                <a ng-click="onDisk()" hm-tap="onDisk()">
                     <img src="/assets/img/disk.png"
                          ng-class="{controlsactive: appModel.isControlActive('disk')}"/>
                 </a>
@@ -78,8 +74,10 @@
 <script src="/libs/three/tween.js"></script>
 <script src="/libs/three/TrackballControls.js"></script>
 <script src="/libs/three/CSS3DRenderer.js"></script>
+<script src="/libs/hammer/hammer.js"></script>
 <script src="/libs/bootstrap/js/bootstrap.js"></script>
 <script src="/libs/angular-1.0.2/angular.js"></script>
+<script src="/js/Detector.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/services.js"></script>
 <script src="/js/controllers.js"></script>
@@ -95,7 +93,7 @@
 <!--<script src="/experiment/1/js/directives.js"></script>-->
 
 <!--Experiment 3-->
-<link rel="stylesheet" href="/experiment/3/stylesheets/screen.css"/>
+<!--<link rel="stylesheet" href="/experiment/3/stylesheets/screen.css"/> there is an issue preventing this exp to work if the css is loaded at the exp level-->
 <!--<script src="/libs/Box2dWeb-2.1.a.3.js"></script>-->
 <!--<script src="/experiment/3/js/MouseAndTouch.js"></script>-->
 <!--<script src="/experiment/3/js/app.js"></script>-->
@@ -105,13 +103,13 @@
 <!--<script src="/experiment/3/js/directives.js"></script>-->
 
 <!--Experiment 4-->
-<!--<link rel="stylesheet" href="/experiment/4/stylesheets/screen.css"/>-->
-<!--<script src="/libs/d3.v2.js"></script>-->
-<!--<script src="/experiment/4/js/app.js"></script>-->
-<!--<script src="/experiment/4/js/services.js"></script>-->
-<!--<script src="/experiment/4/js/controllers.js"></script>-->
-<!--<script src="/experiment/4/js/filters.js"></script>-->
-<!--<script src="/experiment/4/js/directives.js"></script>-->
+<link rel="stylesheet" href="/experiment/4/stylesheets/screen.css"/>
+<script src="/libs/d3.v2.js"></script>
+<script src="/experiment/4/js/app.js"></script>
+<script src="/experiment/4/js/services.js"></script>
+<script src="/experiment/4/js/controllers.js"></script>
+<script src="/experiment/4/js/filters.js"></script>
+<script src="/experiment/4/js/directives.js"></script>
 
 
 <script>

@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.controllers', 'myApp.filters', 'myApp.services', 'myApp.directives']).
+angular.module('myApp', ['myApp.controllers', 'myApp.filters', 'myApp.services', 'myApp.directives', 'hmTouchevents']).
     config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/nav', {templateUrl:'partial/nav'}).
@@ -68,5 +68,30 @@ angular.module('myApp', ['myApp.controllers', 'myApp.filters', 'myApp.services',
         setInterval( fnCheckLocation, intIntervalTime );
     }
     )( jQuery );
+
+
+
+// https://github.com/randallb/angular-hammer
+var hmTouchevents = angular.module('hmTouchevents', []);
+
+angular.forEach('hmTap:tap hmDoubletap:doubletap hmHold:hold hmTransformstart:transformstart hmTransform:transform hmTransforend:transformend hmDragstart:dragstart hmDrag:drag hmDragend:dragend hmSwipe:swipe hmRelease:release'.split(' '), function(name) {
+    var directive = name.split(':');
+    var directiveName = directive[0];
+    var eventName = directive[1];
+    hmTouchevents.directive(directiveName,
+        ['$parse', function($parse) {
+            return function(scope, element, attr) {
+                var fn = $parse(attr[directiveName]);
+                var opts = $parse(attr[directiveName + 'Opts'])(scope, {});
+                var hammerized = new Hammer(element[0]);
+                var onEventName = "on" + eventName;
+                hammerized[onEventName] = function(event) {
+                    scope.$apply(function() {
+                        fn(scope, {$event: event});
+                    });
+                };
+            };
+        }]);
+});
 
 

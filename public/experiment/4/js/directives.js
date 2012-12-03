@@ -19,7 +19,6 @@ directives.directive('pieD3', function ($log) {
 directives.directive('pieMenu', function ($log) {
 
 
-
     function linkr(scope, elem, attr, ctrl) {
 
         var vis, paths, arc, arcs, pie, texts;
@@ -36,6 +35,7 @@ directives.directive('pieMenu', function ($log) {
 
 
         scope.renderComplete = function () {
+
 
             vis = d3.select(elem[0])
                 .data([scope.data])
@@ -56,8 +56,6 @@ directives.directive('pieMenu', function ($log) {
             paths = vis.selectAll("path.path")
                 .data(pie)
                 .attr("d", arc);
-
-
 
 
             texts = vis.selectAll("text.text")
@@ -113,7 +111,7 @@ directives.directive('pieMenu', function ($log) {
             paths.transition()
                 .ease("exp-out")
                 .duration(600)
-                .each("end", close)
+                .each("end", destroy)
                 .attrTween("d", tweenPie);
 
             function tweenPie(b) {
@@ -124,11 +122,15 @@ directives.directive('pieMenu', function ($log) {
                 };
             }
 
-            function close(){
-                paths.transition()
-                    .ease("exp-out")
-                    .duration(200)
-                    .style("opacity", 0);
+            function destroy(d, i){
+
+                if(i === 0){
+                    scope.data = [];
+                    scope.$destroy();
+                    vis.remove();
+                    $log.info('destroy',scope.$id);
+                }
+
             }
 
 

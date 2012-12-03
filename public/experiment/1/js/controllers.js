@@ -6,6 +6,8 @@ var controllers = angular.module('GeoConnections.controllers', []);
 
 controllers.controller('GeoConnectionsCtrl', function ($scope, $rootScope, $location, $browser, $log, GeoConnectionsModel){
 
+    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
     $scope.geoConnectionsModel = GeoConnectionsModel;
 
 });

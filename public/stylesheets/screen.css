@@ -40,18 +40,32 @@ a:hover {
 }
 
 /* line 44, ../sass/base.scss */
+#oldie {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-left: -25% !important;
+}
+
+/* line 51, ../sass/base.scss */
 ul, li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 50, ../sass/base.scss */
-.experiment-wrap {
+/* line 57, ../sass/base.scss */
+#view-loader {
   position: absolute;
 }
 
-/* line 54, ../sass/base.scss */
+/* line 61, ../sass/base.scss */
+#experiment-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 66, ../sass/base.scss */
 .h-line {
   border: solid rgba(255, 0, 0, 0.5) 1px;
   position: absolute;
@@ -59,7 +73,7 @@ ul, li {
   top: 50%;
 }
 
-/* line 61, ../sass/base.scss */
+/* line 73, ../sass/base.scss */
 .v-line {
   border: solid rgba(255, 0, 0, 0.5) 1px;
   position: absolute;
@@ -74,19 +88,19 @@ ul, li {
 }
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* line 83, ../sass/base.scss */
+  /* line 95, ../sass/base.scss */
   #main-content {
     margin: 0 auto;
   }
 
-  /* line 87, ../sass/base.scss */
+  /* line 99, ../sass/base.scss */
   .logo-wrap {
     display: none;
   }
 }
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* line 98, ../sass/base.scss */
+  /* line 110, ../sass/base.scss */
   #main-content {
     margin: 150px auto;
   }
@@ -101,26 +115,26 @@ ul, li {
   background-position: center;
 }
 
-/* line 18, ../sass/screen.scss */
+/* line 16, ../sass/screen.scss */
 #scene-3d {
   position: absolute;
   overflow: hidden;
 }
 
-/* line 23, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 #camera-3d {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
 }
 
-/* line 29, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 #item-wrap-3d {
   position: absolute;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
 }
 
-/* line 36, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 .item3d {
   position: absolute;
   width: 160px;
@@ -128,12 +142,12 @@ ul, li {
   -webkit-transition: opacity .3s ease-in-out .3s;
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 49, ../sass/screen.scss */
 .hideAnim {
   opacity: 0;
 }
 
-/* line 59, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 .element {
   -webkit-transform: scale3d(1, -1, 1);
   -moz-transform: scale3d(1, -1, 1);
@@ -143,48 +157,48 @@ ul, li {
   cursor: default;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 85, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 .element .cross-tl {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 91, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 .element .cross-tr {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 96, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 .element .cross-bl {
   position: absolute;
   bottom: 45px;
   left: 0;
 }
-/* line 101, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 .element .cross-br {
   position: absolute;
   bottom: 45px;
   right: 0;
 }
 
-/* line 118, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .element:hover .cross-tl {
   color: red;
 }
-/* line 122, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 .element:hover .cross-tr {
   color: red;
 }
-/* line 125, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 .element:hover .cross-bl {
   color: red;
 }
-/* line 128, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 .element:hover .cross-br {
   color: red;
 }
-/* line 138, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 .element:hover .details {
   color: white;
   text-shadow: 0px 1px 0px black;
@@ -196,7 +210,7 @@ ul, li {
   background-color: rgba(255, 0, 0, 0.2);
 }
 
-/* line 146, ../sass/screen.scss */
+/* line 144, ../sass/screen.scss */
 .element .details {
   margin-top: 10px;
   padding: 4px;
@@ -205,23 +219,23 @@ ul, li {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* line 159, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
 .controls-wrap {
   max-width: 960px;
   padding-top: 10px;
   padding-left: 200px;
   padding-right: 210px;
 }
-/* line 165, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 .controls-wrap img {
   opacity: .5;
 }
-/* line 168, ../sass/screen.scss */
+/* line 166, ../sass/screen.scss */
 .controls-wrap img:hover {
   opacity: 1;
 }
 
-/* line 175, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .layout-controls-wrap {
   max-width: 960px;
   padding-top: 10px;
@@ -229,65 +243,65 @@ ul, li {
   padding-right: 210px;
   margin-top: -30px;
 }
-/* line 182, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 .layout-controls-wrap img {
   opacity: .5;
 }
-/* line 185, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 .layout-controls-wrap img:hover {
   opacity: 1;
 }
 
-/* line 192, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .info-wrap {
   margin-top: -60px;
   position: relative;
 }
 
-/* line 197, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 .controls-info {
   width: 30px;
   margin: auto;
   display: block;
 }
 
-/* line 203, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 .controls-center {
   width: 30px;
   margin: auto;
   margin-top: 30px;
 }
 
-/* line 209, ../sass/screen.scss */
+/* line 207, ../sass/screen.scss */
 .controls-right {
   float: right;
   margin-top: 30px;
 }
 
-/* line 215, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
 .controls-left {
   float: left;
   margin-top: 30px;
 }
 
-/* line 220, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 .controlsactive {
   opacity: 1 !important;
 }
 
-/* line 225, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 .comp-title {
   text-align: center;
   margin-bottom: 0;
   margin-top: 5px;
 }
 
-/* line 231, ../sass/screen.scss */
+/* line 229, ../sass/screen.scss */
 .logo-wrap {
   max-width: 960px;
 }
 
-/* line 235, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 .logo-center {
   width: 200px;
   margin: auto;

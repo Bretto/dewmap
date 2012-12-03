@@ -33,6 +33,19 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
         //$location.path('nav');
     }
 
+    var interfaceImg = $('#interface-img');
+    var viewLoader = $('#view-loader');
+    window.addEventListener( 'resize', onWindowResize, false );
+
+
+    function onWindowResize() {
+
+        viewLoader.width(interfaceImg.width());
+        viewLoader.height(interfaceImg.height());
+
+    }
+
+    onWindowResize();
 
 });
 
@@ -126,10 +139,6 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
     }
 
 
-
-
-
-
     $scope.onExperimentClick = function(item){
 //        $('body').css('backgroundColor', '#ff0000');
         $scope.appModel.currentItem = item;
@@ -158,7 +167,8 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 //        $scope.myFilter();
 //    },true);
 
-
+// removes the Detector.webgl dialog box
+    $('#oldie').remove();
 
 });
 

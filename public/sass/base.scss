@@ -41,14 +41,26 @@ a:hover{
   //clear: both;
 }
 
+#oldie{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-left: -25% !important;
+}
+
 ul, li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.experiment-wrap{
+#view-loader{
   position: absolute;
+}
+
+#experiment-wrap{
+  width: 100%;
+  height: 100%;
 }
 
 .h-line{

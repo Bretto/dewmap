@@ -71,6 +71,8 @@ function createPlane(url, w, h, pos, blend) {
 
 function init() {
 
+    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
 
     mainView = $('.main-view');
     interfaceImg = $('#interface-img');

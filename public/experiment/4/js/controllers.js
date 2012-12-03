@@ -23,9 +23,9 @@ controllers.controller('PieMenuCtrl', function ($scope, $rootScope, $timeout, $c
 
         var elem = $compile(str)($scope);
 
-        $('#pieMenuWorld').append(elem);
+        $('#experiment-content').append(elem);
 
-        // before $timeout elem is still pie-menu, then svg
+        // before $timeout elem is still pie-menu, then it become the svg tag
         $timeout(function() {
             $(elem).offset({ top: e.clientY - 60, left: e.clientX - 60 })
         }, 0, false);
