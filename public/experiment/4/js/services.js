@@ -9,25 +9,17 @@ services.factory('PieMenuModel', function ($http, $log, $rootScope, $routeParams
 
     var PieMenuModel = {
 
-        data1 :[{"label":"1", "value":1},
-            {"label":"2", "value":1},
-            {"label":"3", "value":1},
-            {"label":"4", "value":1},
-            {"label":"5", "value":1}
-
+        data1 :[{"label":"Root Scope", "value":1},
+            {"label":"Parent Scope", "value":1},
+            {"label":"Child Scope", "value":1}
         ],
 
-        data2 :[{"label":"1", "value":1},
-            {"label":"2", "value":1},
-            {"label":"3", "value":1}
-        ],
-
-        data3 :[{"label":"1", "value":1},
-            {"label":"2", "value":1},
-            {"label":"3", "value":1},
-            {"label":"4", "value":1},
-            {"label":"5", "value":1},
-            {"label":"6", "value":1}
+        data2 :[{"label":"Root Scope", "value":1},
+            {"label":"Parent Scope", "value":1},
+            {"label":"Child Scope", "value":1},
+            {"label":"Child Scope 1", "value":1},
+            {"label":"Child Scope 2", "value":1},
+            {"label":"Child Scope 3", "value":1}
         ]
 
     };

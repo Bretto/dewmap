@@ -16,12 +16,20 @@ directives.directive('pieD3', function ($log) {
     }
 });
 
-directives.directive('pieMenu', function ($log) {
+directives.directive('pieMenu', function ($log, $parse) {
 
 
     function linkr(scope, elem, attr, ctrl) {
 
         var vis, paths, arc, arcs, pie, texts;
+
+        scope.$watch(function(){return scope.$parent.showMenu}, function(newValue){
+           if(newValue)
+                openMenu();
+           else
+                closeMenu();
+        });
+
 
         elem.attr('width',(attr.radius * 2).toString());
         elem.attr('height',(attr.radius * 2).toString());
@@ -41,8 +49,8 @@ directives.directive('pieMenu', function ($log) {
                 .data([scope.data])
 
             arc = d3.svg.arc()
-                .innerRadius(innerRadius)
-                .outerRadius(r);
+                //.innerRadius(innerRadius)
+                //.outerRadius(r);
 
             pie = d3.layout.pie()
                 .value(function (d) {
@@ -54,9 +62,7 @@ directives.directive('pieMenu', function ($log) {
                 .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
 
             paths = vis.selectAll("path.path")
-                .data(pie)
-                .attr("d", arc);
-
+                .data(pie);
 
             texts = vis.selectAll("text.text")
                 .data(pie)
@@ -73,20 +79,25 @@ directives.directive('pieMenu', function ($log) {
                     return d.data.label;
                 });
 
-            openMenu();
+            //openMenu();
 
         }
 
         function openMenu(){
+
+            elem.css('display','block');
+
             paths.transition()
                 .ease("exp-out")
                 .duration(500)
+                .attr("d", arc)
                 .each("end", open)
                 .attrTween("d", tweenPie);
 
             function tweenPie(b) {
-                b.innerRadius = 0;
-                var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
+                b.outerRadius = r;
+                b.innerRadius = innerRadius;
+                var i = d3.interpolate({startAngle: 0, endAngle: 0, outerRadius: 0, innerRadius: 0}, b);
                 return function(t) {
                     return arc(i(t));
                 };
@@ -102,33 +113,39 @@ directives.directive('pieMenu', function ($log) {
 
         function closeMenu(){
 
+
             texts.transition()
                 .ease("exp-out")
                 .duration(200)
                 .style("opacity", 0);
 
-
             paths.transition()
-                .ease("exp-out")
-                .duration(600)
+                .ease("exp-in")
+                .duration(500)
                 .each("end", destroy)
                 .attrTween("d", tweenPie);
 
             function tweenPie(b) {
-                b.innerRadius = 0;
-                var i = d3.interpolate(b, {startAngle: 0, endAngle: 0});
+
+                b.outerRadius = r;
+                b.innerRadius = innerRadius;
+
+                var i = d3.interpolate(b, {startAngle: 0, endAngle: 0, outerRadius: 0, innerRadius: 0});
                 return function(t) {
                     return arc(i(t));
                 };
             }
 
+
+
             function destroy(d, i){
 
                 if(i === 0){
-                    scope.data = [];
-                    scope.$destroy();
-                    vis.remove();
-                    $log.info('destroy',scope.$id);
+                    elem.css('display','none');
+//                    scope.data = [];
+//                    scope.$destroy();
+//                    vis.remove();
+//                    $log.info('destroy',scope.$id);
                 }
 
             }
@@ -151,10 +168,25 @@ directives.directive('pieMenu', function ($log) {
         replace:true,
         restrict:'E',
         scope:{
-            data:'='
+            data:'=',
+            showMenu:'@'
         },
         templateUrl:'/experiment/4/partial/pie-menu.html',
         link:linkr
+    }
+});
+
+directives.directive('contextualPieMenu', function ($log) {
+    return {
+        replace: true,
+        restrict:'E',
+        templateUrl: '/experiment/4/partial/contextual-pie-menu.html',
+        scope:{
+            data:'='
+        },
+        link:function (scope, elem, attr, ctrl) {
+            //scope.showMenu = true;
+        }
     }
 });
 

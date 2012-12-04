@@ -33,19 +33,7 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
         //$location.path('nav');
     }
 
-    var interfaceImg = $('#interface-img');
-    var viewLoader = $('#view-loader');
-    window.addEventListener( 'resize', onWindowResize, false );
 
-
-    function onWindowResize() {
-
-        viewLoader.width(interfaceImg.width());
-        viewLoader.height(interfaceImg.height());
-
-    }
-
-    onWindowResize();
 
 });
 
@@ -68,6 +56,21 @@ controllers.controller('ExperimentCtrl', function($scope, $rootScope, $log, AppM
 
         return currentItem;
     }
+
+
+    var interfaceImg = $('#interface-img');
+    var viewLoader = $('#view-loader');
+    window.addEventListener( 'resize', onWindowResize, false );
+
+
+    function onWindowResize() {
+
+        viewLoader.width(interfaceImg.width());
+        viewLoader.height(interfaceImg.height());
+
+    }
+
+    onWindowResize();
 
 });
 

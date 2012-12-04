@@ -17,9 +17,15 @@ controllers.controller('PieMenuCtrl', function ($scope, $rootScope, $timeout, $c
 
 
     $scope.onMouseClick = function(e){
+
+
+    }
+
+    $scope.onSelect = function(data, e){
+
         $log.info('test', e.clientX, e.clientY );
 
-        var str = '<pie-menu class="svgPie" radius="60" data="pieMenuModel.data3"></pie-menu>';
+        var str = '<pie-menu class="svgPie" radius="60" data="data"></pie-menu>';
 
         var elem = $compile(str)($scope);
 

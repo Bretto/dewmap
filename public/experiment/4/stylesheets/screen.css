@@ -18,6 +18,7 @@
 g text{
     fill: white;
     pointer-events:none;
+    text-shadow: 1px 1px #000;
 }
 
 path{
@@ -27,7 +28,7 @@ path{
 }
 
 g:hover path{
-    fill: rgba(256, 0, 0, 0.5);
+    fill: rgba(256, 0, 0, 0.6);
 }
 
 /*http://thecodeplayer.com/walkthrough/css3-family-tree*/
@@ -62,12 +63,12 @@ g:hover path{
 .tree li::before, .tree li::after{
     content: '';
     position: absolute; top: 0; right: 50%;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #999;
     width: 50%; height: 20px;
 }
 .tree li::after{
     right: auto; left: 50%;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #999;
 }
 
 /*We need to remove left-right connectors from elements without
@@ -86,7 +87,7 @@ right connector from last child*/
 }
 /*Adding back the vertical connector to the last nodes*/
 .tree li:last-child::before{
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #999;
     border-radius: 0 5px 0 0;
     -webkit-border-radius: 0 5px 0 0;
     -moz-border-radius: 0 5px 0 0;
@@ -101,12 +102,14 @@ right connector from last child*/
 .tree ul ul::before{
     content: '';
     position: absolute; top: 0; left: 50%;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #999;
     width: 0; height: 20px;
 }
 
-.tree li a{
-    border: 1px solid rgba(104, 71, 71, 0.65);
+.tree li span{
+    margin: 0 30px;
+    cursor: pointer;
+    border: 1px solid #999;
     padding: 5px 10px;
     text-decoration: none;
     color: #ffffff;
@@ -123,11 +126,13 @@ right connector from last child*/
 
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
-.tree li a:hover, .tree li a:hover+ul li a {
+.tree li span:hover, .tree li span:hover+ul li span {
     background: #ffffff; color: #000; border: 1px solid #ffffff;
 }
 /*Connector styles on hover*/
-.tree li a:hover+ul li::after,
-.tree li a:hover+ul li::before,
-.tree li a:hover+ul::before,
-.tree li a:hove
+.tree li span:hover+ul li::after,
+.tree li span:hover+ul li::before,
+.tree li span:hover+ul::before,
+.tree li span:hover
+
+

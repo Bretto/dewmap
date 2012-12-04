@@ -138,7 +138,6 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope, AppModel) 
         link:function (scope, elem, attr, ctrl) {
 
 
-            console.log('directive link')
             scene = new THREE.Scene();
             camera = makeCamera(attr);
             objects3D = [];
