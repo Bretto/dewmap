@@ -31,16 +31,25 @@
       <file leaf-file-name="4.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/experiment/4.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="16" selection-start="537" selection-end="537" vertical-scroll-proportion="-7.5">
+            <state line="51" column="29" selection-start="2724" selection-end="2724" vertical-scroll-proportion="-26.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/experiment/4/js/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="861" selection-end="861" vertical-scroll-proportion="0.47945204">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/experiment/4/stylesheets/screen.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="33" selection-start="345" selection-end="345" vertical-scroll-proportion="0.44520548">
+            <state line="26" column="33" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,14 +96,14 @@
         <option value="$PROJECT_DIR$/views/partial/include-experiment.ejs" />
         <option value="$PROJECT_DIR$/public/sass/base.scss" />
         <option value="$PROJECT_DIR$/public/js/controllers.js" />
-        <option value="$PROJECT_DIR$/public/experiment/4/js/services.js" />
         <option value="$PROJECT_DIR$/public/experiment/4/js/controllers.js" />
         <option value="$PROJECT_DIR$/public/js/directives.js" />
         <option value="$PROJECT_DIR$/public/experiment/4/partial/pie-menu.html" />
         <option value="$PROJECT_DIR$/public/experiment/4/js/directives.js" />
-        <option value="$PROJECT_DIR$/views/experiment/4.ejs" />
         <option value="$PROJECT_DIR$/public/experiment/4/partial/contextual-pie-menu.html" />
         <option value="$PROJECT_DIR$/public/experiment/4/stylesheets/screen.css" />
+        <option value="$PROJECT_DIR$/views/experiment/4.ejs" />
+        <option value="$PROJECT_DIR$/public/experiment/4/js/services.js" />
       </list>
     </option>
   </component>
@@ -547,13 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/4/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="92" selection-end="104" vertical-scroll-proportion="0.11986301">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partial/include-experiment.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="28" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0">
@@ -589,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/experiment/4.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="16" selection-start="537" selection-end="537" vertical-scroll-proportion="-7.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/experiment/4/partial/contextual-pie-menu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="7" selection-start="256" selection-end="256" vertical-scroll-proportion="-1.875">
@@ -607,7 +602,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/experiment/4/stylesheets/screen.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="33" selection-start="345" selection-end="345" vertical-scroll-proportion="0.44520548">
+        <state line="26" column="33" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/experiment/4.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="29" selection-start="2724" selection-end="2724" vertical-scroll-proportion="-26.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/experiment/4/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="861" selection-end="861" vertical-scroll-proportion="0.47945204">
           <folding />
         </state>
       </provider>
