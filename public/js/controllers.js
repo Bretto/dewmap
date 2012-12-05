@@ -162,6 +162,14 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 
     }
 
+    $scope.isExpEnabled = function(item){
+        return (item.name === '') ? 'tileDisabled' : 'titleEnable';
+    }
+
+    $scope.getTileImgSrc = function(item){
+        return (item.name === '') ? '/assets/img/exp-tile-empty.png' : '/assets/img/exp-tile.png' ;
+    }
+
 //    $scope.myFilter = function(){
 //        updateLayout();
 //    }

@@ -137,7 +137,7 @@ $default-text-shadow-v-offset: 1px;
     color: rgba(255, 255, 255, 1);
     @include single-text-shadow;
     @include border-radius(5px);
-    background-color: rgba(255, 0, 0, .2);
+    background-color: rgba(255, 0, 0, .5);
   }
 }
 
@@ -149,7 +149,7 @@ $default-text-shadow-v-offset: 1px;
   padding: 4px;
   font-size: 18px;
   text-align: center;
-  color: rgba(255, 255, 255, .75);
+  color: rgba(255, 255, 255, 1);
 }
 
 

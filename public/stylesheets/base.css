@@ -66,6 +66,18 @@ ul, li {
 }
 
 /* line 66, ../sass/base.scss */
+.tileDisabled {
+  pointer-events: none;
+  opacity: .5;
+}
+
+/* line 71, ../sass/base.scss */
+.tileEnabled {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* line 76, ../sass/base.scss */
 .h-line {
   border: solid rgba(255, 0, 0, 0.5) 1px;
   position: absolute;
@@ -73,7 +85,7 @@ ul, li {
   top: 50%;
 }
 
-/* line 73, ../sass/base.scss */
+/* line 83, ../sass/base.scss */
 .v-line {
   border: solid rgba(255, 0, 0, 0.5) 1px;
   position: absolute;
@@ -88,19 +100,19 @@ ul, li {
 }
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* line 95, ../sass/base.scss */
+  /* line 105, ../sass/base.scss */
   #main-content {
     margin: 0 auto;
   }
 
-  /* line 99, ../sass/base.scss */
+  /* line 109, ../sass/base.scss */
   .logo-wrap {
     display: none;
   }
 }
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* line 110, ../sass/base.scss */
+  /* line 120, ../sass/base.scss */
   #main-content {
     margin: 150px auto;
   }

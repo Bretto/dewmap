@@ -134,13 +134,32 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
     }
 
 
-    var items = [];
+    var items = [
+        {name:'World Connections', idx:1},
+        {name:'Abstract Tech', idx:2},
+        {name:'Dom + Physics', idx:3},
+        {name:'Contextual Menu', idx:4},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5},
+        {name:'', idx:5}
+    ];
 
-    for(var i=0; i<16; i++)
-    {
-        var idx = (i+1);
-        items.push({name:'One Dynamic filter system Angularjs ' + idx, url:'comp'+ idx, idx:idx})
-    }
+
+
+//    for(var i=0; i<16; i++)
+//    {
+//        var idx = (i+1);
+//        items.push({name:'One Dynamic filter system Angularjs ' + idx, idx:idx})
+//    }
 
 
     var AppModel = {

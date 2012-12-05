@@ -63,6 +63,16 @@ ul, li {
   height: 100%;
 }
 
+.tileDisabled{
+  pointer-events:none;
+  opacity: .5;
+}
+
+.tileEnabled{
+  pointer-events:auto;
+  opacity: 1;
+}
+
 .h-line{
   border: solid rgba(255, 0, 0, .5) 1px;
   position: absolute;
