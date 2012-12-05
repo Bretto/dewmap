@@ -319,3 +319,15 @@ ul, li {
   margin: auto;
   margin-bottom: 10px;
 }
+
+/* line 243, ../sass/screen.scss */
+.hasNonePrevious {
+  opacity: .1 !important;
+  pointer-events: none;
+}
+
+/* line 252, ../sass/screen.scss */
+.hasNoneNext {
+  opacity: .1 !important;
+  pointer-events: none;
+}

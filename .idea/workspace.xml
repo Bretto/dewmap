@@ -64,10 +64,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="0" selection-start="4546" selection-end="4546" vertical-scroll-proportion="0.44406393">
+            <state line="37" column="39" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="5" selection-start="2374" selection-end="2374" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="20" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.58215964">
               <folding />
             </state>
           </provider>
@@ -76,7 +94,7 @@
       <file leaf-file-name="base.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/sass/base.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0">
+            <state line="66" column="22" selection-start="838" selection-end="858" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,7 +103,7 @@
       <file leaf-file-name="screen.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="16" selection-start="2082" selection-end="2082" vertical-scroll-proportion="0.0">
+            <state line="247" column="9" selection-start="3751" selection-end="3751" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -96,17 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="26" column="33" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contextual-pie-menu.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/experiment/4/partial/contextual-pie-menu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="7" selection-start="256" selection-end="256" vertical-scroll-proportion="-1.875">
-              <folding>
-                <element signature="n#style#0;n#pie-menu#0;n#span#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -125,7 +132,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/views/experiment/2.ejs" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/views/partial/include-experiment.ejs" />
         <option value="$PROJECT_DIR$/public/experiment/4/js/controllers.js" />
         <option value="$PROJECT_DIR$/public/js/directives.js" />
@@ -136,10 +142,11 @@
         <option value="$PROJECT_DIR$/views/experiment/4.ejs" />
         <option value="$PROJECT_DIR$/public/experiment/4/js/services.js" />
         <option value="$PROJECT_DIR$/public/sass/base.scss" />
-        <option value="$PROJECT_DIR$/public/sass/screen.scss" />
         <option value="$PROJECT_DIR$/public/js/services.js" />
         <option value="$PROJECT_DIR$/views/partial/experiment-tile.ejs" />
+        <option value="$PROJECT_DIR$/public/sass/screen.scss" />
         <option value="$PROJECT_DIR$/public/js/controllers.js" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
       </list>
     </option>
   </component>
@@ -449,23 +456,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/experiment/3/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/experiment/4/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="0" selection-start="961" selection-end="961" vertical-scroll-proportion="0.6147541">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="10" selection-start="646" selection-end="646" vertical-scroll-proportion="0.017605634">
           <folding />
         </state>
       </provider>
@@ -514,20 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/sass/base.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="16" selection-start="2082" selection-end="2082" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="140" column="40" selection-start="4031" selection-end="4031" vertical-scroll-proportion="0.0">
@@ -556,9 +535,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/sass/base.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="22" selection-start="838" selection-end="858" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="247" column="9" selection-start="3751" selection-end="3751" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="0" selection-start="4546" selection-end="4546" vertical-scroll-proportion="0.44406393">
+        <state line="37" column="39" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="5" selection-start="2374" selection-end="2374" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="20" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.58215964">
           <folding />
         </state>
       </provider>

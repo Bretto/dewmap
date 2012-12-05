@@ -236,6 +236,23 @@ $default-text-shadow-v-offset: 1px;
   margin-bottom: 10px;
 }
 
+.hasPrevious{
+
+}
+
+.hasNonePrevious{
+  opacity: .1 !important;
+  pointer-events:none;
+}
+
+.hasNext{
+
+}
+
+.hasNoneNext{
+  opacity: .1 !important;
+  pointer-events:none;
+}
 
 
 

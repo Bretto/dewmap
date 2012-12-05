@@ -34,31 +34,31 @@
             </div>
 
 
-            <a ng-click="onPrevious()" hm-tap="onPrevious()">
-                <img src="/assets/img/left-arrow.png" class="controls-left"/>
+            <a hm-tap="onPrevious(appModel.currentItem)">
+                <img src="/assets/img/left-arrow.png" class="controls-left" ng-class="hasPrevious(appModel.currentItem)"/>
             </a>
-            <a ng-click="onNext()" hm-tap="onNext()">
-                <img src="/assets/img/right-arrow.png" class="controls-right"/>
+            <a hm-tap="onNext(appModel.currentItem)">
+                <img src="/assets/img/right-arrow.png" class="controls-right" ng-class="hasNext(appModel.currentItem)"/>
             </a>
             <div class="controls-center">
-                <a ng-click="onBack()" hm-tap="onBack()">
+                <a hm-tap="onBack()">
                     <img src="/assets/img/down-arrow.png"/>
                 </a>
             </div>
         </div>
 
         <div class="layout-controls-wrap" ng-show="!appModel.currentItem">
-            <a ng-click="onSphere()" hm-tap="onSphere()">
+            <a hm-tap="onSphere()">
                 <img src="/assets/img/sphere.png" class="controls-left"
                      ng-class="{controlsactive: appModel.isControlActive('sphere')}"/>
             </a>
 
-            <a ng-click="onGrid()" hm-tap="onGrid()">
+            <a hm-tap="onGrid()">
                 <img src="/assets/img/grid.png" class="controls-right"
                      ng-class="{controlsactive: appModel.isControlActive('grid')}"/>
             </a>
             <div class="controls-center">
-                <a ng-click="onDisk()" hm-tap="onDisk()">
+                <a hm-tap="onDisk()">
                     <img src="/assets/img/disk.png"
                          ng-class="{controlsactive: appModel.isControlActive('disk')}"/>
                 </a>

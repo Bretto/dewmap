@@ -28,9 +28,32 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
         $scope.appModel.currentItem = null;
     }
 
-    $scope.onNext = function(){
-        $scope.appModel.currentItem = $scope.appModel.items[1];
-        //$location.path('nav');
+    $scope.onNext = function(item){
+        var idx = AppModel.items.indexOf(item) + 1;
+        var url = idx + 1;
+        $log.info(url);
+        $location.path('experiment/'+url);
+    }
+
+    $scope.onPrevious = function(item){
+        var idx = AppModel.items.indexOf(item) + 1;
+        var url = idx - 1;
+        $location.path('experiment/'+url);
+    }
+
+    $scope.hasPrevious = function(item){
+        var idx = AppModel.items.indexOf(item);
+        return (idx > 0)? 'hasPrevious' : 'hasNonePrevious';
+    }
+
+    $scope.hasNext = function(item){
+        var value = 'hasNoneNext';
+        var idx = AppModel.items.indexOf(item);
+        if(idx !== -1 && AppModel.items[idx++] && AppModel.items[idx++].name !== '' ){
+            value = 'hasNext';
+        }
+
+        return value;
     }
 
 
