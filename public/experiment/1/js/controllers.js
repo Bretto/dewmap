@@ -22,15 +22,16 @@ controllers.controller('WorldCtrl', function ($scope, $rootScope, $log, $timeout
 
     $scope.renderComplete = function(){
         WorldModel.setGeoPointsElem(geoPointsElem);
+        $('#preloader').css('display','none');
     }
 
     $scope.onSelect = function(geoPoint){
-        WorldModel.destroy();
+        //WorldModel.destroy();
     }
 
     WorldModel.init();
 
-    // register the listener to destroy for self destruction
+    // register the listener for self destruction
     $timeout(function() {
         $( window.location ).one(
             "change",
