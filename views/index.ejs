@@ -21,6 +21,12 @@
         <ng-view id="view-loader"></ng-view>
         <img src="/assets/img/interface.png" id="interface-img"/>
 
+        <div id="preloader" class="well" ng-show="appModel.currentItem">
+            <div class="progress progress-striped active">
+                <div class="bar"></div>
+            </div>
+        </div>
+
 
         <div class="controls-wrap" ng-show="appModel.currentItem">
             <!--<p class="comp-title">{{appModel.currentItem.name}}</p>-->

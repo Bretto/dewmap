@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="20" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.58215964">
+            <state line="30" column="33" selection-start="1036" selection-end="1049" vertical-scroll-proportion="-8.791667">
               <folding />
             </state>
           </provider>
@@ -94,16 +94,16 @@
       <file leaf-file-name="base.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/sass/base.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="22" selection-start="838" selection-end="858" vertical-scroll-proportion="0.0">
+            <state line="33" column="13" selection-start="481" selection-end="481" vertical-scroll-proportion="-13.192307">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="screen.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="247" column="9" selection-start="3751" selection-end="3751" vertical-scroll-proportion="0.0">
+            <state line="164" column="0" selection-start="2864" selection-end="2864" vertical-scroll-proportion="0.47411764">
               <folding />
             </state>
           </provider>
@@ -141,11 +141,11 @@
         <option value="$PROJECT_DIR$/public/experiment/4/stylesheets/screen.css" />
         <option value="$PROJECT_DIR$/views/experiment/4.ejs" />
         <option value="$PROJECT_DIR$/public/experiment/4/js/services.js" />
-        <option value="$PROJECT_DIR$/public/sass/base.scss" />
         <option value="$PROJECT_DIR$/public/js/services.js" />
         <option value="$PROJECT_DIR$/views/partial/experiment-tile.ejs" />
         <option value="$PROJECT_DIR$/public/sass/screen.scss" />
         <option value="$PROJECT_DIR$/public/js/controllers.js" />
+        <option value="$PROJECT_DIR$/public/sass/base.scss" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
       </list>
     </option>
@@ -310,7 +310,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="editor.preferences.smartKeys" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../geo-connections" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dewmap-blog" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -535,20 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/sass/base.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="22" selection-start="838" selection-end="858" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="9" selection-start="3751" selection-end="3751" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="39" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0">
@@ -565,7 +551,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="20" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.58215964">
+        <state line="30" column="33" selection-start="1036" selection-end="1049" vertical-scroll-proportion="-8.791667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/sass/base.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="13" selection-start="481" selection-end="481" vertical-scroll-proportion="-13.192307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="0" selection-start="2864" selection-end="2864" vertical-scroll-proportion="0.47411764">
           <folding />
         </state>
       </provider>

@@ -31,6 +31,30 @@ a:hover{
   width: 100%;
   height: auto;
 
+  #preloader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -70px;
+    background-color: rgba(255, 0, 0, 0.16);
+    border-color: rgba(255, 0, 0, 0.09);
+
+
+
+    .progress{
+      height: 10px;
+      margin: 0;
+
+
+    }
+
+    .progress-striped .bar{
+      background-color: rgb(121, 35, 18);
+    }
+
+  }
+
 }
 
 #scene-wrap{
@@ -67,6 +91,15 @@ ul, li {
   pointer-events:none;
   opacity: .5;
 }
+
+.progress {
+width: 100px;
+  .bar{
+    width: 100px;
+  }
+}
+
+
 
 .tileEnabled{
   pointer-events:auto;
