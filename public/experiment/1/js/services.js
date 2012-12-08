@@ -82,7 +82,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
         scene.add(particleSystem);
 
-        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world2.png");
+        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/night.jpg");
         sphereGraphic.offset.x = -.025;
         sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xffffff, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
 
@@ -359,7 +359,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     function makeCurve(p1, p2){
 
         curveGeometry = makeConnectionLineGeometry(p1, p2);
-        curveMaterial = new THREE.LineBasicMaterial({ color:0xaa0000, opacity:.8, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
+        curveMaterial = new THREE.LineBasicMaterial({ color:0xfcf55f, opacity:.5, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
         var curve = new THREE.Line(curveGeometry, curveMaterial);
         return { curve:curve, curveGeometry:curveGeometry, curveMaterial:curveMaterial };
     }
