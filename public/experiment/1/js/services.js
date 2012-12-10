@@ -23,6 +23,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     var sphere, sphereMaterial, sphereGraphic, sphereGeometry;
     var particleSystem, particlesGeometry, particleGraphic, particleMaterial;
     var curves, curveGeometry, curveMaterial;
+    var attributes, uniforms;
 
     var canvasWrap = $('#canvas-wrap')[0];
     var interfaceImg = $('#interface-img');
@@ -49,19 +50,58 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         particleSystem = makeParticleSystem();
 
         curves = [];
+        var tempParticles = [];
+
         for (var i = 0; i < particleSystem.geometry.vertices.length; i++) {
             var p1 = particleSystem.geometry.vertices[i];
             var connections = findConnections(p1);
             var curveObj = makeCurve(connections.p1, connections.p2);
+
+
+            var cnt = Math.floor(curveObj.spline.getLength()/100)*1.5;
+
+            for (var j = 0; j < cnt; j++) {
+
+                var particle = curveObj.spline.getPointAt((1/cnt)*j);
+                particle.path = curveObj.spline.getPoints(curveObj.spline.getLength() /2);
+                particle.index = Math.floor((particle.path.length/cnt)*j);
+//                particlesGeometry.vertices.push(particle);
+                tempParticles.push(particle);
+
+            }
+
+
             curves.push(curveObj);
             scene.add(curveObj.curve);
         }
+
+        for (var k = 0; k < tempParticles.length; k++) {
+            var obj = tempParticles[k];
+            particlesGeometry.vertices.push(obj);
+
+        }
+
+
+
 
         particleSystem.update = function () {
 
             var idx = 1;
             for (var i in this.geometry.vertices) {
                 var particle = this.geometry.vertices[i];
+
+                if(particle.path){
+                    var path = particle.path;
+
+                    if (particle.index == particle.path.length) {
+                        particle.index = 0;
+                    }
+
+                    particle.lerpSelf(path[particle.index++],1);
+                }
+
+
+
                 var pos = getObjectScreenPosition(particle);
                 if(geoPointsElem && $(geoPointsElem[i]))
                 {
@@ -77,12 +117,12 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
                 idx ++;
             }
-//        this.geometry.verticesNeedUpdate = true;
+        this.geometry.verticesNeedUpdate = true;
         }
 
         scene.add(particleSystem);
 
-        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/night.jpg");
+        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world2.png");
         sphereGraphic.offset.x = -.025;
         sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xffffff, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
 
@@ -299,20 +339,23 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     }
 
     function makeParticleSystem(){
+
         var pSystem = new THREE.ParticleSystem(
             particlesGeometry,
             particleMaterial);
+//            shaderMaterial);
+//        pSystem.dynamic = true;
 
         return pSystem;
     }
 
     function makeParticleMaterial(){
 
-        particleGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/particleB.png");
-        particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0xffffff, size: 100,
+        var particleGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/particleC.png");
+        var particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0x154492, size: 150,
             blending: THREE.AdditiveBlending, transparent:true,
-            depthWrite: true,
-            sizeAttenuation: true } );
+            depthWrite: false, vertexColors: false,
+            sizeAttenuation: false } );
 
         return particleMaterial;
     }
@@ -359,9 +402,13 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     function makeCurve(p1, p2){
 
         curveGeometry = makeConnectionLineGeometry(p1, p2);
-        curveMaterial = new THREE.LineBasicMaterial({ color:0xfcf55f, opacity:.5, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
+        curveMaterial = new THREE.LineBasicMaterial({ color:0xffffff, opacity:.8, depthTest: true, linewidth:1, transparent:true, blending:THREE.AdditiveBlending});
         var curve = new THREE.Line(curveGeometry, curveMaterial);
-        return { curve:curve, curveGeometry:curveGeometry, curveMaterial:curveMaterial };
+
+        var spline = new THREE.SplineCurve3(curveGeometry.vertices);
+
+
+        return { curve:curve, curveGeometry:curveGeometry, curveMaterial:curveMaterial, spline:spline };
     }
 
 
@@ -468,3 +515,165 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     return worldModel;
 });
+
+
+//----------------------------------
+
+//
+//
+//
+//
+//    attributes = {
+//        size: {	type: 'f', value: [] },
+//        customColor: { type: 'c', value: [] }
+//    };
+//
+//    uniforms = {
+//        amplitude: { type: "f", value: 1.0 },
+//        color:     { type: "c", value: new THREE.Color( 0xffffff ) },
+//        texture:   { type: "t", value: 0, texture: THREE.ImageUtils.loadTexture( "images/particleA.png" ) },
+//    };
+//
+//    var shaderMaterial = new THREE.ShaderMaterial( {
+//
+//        uniforms: 		uniforms,
+//        attributes:     attributes,
+//        vertexShader:   document.getElementById( 'vertexshader' ).textContent,
+//        fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+//
+//        blending: 		THREE.AdditiveBlending,
+//        depthTest: 		true,
+//        depthWrite: 	false,
+//        transparent:	true,
+//        // sizeAttenuation: true,
+//    });
+//
+//
+//
+//    var particleGraphic = THREE.ImageUtils.loadTexture("images/map_mask.png");
+//    var particleMat = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0xffffff, size: 60,
+//        blending: THREE.NormalBlending, transparent:true,
+//        depthWrite: false, vertexColors: true,
+//        sizeAttenuation: true } );
+//    particlesGeo.colors = particleColors;
+//    var pSystem = new THREE.ParticleSystem( particlesGeo, shaderMaterial );
+//    pSystem.dynamic = true;
+//    splineOutline.add( pSystem );
+//
+//    var vertices = pSystem.geometry.vertices;
+//    var values_size = attributes.size.value;
+//    var values_color = attributes.customColor.value;
+//
+//    for( var v = 0; v < vertices.length; v++ ) {
+//        values_size[ v ] = pSystem.geometry.vertices[v].size;
+//        values_color[ v ] = particleColors[v];
+//    }
+//
+//    pSystem.update = function(){
+//        // var time = Date.now()
+//        for( var i in this.geometry.vertices ){
+//            var particle = this.geometry.vertices[i];
+//            var path = particle.path;
+//            var moveLength = path.length;
+//
+//            particle.lerpN += 0.05;
+//            if(particle.lerpN > 1){
+//                particle.lerpN = 0;
+//                particle.moveIndex = particle.nextIndex;
+//                particle.nextIndex++;
+//                if( particle.nextIndex >= path.length ){
+//                    particle.moveIndex = 0;
+//                    particle.nextIndex = 1;
+//                }
+//            }
+//
+//            var currentPoint = path[particle.moveIndex];
+//            var nextPoint = path[particle.nextIndex];
+//
+//
+//            particle.copy( currentPoint );
+//            particle.lerpSelf( nextPoint, particle.lerpN );
+//        }
+//        this.geometry.verticesNeedUpdate = true;
+//    };
+//
+//    //	return this info as part of the mesh package, we'll use this in selectvisualization
+//    splineOutline.affectedCountries = affectedCountries;
+//
+//
+//    return splineOutline;
+//}
+//
+//function selectVisualization( linearData, year, countries, exportCategories, importCategories ){
+//    //	we're only doing one country for now so...
+//    var cName = countries[0].toUpperCase();
+//
+//    $("#hudButtons .countryTextInput").val(cName);
+//    previouslySelectedCountry = selectedCountry;
+//    selectedCountry = countryData[countries[0].toUpperCase()];
+//
+//    selectedCountry.summary = {
+//        imported: {
+//            mil: 0,
+//            civ: 0,
+//            ammo: 0,
+//            total: 0,
+//        },
+//        exported: {
+//            mil: 0,
+//            civ: 0,
+//            ammo: 0,
+//            total: 0,
+//        },
+//        total: 0,
+//        historical: getHistoricalData(selectedCountry),
+//    };
+//
+//    // console.log(selectedCountry);
+//
+//    //	clear off the country's internally held color data we used from last highlight
+//    for( var i in countryData ){
+//        var country = countryData[i];
+//        country.exportedAmount = 0;
+//        country.importedAmount = 0;
+//        country.mapColor = 0;
+//    }
+//
+//    //	clear markers
+//    for( var i in selectableCountries ){
+//        removeMarkerFromCountry( selectableCountries[i] );
+//    }
+//
+//    //	clear children
+//    while( visualizationMesh.children.length > 0 ){
+//        var c = visualizationMesh.children[0];
+//        visualizationMesh.remove(c);
+//    }
+//
+//    //	build the mesh
+//    console.time('getVisualizedMesh');
+//    var mesh = getVisualizedMesh( timeBins, year, countries, exportCategories, importCategories );
+//    console.timeEnd('getVisualizedMesh');
+//
+//    //	add it to scene graph
+//    visualizationMesh.add( mesh );
+//
+//
+//    //	alright we got no data but at least highlight the country we've selected
+//    if( mesh.affectedCountries.length == 0 ){
+//        mesh.affectedCountries.push( cName );
+//    }
+//
+//    for( var i in mesh.affectedCountries ){
+//        var countryName = mesh.affectedCountries[i];
+//        var country = countryData[countryName];
+//        attachMarkerToCountry( countryName, country.mapColor );
+//    }
+//
+//    // console.log( mesh.affectedCountries );
+//    highlightCountry( mesh.affectedCountries );
+//
+//
+//
+//    d3Graphs.initGraphs();
+//}
