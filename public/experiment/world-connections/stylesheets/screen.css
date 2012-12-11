@@ -17,7 +17,7 @@ canvas{
     /*background-color: #373737;*/
 }
 
-.geo-point p{
+.geo-point .number-overlay{
     background-color: rgb(0, 0, 0);
     padding: 5px 10px;
     color: rgb(255, 255, 255);
@@ -27,11 +27,17 @@ canvas{
 }
 
 
-.geo-point p:hover{
+.geo-point .number-overlay:hover{
     background-color: rgb(255, 255, 255);
     padding: 5px 10px;
     color: #000000;
     border-radius: 100px;
     font-weight: bold;
     border: solid 1px black;
+}
+
+.geo-point .popover{
+    top: -63px;
+    left: 35px;
+    display: block;
 }

@@ -9,7 +9,7 @@ services.factory('GeoConnectionsModel', function ($http, $log, $rootScope, $rout
 
     var GeoConnectionsModel = {
 
-        geoPoints:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        geoPoints:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
     };
 
@@ -58,7 +58,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
             var curveObj = makeCurve(connections.p1, connections.p2);
 
 
-            var cnt = Math.floor(curveObj.spline.getLength()/100)*1.5;
+            var cnt = Math.floor(curveObj.spline.getLength()/100)*2.5;
 
             for (var j = 0; j < cnt; j++) {
 
@@ -103,9 +103,21 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
 
                 var pos = getObjectScreenPosition(particle);
-                if(geoPointsElem && $(geoPointsElem[i]))
+                if(geoPointsElem && geoPointsElem[i])
                 {
                     var p = $(geoPointsElem[i]);
+
+                    if($(p).scope()){
+                        var s = $(p).scope();
+
+                        s.lat = Math.asin(particle.z / worldRay) * 180/Math.PI;
+                        s.lon = Math.atan2(particle.y, particle.x) * 180/Math.PI;
+                        s.x = particle.x;
+                        s.y = particle.y;
+                        s.z = particle.z;
+                    }
+
+
                     p.css('left',pos.x);
                     p.css('top',pos.y);
                     if(particle.distanceTo(camera.position) > 1650){
@@ -122,9 +134,9 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
         scene.add(particleSystem);
 
-        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/world2.png");
+        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/world-connections/assets/img/world.png");
         sphereGraphic.offset.x = -.025;
-        sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xffffff, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
+        sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0x458296, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
 
         sphereGeometry = new THREE.SphereGeometry(worldRay, 50, 50);
         sphere = new THREE.Mesh(sphereGeometry, sphereMaterial );
@@ -351,8 +363,11 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     function makeParticleMaterial(){
 
-        var particleGraphic = THREE.ImageUtils.loadTexture("/experiment/1/assets/img/particleC.png");
-        var particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0x154492, size: 150,
+        var exportColor = 0xdd380c;
+        var importColor = 0x154492;
+
+        var particleGraphic = THREE.ImageUtils.loadTexture("/experiment/world-connections/assets/img/particleC.png");
+        var particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: importColor, size: 80,
             blending: THREE.AdditiveBlending, transparent:true,
             depthWrite: false, vertexColors: false,
             sizeAttenuation: false } );

@@ -6,7 +6,7 @@ angular.module('myApp', ['myApp.controllers', 'myApp.filters', 'myApp.services',
     config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/nav', {templateUrl:'partial/nav'}).
-        when('/experiment/:idx', {controller:'ExperimentCtrl', templateUrl:'partial/include-experiment'}).
+        when('/experiment/:id', {controller:'ExperimentCtrl', templateUrl:'partial/include-experiment'}).
         otherwise({redirectTo:'/nav'});
     $locationProvider.html5Mode(false);
 }]);

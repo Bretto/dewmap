@@ -1,0 +1,19 @@
+<a ng-click="onSelect(geoPoint)" ng-mouseenter="showMenu = true" ng-mouseleave="showMenu = false">
+    <p class="number-overlay">{{$index}}</p>
+
+    <div class="popover fade right in" ng-show="showMenu">
+        <div class="arrow"></div>
+        <div class="popover-inner"><h3 class="popover-title">Overlay {{$index}}</h3>
+
+            <div class="popover-content">
+                <p>lat: {{lat}}</p>
+                <p>lon: {{lon}}</p>
+                <p>x: {{x}}</p>
+                <p>y: {{y}}</p>
+                <p>z: {{z}}</p>
+            </div>
+        </div>
+    </div>
+</a>
+
+

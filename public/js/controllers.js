@@ -29,15 +29,15 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
     }
 
     $scope.onNext = function(item){
-        var idx = AppModel.items.indexOf(item) + 1;
-        var url = idx + 1;
+        var idx = AppModel.items.indexOf(item);
+        var url = AppModel.items[idx + 1].id;
         $log.info(url);
         $location.path('experiment/'+url);
     }
 
     $scope.onPrevious = function(item){
-        var idx = AppModel.items.indexOf(item) + 1;
-        var url = idx - 1;
+        var idx = AppModel.items.indexOf(item);
+        var url = AppModel.items[idx - 1].id;
         $location.path('experiment/'+url);
     }
 
@@ -63,16 +63,16 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
 // changes the url path and load the selected experiment
 controllers.controller('ExperimentCtrl', function($scope, $rootScope, $log, AppModel, $routeParams, $location, LAYOUT){
 
-    if(getItemById($routeParams.idx)){
-        $scope.appModel.currentItem = getItemById($routeParams.idx);
+    if(getItemById($routeParams.id)){
+        $scope.appModel.currentItem = getItemById($routeParams.id);
     }else{
         $location.path('nav');
     }
 
-    function getItemById(idx){
+    function getItemById(id){
         var currentItem = null;
         angular.forEach(AppModel.items, function(obj,i){
-            if(obj.idx === parseInt(idx)){
+            if(obj.id === id){
                 currentItem = obj;
             }
         })
@@ -168,7 +168,7 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
     $scope.onExperimentClick = function(item){
 //        $('body').css('backgroundColor', '#ff0000');
         $scope.appModel.currentItem = item;
-        $location.path('experiment/'+item.idx);
+        $location.path('experiment/'+item.id);
         $scope.stopAnimate();
     }
 

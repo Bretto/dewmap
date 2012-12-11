@@ -135,22 +135,22 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
 
 
     var items = [
-        {name:'World Connections', idx:1},
-        {name:'Abstract Tech', idx:2},
-        {name:'Dom + Physics', idx:3},
-        {name:'Contextual Menu', idx:4},
-        {name:'', idx:5},
-        {name:'', idx:6},
-        {name:'', idx:7},
-        {name:'', idx:8},
-        {name:'', idx:9},
-        {name:'', idx:10},
-        {name:'', idx:11},
-        {name:'', idx:12},
-        {name:'', idx:13},
-        {name:'', idx:14},
-        {name:'', idx:15},
-        {name:'', idx:16}
+        {name:'World Connections', id:'world-connections'},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''},
+        {name:'', id:''}
     ];
 
 
