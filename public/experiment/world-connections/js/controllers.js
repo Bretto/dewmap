@@ -26,7 +26,7 @@ controllers.controller('WorldCtrl', function ($scope, $rootScope, $log, $timeout
     }
 
     $scope.onSelect = function(geoPoint){
-        //WorldModel.destroy();
+
     }
 
     WorldModel.init();

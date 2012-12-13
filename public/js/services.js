@@ -135,7 +135,7 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
 
 
     var items = [
-        {name:'World Connections', id:'world-connections'},
+        {name:'World Connections', id:'world-connections', info:'http://blog.dewmap.com/post/50c68dfbe16b160200000001'},
         {name:'', id:''},
         {name:'', id:''},
         {name:'', id:''},

@@ -16,14 +16,19 @@ services.factory('GeoConnectionsModel', function ($http, $log, $rootScope, $rout
     return GeoConnectionsModel;
 });
 
+http://1-ps.googleusercontent.com/x/s.data-arts.appspot.com/workshop.chromeexperiments.com/projects/armsglobe/js/
+// canvg.js,Mjm.fqA1XmnhdZ.js+rgbcolor.js,Mjm.yLbRe26fuy.js+innersvg.js,Mjm.zc-GH9Imko.js+util.js,Mjm.f-yWyMkmoR.js+mousekeyboard.js,Mjm.5VHh0CgajF.js+datguicontrol.js,Mjm.jciPnNj4yr.js+dataloading.js,Mjm.2zlNwO-8W3.js+camerastates.js,
+// Mjm.b39AcRCSya.js+geopins.js,
+// Mjm.NQuuus7UHd.js+visualize.js,
+// Mjm.6lx2Cqn23N.js+visualize_lines.js,Mjm.-YS-tDB3yV.js+markers.js,Mjm.HdcZyxgo1q.js.pagespeed.jc.WcmpEZ0d7Q.js"></script>
+
 
 services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, $timeout, GeoConnectionsModel) {
 
     var camera, scene, controls, renderer;
     var sphere, sphereMaterial, sphereGraphic, sphereGeometry;
-    var particleSystem, particlesGeometry, particleGraphic, particleMaterial;
+    var particleSystem, particlesGeometry, particleGraphic, particleMaterial, particleColors, pColors;
     var curves, curveGeometry, curveMaterial;
-    var attributes, uniforms;
 
     var canvasWrap = $('#canvas-wrap')[0];
     var interfaceImg = $('#interface-img');
@@ -31,6 +36,8 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     var projector = new THREE.Projector();
 
     var geoPointsElem = [];
+
+    pColors = [0xdd380c,0x154492];
 
     var theta = 45;
     var worldRay = 450;
@@ -47,42 +54,12 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
         particleMaterial = makeParticleMaterial();
         particlesGeometry = makeParticlesGeometry();
+        curves = makeCurves(angular.copy(particlesGeometry.vertices));
+
+        particlesGeometry.colors = particleColors;
+
+
         particleSystem = makeParticleSystem();
-
-        curves = [];
-        var tempParticles = [];
-
-        for (var i = 0; i < particleSystem.geometry.vertices.length; i++) {
-            var p1 = particleSystem.geometry.vertices[i];
-            var connections = findConnections(p1);
-            var curveObj = makeCurve(connections.p1, connections.p2);
-
-
-            var cnt = Math.floor(curveObj.spline.getLength()/100)*2.5;
-
-            for (var j = 0; j < cnt; j++) {
-
-                var particle = curveObj.spline.getPointAt((1/cnt)*j);
-                particle.path = curveObj.spline.getPoints(curveObj.spline.getLength() /2);
-                particle.index = Math.floor((particle.path.length/cnt)*j);
-//                particlesGeometry.vertices.push(particle);
-                tempParticles.push(particle);
-
-            }
-
-
-            curves.push(curveObj);
-            scene.add(curveObj.curve);
-        }
-
-        for (var k = 0; k < tempParticles.length; k++) {
-            var obj = tempParticles[k];
-            particlesGeometry.vertices.push(obj);
-
-        }
-
-
-
 
         particleSystem.update = function () {
 
@@ -100,8 +77,6 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
                     particle.lerpSelf(path[particle.index++],1);
                 }
 
-
-
                 var pos = getObjectScreenPosition(particle);
                 if(geoPointsElem && geoPointsElem[i])
                 {
@@ -109,6 +84,14 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
                     if($(p).scope()){
                         var s = $(p).scope();
+
+//                        var lat = 48.85;
+//                        var lon = 2.3;
+//                        var phi     = Math.PI / 2 - lat * Math.PI / 180;
+//                        var theta   = 2 * Math.PI - lon * Math.PI / 180;
+//                        s.position.x = Math.sin(phi) * Math.cos(theta) * 450;
+//                        s.position.y = Math.cos(phi) * 450;
+//                        s.position.z = Math.sin(phi) * Math.sin(theta) * 450;
 
                         s.lat = Math.asin(particle.z / worldRay) * 180/Math.PI;
                         s.lon = Math.atan2(particle.y, particle.x) * 180/Math.PI;
@@ -129,40 +112,20 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
                 idx ++;
             }
-        this.geometry.verticesNeedUpdate = true;
+            this.geometry.verticesNeedUpdate = true;
+
         }
 
         scene.add(particleSystem);
 
-        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/world-connections/assets/img/world.png");
+        sphereGraphic = THREE.ImageUtils.loadTexture("/experiment/world-connections/assets/img/world_inv2.png");
         sphereGraphic.offset.x = -.025;
-        sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0x458296, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
+        sphereMaterial = new THREE.MeshBasicMaterial({ map:sphereGraphic, side:THREE.DoubleSide, color:0xffffff, opacity:1, depthTest: true, wireframeLinewidth:2, transparent:false, wireframe:false, blending:THREE.NormalBlending});
 
         sphereGeometry = new THREE.SphereGeometry(worldRay, 50, 50);
         sphere = new THREE.Mesh(sphereGeometry, sphereMaterial );
         sphere.name = 'world';
         scene.add(sphere);
-
-
-//        var geo = new THREE.SphereGeometry(5, 5, 5);
-//        var mat = new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0x00ff00, opacity:1, depthTest: true, wireframeLinewidth:1, transparent:false, wireframe:false, blending:THREE.NormalBlending});
-//        var me = new THREE.Mesh(geo, mat );
-//        me.name = 'me';
-//
-//        var lat = 48.85;
-//        var lon = 2.3;
-//
-//        var phi     = Math.PI / 2 - lat * Math.PI / 180;
-//        var theta   = 2 * Math.PI - lon * Math.PI / 180;
-//
-//
-//        me.position.x = Math.sin(phi) * Math.cos(theta) * 450;
-//        me.position.y = Math.cos(phi) * 450;
-//        me.position.z = Math.sin(phi) * Math.sin(theta) * 450;
-//
-//
-//        scene.add(me);
-
 
 //        var planeX = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 2, 2), new THREE.MeshBasicMaterial({ side:THREE.DoubleSide, color:0x154492, opacity:1, depthTest: true, linewidth:1, transparent:false, wireframe:true, blending:THREE.NormalBlending}));
 //        planeX.rotation.x = -Math.PI / 2;
@@ -177,11 +140,6 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
 //        $log.info('animate')
         animate();
-
-
-
-
-
         onWindowResize();
 
         window.addEventListener( 'resize', onWindowResize, false );
@@ -316,6 +274,45 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         renderer.setSize( interfaceImg.width(), interfaceImg.height() );
     }
 
+    function makeCurves(points){
+
+        curves = [];
+
+
+        for (var i = 0; i < points.length; i++) {
+            var p1 = points[i];
+            var connections = findConnections(p1, points);
+            var curveObj = makeCurve(connections.p1, connections.p2);
+            makeMovingParticles(curveObj);
+
+            curves.push(curveObj);
+            scene.add(curveObj.curve);
+        }
+
+        return curves;
+    }
+
+    function makeMovingParticles(curveObj){
+
+        var cnt = Math.floor(curveObj.spline.getLength()/100)*2.5;
+        var rnd = (Math.random() >.5) ? 0:1 ;
+        var pColor = new THREE.Color().setHex(pColors[rnd]);
+
+
+        for (var j = 0; j < cnt; j++) {
+
+            var particle = curveObj.spline.getPointAt((1/cnt)*j);
+            particle.path = curveObj.spline.getPoints(curveObj.spline.getLength() /2);
+            particle.index = Math.floor((particle.path.length/cnt)*j);
+
+
+            particleColors.push(pColor);
+            particlesGeometry.vertices.push(particle);
+        }
+
+    }
+
+
     function makeCamera(){
         var camera = new THREE.PerspectiveCamera(45, interfaceImg.width() / interfaceImg.height(), 1, 10000);
         camera.position.y = 800;
@@ -355,21 +352,18 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         var pSystem = new THREE.ParticleSystem(
             particlesGeometry,
             particleMaterial);
-//            shaderMaterial);
-//        pSystem.dynamic = true;
+
+        pSystem.dynamic = true;
 
         return pSystem;
     }
 
     function makeParticleMaterial(){
 
-        var exportColor = 0xdd380c;
-        var importColor = 0x154492;
-
         var particleGraphic = THREE.ImageUtils.loadTexture("/experiment/world-connections/assets/img/particleC.png");
-        var particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: importColor, size: 80,
+        var particleMaterial = new THREE.ParticleBasicMaterial( { map: particleGraphic, size: 80,
             blending: THREE.AdditiveBlending, transparent:true,
-            depthWrite: false, vertexColors: false,
+            depthWrite: false, vertexColors: true,
             sizeAttenuation: false } );
 
         return particleMaterial;
@@ -379,6 +373,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     function makeParticlesGeometry(){
 
         var particles = new THREE.Geometry();
+        particleColors = [];
 
         for (var i = 0, l = GeoConnectionsModel.geoPoints.length; i < l; i++) {
 
@@ -391,23 +386,21 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
             var pZ = offset * Math.cos(phi);
 
             var particle = new THREE.Vector3(pX, pY, pZ);
-
             particles.vertices.push(particle);
-            // add it to the geometry
-            //particles.vertices.push(particle);
+            particleColors.push(new THREE.Color().setHex(pColors[0]));
         }
 
         return particles;
     }
 
-    function findConnections(p1){
-        for (var i = 0; i < particleSystem.geometry.vertices.length; i++) {
+    function findConnections(p1, points){
+        for (var i = 0; i < points.length; i++) {
 //            var p1 = particleSystem.geometry.vertices[i];
             var p2 = undefined;
 
             while (p2 === p1 || p2 === undefined) {
-                var index = Math.floor(Math.random() * (particleSystem.geometry.vertices.length - 1));
-                var p2 = particleSystem.geometry.vertices[index];
+                var index = Math.floor(Math.random() * (points.length - 1));
+                var p2 = points[index];
             }
 
             return {p1:p1, p2:p2};
@@ -477,7 +470,6 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     function makeConnectionLineGeometry(exporter, importer) {
 
         var distanceBetweenCountryCenter = exporter.clone().subSelf(importer).length();
-        var anchorHeight = 100 + distanceBetweenCountryCenter * 0.5;
         var start = exporter;
         var end = importer;
         var mid = start.clone().lerpSelf(end, 0.5);
@@ -497,24 +489,10 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         var points = splineCurveA.getPoints(vertexCountDesired);
         points = points.splice(0, points.length - 1);
         points = points.concat(splineCurveB.getPoints(vertexCountDesired));
-        //points.push(vec3_origin);
-//        var val = 1 * 0.0003;
-//        var size = 10;//(10 + Math.sqrt(val));
-//        size = constrain(size, 0.1, 1);
         var curveGeometry = createLineGeometry(points);
-//        curveGeometry.size = .01;
         return curveGeometry;
     }
 
-
-    function constrain(v, min, max) {
-        if (v < min)
-            v = min;
-        else
-        if (v > max)
-            v = max;
-        return v;
-    }
 
     function setGeoPointsElem(value){
         geoPointsElem = value;
@@ -530,165 +508,3 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     return worldModel;
 });
-
-
-//----------------------------------
-
-//
-//
-//
-//
-//    attributes = {
-//        size: {	type: 'f', value: [] },
-//        customColor: { type: 'c', value: [] }
-//    };
-//
-//    uniforms = {
-//        amplitude: { type: "f", value: 1.0 },
-//        color:     { type: "c", value: new THREE.Color( 0xffffff ) },
-//        texture:   { type: "t", value: 0, texture: THREE.ImageUtils.loadTexture( "images/particleA.png" ) },
-//    };
-//
-//    var shaderMaterial = new THREE.ShaderMaterial( {
-//
-//        uniforms: 		uniforms,
-//        attributes:     attributes,
-//        vertexShader:   document.getElementById( 'vertexshader' ).textContent,
-//        fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
-//
-//        blending: 		THREE.AdditiveBlending,
-//        depthTest: 		true,
-//        depthWrite: 	false,
-//        transparent:	true,
-//        // sizeAttenuation: true,
-//    });
-//
-//
-//
-//    var particleGraphic = THREE.ImageUtils.loadTexture("images/map_mask.png");
-//    var particleMat = new THREE.ParticleBasicMaterial( { map: particleGraphic, color: 0xffffff, size: 60,
-//        blending: THREE.NormalBlending, transparent:true,
-//        depthWrite: false, vertexColors: true,
-//        sizeAttenuation: true } );
-//    particlesGeo.colors = particleColors;
-//    var pSystem = new THREE.ParticleSystem( particlesGeo, shaderMaterial );
-//    pSystem.dynamic = true;
-//    splineOutline.add( pSystem );
-//
-//    var vertices = pSystem.geometry.vertices;
-//    var values_size = attributes.size.value;
-//    var values_color = attributes.customColor.value;
-//
-//    for( var v = 0; v < vertices.length; v++ ) {
-//        values_size[ v ] = pSystem.geometry.vertices[v].size;
-//        values_color[ v ] = particleColors[v];
-//    }
-//
-//    pSystem.update = function(){
-//        // var time = Date.now()
-//        for( var i in this.geometry.vertices ){
-//            var particle = this.geometry.vertices[i];
-//            var path = particle.path;
-//            var moveLength = path.length;
-//
-//            particle.lerpN += 0.05;
-//            if(particle.lerpN > 1){
-//                particle.lerpN = 0;
-//                particle.moveIndex = particle.nextIndex;
-//                particle.nextIndex++;
-//                if( particle.nextIndex >= path.length ){
-//                    particle.moveIndex = 0;
-//                    particle.nextIndex = 1;
-//                }
-//            }
-//
-//            var currentPoint = path[particle.moveIndex];
-//            var nextPoint = path[particle.nextIndex];
-//
-//
-//            particle.copy( currentPoint );
-//            particle.lerpSelf( nextPoint, particle.lerpN );
-//        }
-//        this.geometry.verticesNeedUpdate = true;
-//    };
-//
-//    //	return this info as part of the mesh package, we'll use this in selectvisualization
-//    splineOutline.affectedCountries = affectedCountries;
-//
-//
-//    return splineOutline;
-//}
-//
-//function selectVisualization( linearData, year, countries, exportCategories, importCategories ){
-//    //	we're only doing one country for now so...
-//    var cName = countries[0].toUpperCase();
-//
-//    $("#hudButtons .countryTextInput").val(cName);
-//    previouslySelectedCountry = selectedCountry;
-//    selectedCountry = countryData[countries[0].toUpperCase()];
-//
-//    selectedCountry.summary = {
-//        imported: {
-//            mil: 0,
-//            civ: 0,
-//            ammo: 0,
-//            total: 0,
-//        },
-//        exported: {
-//            mil: 0,
-//            civ: 0,
-//            ammo: 0,
-//            total: 0,
-//        },
-//        total: 0,
-//        historical: getHistoricalData(selectedCountry),
-//    };
-//
-//    // console.log(selectedCountry);
-//
-//    //	clear off the country's internally held color data we used from last highlight
-//    for( var i in countryData ){
-//        var country = countryData[i];
-//        country.exportedAmount = 0;
-//        country.importedAmount = 0;
-//        country.mapColor = 0;
-//    }
-//
-//    //	clear markers
-//    for( var i in selectableCountries ){
-//        removeMarkerFromCountry( selectableCountries[i] );
-//    }
-//
-//    //	clear children
-//    while( visualizationMesh.children.length > 0 ){
-//        var c = visualizationMesh.children[0];
-//        visualizationMesh.remove(c);
-//    }
-//
-//    //	build the mesh
-//    console.time('getVisualizedMesh');
-//    var mesh = getVisualizedMesh( timeBins, year, countries, exportCategories, importCategories );
-//    console.timeEnd('getVisualizedMesh');
-//
-//    //	add it to scene graph
-//    visualizationMesh.add( mesh );
-//
-//
-//    //	alright we got no data but at least highlight the country we've selected
-//    if( mesh.affectedCountries.length == 0 ){
-//        mesh.affectedCountries.push( cName );
-//    }
-//
-//    for( var i in mesh.affectedCountries ){
-//        var countryName = mesh.affectedCountries[i];
-//        var country = countryData[countryName];
-//        attachMarkerToCountry( countryName, country.mapColor );
-//    }
-//
-//    // console.log( mesh.affectedCountries );
-//    highlightCountry( mesh.affectedCountries );
-//
-//
-//
-//    d3Graphs.initGraphs();
-//}
