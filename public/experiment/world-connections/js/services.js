@@ -16,12 +16,6 @@ services.factory('GeoConnectionsModel', function ($http, $log, $rootScope, $rout
     return GeoConnectionsModel;
 });
 
-http://1-ps.googleusercontent.com/x/s.data-arts.appspot.com/workshop.chromeexperiments.com/projects/armsglobe/js/
-// canvg.js,Mjm.fqA1XmnhdZ.js+rgbcolor.js,Mjm.yLbRe26fuy.js+innersvg.js,Mjm.zc-GH9Imko.js+util.js,Mjm.f-yWyMkmoR.js+mousekeyboard.js,Mjm.5VHh0CgajF.js+datguicontrol.js,Mjm.jciPnNj4yr.js+dataloading.js,Mjm.2zlNwO-8W3.js+camerastates.js,
-// Mjm.b39AcRCSya.js+geopins.js,
-// Mjm.NQuuus7UHd.js+visualize.js,
-// Mjm.6lx2Cqn23N.js+visualize_lines.js,Mjm.-YS-tDB3yV.js+markers.js,Mjm.HdcZyxgo1q.js.pagespeed.jc.WcmpEZ0d7Q.js"></script>
-
 
 services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, $timeout, GeoConnectionsModel) {
 
