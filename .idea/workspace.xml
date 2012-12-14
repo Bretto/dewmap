@@ -28,57 +28,55 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="world-connections.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/experiment/world-connections.ejs">
+      <file leaf-file-name="abstract-tech-01.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/experiment/abstract-tech-01.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="-18.75">
-              <folding>
-                <marker date="1355187154000" expanded="true" signature="440:485" placeholder="{...}" />
-              </folding>
+            <state line="27" column="8" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-16.875">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="geopoint-label.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/partial/geopoint-label.html">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="4" selection-start="583" selection-end="583" vertical-scroll-proportion="-10.0">
+            <state line="7" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/services.js">
+        <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="34" selection-start="915" selection-end="915" vertical-scroll-proportion="0.5913978">
+            <state line="234" column="42" selection-start="6390" selection-end="6390" vertical-scroll-proportion="0.71326166">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="three.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/libs/three/three.js">
+      <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="421" column="4" selection-start="8011" selection-end="8011" vertical-scroll-proportion="0.0">
+            <state line="74" column="23" selection-start="1943" selection-end="1943" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="145" column="0" selection-start="3676" selection-end="3676" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/stylesheets/screen.css">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="19" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
+            <state line="23" column="33" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,16 +85,7 @@
       <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="25" selection-start="4094" selection-end="4094" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nav.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partial/nav.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="97" column="0" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -105,16 +94,16 @@
       <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="2300" selection-end="2300" vertical-scroll-proportion="-25.625">
+            <state line="126" column="67" selection-start="4686" selection-end="4686" vertical-scroll-proportion="-15.208333">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/controllers.js">
+      <file leaf-file-name="world-connections.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/experiment/world-connections.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="25" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0">
+            <state line="30" column="0" selection-start="0" selection-end="978" vertical-scroll-proportion="-18.75">
               <folding />
             </state>
           </provider>
@@ -133,22 +122,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/sass/base.scss" />
-        <option value="$PROJECT_DIR$/public/experiment/1/js/controllers.js" />
-        <option value="$PROJECT_DIR$/public/experiment/1/js/directives.js" />
-        <option value="$PROJECT_DIR$/public/experiment/1/partial/geopoint-label.html" />
-        <option value="$PROJECT_DIR$/public/experiment/1/stylesheets/screen.css" />
-        <option value="$PROJECT_DIR$/public/experiment/1/js/services.js" />
-        <option value="$PROJECT_DIR$/views/partial/include-experiment.ejs" />
-        <option value="$PROJECT_DIR$/views/experiment/1.ejs" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
-        <option value="$PROJECT_DIR$/public/js/controllers.js" />
         <option value="$PROJECT_DIR$/public/experiment/world-connections/js/directives.js" />
         <option value="$PROJECT_DIR$/public/experiment/world-connections/js/controllers.js" />
         <option value="$PROJECT_DIR$/public/experiment/world-connections/stylesheets/screen.css" />
-        <option value="$PROJECT_DIR$/public/js/services.js" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/experiment/world-connections/js/services.js" />
+        <option value="$PROJECT_DIR$/views/experiment/abstract_tech_01.ejs" />
+        <option value="$PROJECT_DIR$/public/js/services.js" />
+        <option value="$PROJECT_DIR$/views/experiment/world-connections.ejs" />
+        <option value="$PROJECT_DIR$/public/experiment/abstract-tech-01/js/app.js" />
+        <option value="$PROJECT_DIR$/public/experiment/abstract-tech-01/js/directives.js" />
+        <option value="$PROJECT_DIR$/public/experiment/abstract-tech-01/js/filters.js" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/public/js/controllers.js" />
+        <option value="$PROJECT_DIR$/public/experiment/abstract-tech-01/js/controllers.js" />
+        <option value="$PROJECT_DIR$/views/experiment/abstract-tech-01.ejs" />
+        <option value="$PROJECT_DIR$/public/experiment/abstract-tech-01/js/services.js" />
       </list>
     </option>
   </component>
@@ -280,7 +269,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sass" />
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="three" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -319,8 +330,26 @@
               <option name="myItemId" value="experiment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="world-connections" />
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dewmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="experiment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="abstract-tech-01" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -342,29 +371,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="world-connections" />
+              <option name="myItemId" value="abstract-tech-01" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -386,18 +397,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/experiment/abstract-tech-01" />
       <recent name="$PROJECT_DIR$/public/libs/hammer" />
       <recent name="$PROJECT_DIR$/public/experiment/4" />
       <recent name="$PROJECT_DIR$/views/experiment" />
       <recent name="$PROJECT_DIR$/public/libs" />
-      <recent name="$PROJECT_DIR$/public/experiment/3/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/experiment/abstract-tech-01/assets" />
       <recent name="$PROJECT_DIR$/views/experiment" />
       <recent name="$PROJECT_DIR$/public/experiment/1/assets/img" />
       <recent name="$PROJECT_DIR$/public/assets/2" />
       <recent name="$PROJECT_DIR$/public/assets/1" />
-      <recent name="$PROJECT_DIR$/views/comp/1" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
@@ -520,120 +531,123 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
+    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="42" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
+        <state line="30" column="0" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
+    <entry file="file://$PROJECT_DIR$/public/libs/three/TrackYControls.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="136" column="19" selection-start="3301" selection-end="3307" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/app.js">
+    <entry file="file://$PROJECT_DIR$/public/libs/three/TrackballControls.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="22" column="25" selection-start="553" selection-end="574" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/filters.js">
+    <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="45" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/sass/base.scss">
+    <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/filters.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+        <state line="3" column="42" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/experiment/world-connections.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="-18.75">
-          <folding>
-            <marker date="1355187154000" expanded="true" signature="440:485" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/partial/geopoint-label.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="583" selection-end="583" vertical-scroll-proportion="-10.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="25" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/libs/three/three.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="421" column="4" selection-start="8011" selection-end="8011" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/sass/screen.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/stylesheets/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="19" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="25" selection-start="4094" selection-end="4094" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partial/nav.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="30" column="0" selection-start="0" selection-end="978" vertical-scroll-proportion="-18.75">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2300" selection-end="2300" vertical-scroll-proportion="-25.625">
+        <state line="126" column="67" selection-start="4686" selection-end="4686" vertical-scroll-proportion="-15.208333">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/experiment/world-connections/js/services.js">
+    <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="34" selection-start="915" selection-end="915" vertical-scroll-proportion="0.5913978">
+        <state line="7" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="0" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="0" selection-start="3676" selection-end="3676" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/experiment/abstract-tech-01.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="8" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-16.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/libs/three/three.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11014" column="6" selection-start="229633" selection-end="229633" vertical-scroll-proportion="0.59327924">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="33" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/Detector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1354498890000" expanded="false" signature="1115:1125" placeholder="..." />
+            <marker date="1354498890000" expanded="false" signature="1213:1223" placeholder="..." />
+            <marker date="1354498890000" expanded="false" signature="1379:1389" placeholder="..." />
+            <marker date="1354498890000" expanded="false" signature="1476:1486" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="23" selection-start="1943" selection-end="1943" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="42" selection-start="6390" selection-end="6390" vertical-scroll-proportion="0.71326166">
           <folding />
         </state>
       </provider>

@@ -1,0 +1,28 @@
+<div id="AbstractTech">
+
+<div ng-controller="AbstractTechCtrl">
+
+    <div id="world" ng-controller="WorldCtrl" ng-click="worldModel.doIt()">
+        <div id="canvas-wrap"></div>
+        <!--<ul>-->
+            <!--<li ng-repeat="geoPoint in geoConnectionsModel.geoPoints" class="geo-point">-->
+                <!--<geopoint-label></geopoint-label>-->
+            <!--</li>-->
+        <!--</ul>-->
+    </div>
+
+</div>
+
+<!--<link rel="stylesheet" href="/experiment/abstract-tech-01/stylesheets/screen.css"/>-->
+<!--<script src="/experiment/abstract-tech-01/js/app.js"></script>-->
+<!--<script src="/experiment/abstract-tech-01/js/services.js"></script>-->
+<!--<script src="/experiment/abstract-tech-01/js/controllers.js"></script>-->
+<!--<script src="/experiment/abstract-tech-01/js/filters.js"></script>-->
+<!--<script src="/experiment/abstract-tech-01/js/directives.js"></script>-->
+<script>
+    angular.element(document).ready(function() {
+        angular.bootstrap('#AbstractTech', ['AbstractTech']);
+    });
+</script>
+</div>
+        

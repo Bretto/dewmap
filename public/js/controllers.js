@@ -25,7 +25,6 @@ controllers.controller('AppCtrl', function ($scope, $rootScope, $log, AppModel, 
 
     $scope.onBack = function(){
         $location.path('nav');
-        $scope.appModel.currentItem = null;
     }
 
     $scope.onNext = function(item){
@@ -99,6 +98,9 @@ controllers.controller('ExperimentCtrl', function($scope, $rootScope, $log, AppM
 
 controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppModel, LAYOUT, $location, $log){
 
+    $scope.appModel.currentItem = null;
+
+
     function getShowObjects(objects){
         var showObjects = [];
 
@@ -145,8 +147,6 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 
     function updateLayout(){
 
-
-
         var showObjects     = getShowObjects($scope.getObjects3D());
 
         // making sure that the tile are always in the same order
@@ -166,16 +166,11 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 
 
     $scope.onExperimentClick = function(item){
-//        $('body').css('backgroundColor', '#ff0000');
         $scope.appModel.currentItem = item;
         $location.path('experiment/'+item.id);
         $scope.stopAnimate();
     }
 
-
-//    $scope.addItem = function(item) {
-//        addObject3D(item);
-//    }
 
     $scope.renderComplete = function() {
 
@@ -203,6 +198,8 @@ controllers.controller('NavCtrl', function($scope, $rootScope, $timeout, AppMode
 
 // removes the Detector.webgl dialog box
     $('#oldie').remove();
+
+
 
 });
 
