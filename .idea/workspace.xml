@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="257" column="29" selection-start="6878" selection-end="6878" vertical-scroll-proportion="4.390681">
+            <state line="257" column="29" selection-start="6878" selection-end="6878" vertical-scroll-proportion="-141.34616">
               <folding />
             </state>
           </provider>
@@ -100,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="world-connections.ejs" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="world-connections.ejs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/experiment/world-connections.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="0" selection-end="978" vertical-scroll-proportion="-18.75">
+            <state line="30" column="0" selection-start="978" selection-end="978" vertical-scroll-proportion="0.52816904">
               <folding />
             </state>
           </provider>
@@ -464,12 +464,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="1" width="1679" height="1024" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19444445" sideWeight="0.6611296" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19444445" sideWeight="0.6611296" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33887044" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -567,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/experiment/world-connections.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="0" selection-end="978" vertical-scroll-proportion="-18.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="67" selection-start="4686" selection-end="4686" vertical-scroll-proportion="-15.208333">
@@ -651,7 +644,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/experiment/abstract-tech-01/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="29" selection-start="6878" selection-end="6878" vertical-scroll-proportion="4.390681">
+        <state line="257" column="29" selection-start="6878" selection-end="6878" vertical-scroll-proportion="-141.34616">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/experiment/world-connections.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="978" selection-end="978" vertical-scroll-proportion="0.52816904">
           <folding />
         </state>
       </provider>
