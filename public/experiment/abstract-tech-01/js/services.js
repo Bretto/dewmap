@@ -32,7 +32,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
     var projector = new THREE.Projector();
 
-    function init(){
+    this.init = function(){
 
 
         if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
@@ -128,7 +128,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
 
     }
-    
+
     function makeGround(){
         var plane = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000, 20, 20), new THREE.MeshBasicMaterial({ color:0x154492, opacity:.2, depthTest: false, linewidth:1, transparent:true, wireframe:true, blending:THREE.AdditiveBlending}));
         plane.rotation.x = -Math.PI / 2;
@@ -239,6 +239,9 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
         return layout;
     }
 
+
+
+
     function getObjectScreenPosition(object)
     {
 
@@ -256,6 +259,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
 
         return { x : eltx, y : elty };
     }
+
 
 
     function destroy(){
@@ -281,7 +285,7 @@ services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, 
     }
 
     var worldModel = {
-        init: init,
+        init: this.init,
         doIt: doIt,
         destroy: destroy
     };
