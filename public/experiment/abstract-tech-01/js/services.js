@@ -4,8 +4,7 @@
 var services = angular.module('AbstractTech.services', []);
 
 
-
-services.factory('AbstractTechModel', function ($http, $log, $rootScope, $routeParams, $location) {
+var abstractTechModel = function ($http, $log, $rootScope, $routeParams, $location){
 
     var GeoConnectionsModel = {
 
@@ -14,7 +13,11 @@ services.factory('AbstractTechModel', function ($http, $log, $rootScope, $routeP
     };
 
     return GeoConnectionsModel;
-});
+}
+
+
+services.factory('AbstractTechModel', abstractTechModel);
+
 
 
 services.factory('WorldModel', function ($http, $log, $rootScope, $routeParams, $timeout, AbstractTechModel) {
