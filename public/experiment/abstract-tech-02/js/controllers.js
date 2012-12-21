@@ -6,6 +6,8 @@ var controllers = angular.module('AbstractTech.controllers', []);
 
 controllers.controller('AbstractTechCtrl', function ($scope, $rootScope, $location, $browser, $log, AbstractTechModel){
 
+    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
     $scope.abstractTechModel = AbstractTechModel;
 
 });

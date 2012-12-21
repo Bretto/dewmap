@@ -137,7 +137,7 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
     var items = [
         {name:'World Connections', id:'world-connections', info:'http://blog.dewmap.com/post/50c68dfbe16b160200000001'},
         {name:'Abstract Tech 01', id:'abstract-tech-01', info:'http://blog.dewmap.com/post/50cecc093926bd0200000001'},
-        {name:'', id:''},
+        {name:'Facebook Open Graph D3', id:'fb-og-d3'},
         {name:'', id:''},
         {name:'', id:''},
         {name:'', id:''},

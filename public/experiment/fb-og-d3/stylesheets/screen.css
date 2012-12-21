@@ -1,0 +1,36 @@
+#experiment-content{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+
+#nodes text{
+    pointer-events:none;
+    fill: #ffffff;
+    text-shadow: 1px 1px #000;
+}
+
+#nodes .node{
+    cursor: pointer;
+    stroke-width: 2px;
+    fill: rgba(256, 0, 0, 0.2);
+    stroke: rgba(256, 0, 0, 0.2);
+}
+
+#nodes .node:hover{
+    fill: rgba(256, 256, 256, 1);
+    stroke: white;
+}
+
+
+#nodes .link {
+    pointer-events:none;
+    stroke: red;
+    stroke-opacity: .1;
+}
+
+#nodes .hover-link{
+    stroke: white;
+    stroke-opacity: .5;
+}

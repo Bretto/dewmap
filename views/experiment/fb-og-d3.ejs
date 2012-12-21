@@ -1,0 +1,63 @@
+<div id="fb-og-d3" ng-controller="MainCtrl">
+
+    <div id="experiment-content">
+
+        <!--<div class="btn btn-info" ng-click="getFriendsJSON()">Get Friends JSON</div>-->
+        <!--<div class="btn btn-info" ng-show="user.authorized" ng-click="getFriends()">Get Friends</div>-->
+        <!--<div class="btn btn-info" ng-hide="user.authorized" ng-click="onLogin()">Login with Facebook</div>-->
+        <!--<div class="btn btn-info" ng-show="user.authorized" ng-click="onLogout()">Logout</div>-->
+        <!--<span>User logged in: {{user.authorized}}</span>-->
+
+        <!-- Load Facebook SDK -->
+        <div id="fb-root"></div>
+
+        <div id="cont">
+            <svg id="nodes" width="960" height="600">
+                <node ng-repeat="friend in appModel.friends"></node>
+            </svg>
+        </div>
+
+
+        <!--<link rel="stylesheet" href="/experiment/fb-og-d3/stylesheets/screen.css"/>-->
+        <!--<script src="/experiment/fb-og-d3/js/app.js"></script>-->
+        <!--<script src="/experiment/fb-og-d3/js/services.js"></script>-->
+        <!--<script src="/experiment/fb-og-d3/js/controllers.js"></script>-->
+        <!--<script src="/experiment/fb-og-d3/js/filters.js"></script>-->
+        <!--<script src="/experiment/fb-og-d3/js/directives.js"></script>-->
+
+        <script>
+            angular.element(document).ready(function () {
+
+                window.fbAsyncInit = function() {
+                    // init the FB JS SDK
+                    FB.init({
+                        appId      : '101201093309709', // App ID from the App Dashboard
+//                    channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File for x-domain communication
+                        status     : true, // check the login status upon init?
+                        cookie     : true, // set sessions cookies to allow your server to access the session?
+                        xfbml      : true  // parse XFBML tags on this page?
+                    });
+
+                    // Additional initialization code such as adding Event Listeners goes here
+                    angular.bootstrap('#fb-og-d3', ['fb-og-d3']);
+                };
+
+                // Load the SDK's source Asynchronously
+                // Note that the debug version is being actively developed and might
+                // contain some type checks that are overly strict.
+                // Please report such bugs using the bugs tool.
+                function loadFB(d, debug){
+                    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement('script'); js.id = id; js.async = true;
+                    js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+                    ref.parentNode.insertBefore(js, ref);
+                }
+
+                loadFB(document, /*debug*/ false)
+
+            });
+        </script>
+    </div>
+</div>
+
