@@ -11,7 +11,6 @@ directives.directive('node', function ($log) {
         templateUrl:'/experiment/fb-og-d3/partial/node.html',
         link:function (scope, elem, attr, ctrl) {
 
-
             if (scope.$last === true) {
                 scope.renderComplete();
             }

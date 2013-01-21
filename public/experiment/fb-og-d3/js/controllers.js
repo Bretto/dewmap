@@ -161,10 +161,6 @@ controllers.controller('MainCtrl', function ($scope, $http, $timeout, $compile, 
     }
 
     $scope.renderComplete = function () {
-        //http://stackoverflow.com/questions/3642035/jquerys-append-not-working-with-svg-element
-       // $("#cont").html($("#cont").html());
-
-
 
         graph =
         {
