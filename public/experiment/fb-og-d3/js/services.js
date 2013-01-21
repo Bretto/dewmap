@@ -46,6 +46,8 @@ services.service('FBUser', ['$log', '$rootScope', 'facebook', function ($log, $r
 
     this.authorized = false;
 
+    if(!facebook.FB)return;
+
     facebook.FB.Event.subscribe('auth.authResponseChange', function (response) {
         $log.info("Event: auth.authResponseChange");
         if (response.authResponse) {
