@@ -29,9 +29,10 @@ a:hover {
 #content-wrap {
   position: absolute;
   width: 100%;
+  max-width: 950px;
   height: auto;
 }
-/* line 34, ../sass/base.scss */
+/* line 35, ../sass/base.scss */
 #content-wrap #preloader {
   position: absolute;
   top: 50%;
@@ -41,24 +42,24 @@ a:hover {
   background-color: rgba(255, 0, 0, 0.16);
   border-color: rgba(255, 0, 0, 0.09);
 }
-/* line 45, ../sass/base.scss */
+/* line 46, ../sass/base.scss */
 #content-wrap #preloader .progress {
   height: 10px;
   margin: 0;
 }
-/* line 52, ../sass/base.scss */
+/* line 53, ../sass/base.scss */
 #content-wrap #preloader .progress-striped .bar {
   background-color: #792312;
 }
 
-/* line 60, ../sass/base.scss */
+/* line 61, ../sass/base.scss */
 #scene-wrap {
   padding: 0;
   max-width: 960px;
   max-height: 700px;
 }
 
-/* line 68, ../sass/base.scss */
+/* line 69, ../sass/base.scss */
 #oldie {
   position: absolute;
   top: 25%;
@@ -66,46 +67,46 @@ a:hover {
   margin-left: -25% !important;
 }
 
-/* line 75, ../sass/base.scss */
+/* line 76, ../sass/base.scss */
 ul, li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 81, ../sass/base.scss */
+/* line 82, ../sass/base.scss */
 #view-loader {
   position: absolute;
 }
 
-/* line 85, ../sass/base.scss */
+/* line 86, ../sass/base.scss */
 #experiment-wrap {
   width: 100%;
   height: 100%;
 }
 
-/* line 90, ../sass/base.scss */
+/* line 91, ../sass/base.scss */
 .tileDisabled {
   pointer-events: none;
   opacity: .5;
 }
 
-/* line 95, ../sass/base.scss */
+/* line 96, ../sass/base.scss */
 .progress {
   width: 100px;
 }
-/* line 97, ../sass/base.scss */
+/* line 98, ../sass/base.scss */
 .progress .bar {
   width: 100px;
 }
 
-/* line 104, ../sass/base.scss */
+/* line 105, ../sass/base.scss */
 .tileEnabled {
   pointer-events: auto;
   opacity: 1;
 }
 
-/* line 109, ../sass/base.scss */
+/* line 110, ../sass/base.scss */
 .h-line {
   border: solid rgba(255, 0, 0, 0.5) 1px;
   position: absolute;
@@ -113,7 +114,7 @@ ul, li {
   top: 50%;
 }
 
-/* line 116, ../sass/base.scss */
+/* line 117, ../sass/base.scss */
 .v-line {
   border: solid rgba(255, 0, 0, 0.5) 1px;
   position: absolute;
@@ -128,19 +129,19 @@ ul, li {
 }
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* line 138, ../sass/base.scss */
+  /* line 139, ../sass/base.scss */
   #main-content {
     margin: 0 auto;
   }
 
-  /* line 142, ../sass/base.scss */
+  /* line 143, ../sass/base.scss */
   .logo-wrap {
     display: none;
   }
 }
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* line 153, ../sass/base.scss */
+  /* line 154, ../sass/base.scss */
   #main-content {
     margin: 150px auto;
   }

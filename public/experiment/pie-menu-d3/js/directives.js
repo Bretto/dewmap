@@ -1,7 +1,7 @@
 'use strict';
 /* http://docs-next.angularjs.org/api/angular.module.ng.$compileProvider.directive */
 
-var directives = angular.module('PieMenu.directives', []);
+var directives = angular.module('pie-menu.directives', []);
 
 
 directives.directive('pieD3', function ($log) {
@@ -171,7 +171,7 @@ directives.directive('pieMenu', function ($log, $parse) {
             data:'=',
             showMenu:'@'
         },
-        templateUrl:'/experiment/4/partial/pie-menu.html',
+        templateUrl:'/experiment/pie-menu-d3/partial/pie-menu.html',
         link:linkr
     }
 });
@@ -180,7 +180,7 @@ directives.directive('contextualPieMenu', function ($log) {
     return {
         replace: true,
         restrict:'E',
-        templateUrl: '/experiment/4/partial/contextual-pie-menu.html',
+        templateUrl: '/experiment/pie-menu-d3/partial/contextual-pie-menu.html',
         scope:{
             data:'='
         },

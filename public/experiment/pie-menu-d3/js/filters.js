@@ -1,5 +1,5 @@
 'use strict';
 /* http://docs-next.angularjs.org/api/angular.module.ng.$filter */
 
-var filters = angular.module('PieMenu.filters', []);
+var filters = angular.module('pie-menu.filters', []);
 
