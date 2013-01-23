@@ -73,10 +73,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contextual-pie-menu.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="contextual-pie-menu.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/experiment/pie-menu-d3/partial/contextual-pie-menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="7" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0690184">
+            <state line="3" column="7" selection-start="256" selection-end="256" vertical-scroll-proportion="-1.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="152" column="24" selection-start="4657" selection-end="4657" vertical-scroll-proportion="0.55473375">
               <folding />
             </state>
           </provider>
@@ -96,17 +105,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="28" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/experiment/pie-menu-d3/stylesheets/screen.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="25" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1358833629000" expanded="true" signature="364:407" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -144,11 +142,11 @@
         <option value="$PROJECT_DIR$/public/experiment/pie-menu-d3/js/services.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/experiment/pie-menu-d3/js/directives.js" />
-        <option value="$PROJECT_DIR$/public/js/services.js" />
         <option value="$PROJECT_DIR$/public/sass/base.scss" />
         <option value="$PROJECT_DIR$/public/experiment/pie-menu-d3/stylesheets/screen.css" />
         <option value="$PROJECT_DIR$/public/experiment/pie-menu-d3/js/controllers.js" />
         <option value="$PROJECT_DIR$/views/experiment/pie-menu-d3.ejs" />
+        <option value="$PROJECT_DIR$/public/js/services.js" />
       </list>
     </option>
   </component>
@@ -244,84 +242,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pie-menu-d3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pie-menu-d3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dewmap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pie-menu-d3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -340,11 +260,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pie-menu-d3" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -540,13 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="39" selection-start="3717" selection-end="3717" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/experiment/pie-menu-d3/stylesheets/screen.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="25" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
@@ -614,7 +523,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/experiment/pie-menu-d3/partial/contextual-pie-menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="7" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0690184">
+        <state line="3" column="7" selection-start="256" selection-end="256" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="24" selection-start="4657" selection-end="4657" vertical-scroll-proportion="0.55473375">
           <folding />
         </state>
       </provider>

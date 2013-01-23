@@ -138,7 +138,7 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
         {name:'World Connections', id:'world-connections', info:'http://blog.dewmap.com/post/50c68dfbe16b160200000001'},
         {name:'Abstract Tech 01', id:'abstract-tech-01', info:'http://blog.dewmap.com/post/50cecc093926bd0200000001'},
         {name:'Facebook Open Graph D3', id:'fb-og-d3', info:'http://blog.dewmap.com/post/50f61b8a9f9b0d0200000001'},
-        {name:'Contextual Pie Menu D3', id:'pie-menu-d3'},
+        {name:'Contextual Pie Menu D3', id:'pie-menu-d3', info:'http://blog.dewmap.com/post/50ff83c23f9c1f0200000001'},
         {name:'', id:''},
         {name:'', id:''},
         {name:'', id:''},
