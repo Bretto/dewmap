@@ -1,10 +1,10 @@
 'use strict';
 /* http://docs-next.angularjs.org/api/angular.module.ng.$compileProvider.directive */
 
-var directives = angular.module('pie-menu.directives', []);
+var directives = angular.module('pie-menu-d3.directives', []);
 
 
-directives.directive('pieD3', function ($log) {
+directives.directive('renderComplete', function ($log) {
     return {
         replace:false,
         restrict:'A',
@@ -23,11 +23,15 @@ directives.directive('pieMenu', function ($log, $parse) {
 
         var vis, paths, arc, arcs, pie, texts;
 
-        scope.$watch(function(){return scope.$parent.showMenu}, function(newValue){
-           if(newValue)
-                openMenu();
-           else
-                closeMenu();
+        scope.$watch(function(){return scope.showMenu}, function(newValue){
+           if(newValue){
+               openMenu();
+           }
+
+           else{
+               closeMenu();
+           }
+
         });
 
 
@@ -44,6 +48,7 @@ directives.directive('pieMenu', function ($log, $parse) {
 
         scope.renderComplete = function () {
 
+            //$log.info('renderComplete');
 
             vis = d3.select(elem[0])
                 .data([scope.data])
@@ -136,8 +141,6 @@ directives.directive('pieMenu', function ($log, $parse) {
                 };
             }
 
-
-
             function destroy(d, i){
 
                 if(i === 0){
@@ -147,18 +150,12 @@ directives.directive('pieMenu', function ($log, $parse) {
 //                    vis.remove();
 //                    $log.info('destroy',scope.$id);
                 }
-
             }
-
-
         }
 
-
         scope.onSelect = function(obj, e){
-
             e.stopImmediatePropagation();
             closeMenu();
-
             //scope.$parent.onMenuPieSelect(obj);
         }
 
@@ -169,23 +166,20 @@ directives.directive('pieMenu', function ($log, $parse) {
         restrict:'E',
         scope:{
             data:'=',
-            showMenu:'@'
+            showMenu:'='
         },
         templateUrl:'/experiment/pie-menu-d3/partial/pie-menu.html',
         link:linkr
     }
 });
 
-directives.directive('contextualPieMenu', function ($log) {
+directives.directive('pieMenuData', function ($log) {
     return {
         replace: true,
-        restrict:'E',
-        templateUrl: '/experiment/pie-menu-d3/partial/contextual-pie-menu.html',
+        restrict:'A',
+        templateUrl: '/experiment/pie-menu-d3/partial/pie-menu-data.html',
         scope:{
-            data:'='
-        },
-        link:function (scope, elem, attr, ctrl) {
-            //scope.showMenu = true;
+            pieMenuData:'='
         }
     }
 });

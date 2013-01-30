@@ -1,50 +1,50 @@
-<div id="pie-menu" ng-controller="PieMenuCtrl">
+<div id="pie-menu-d3" ng-controller="PieMenuCtrl">
 
     <div id="experiment-content" ng-click="onMouseClick($event)">
 
         <div class="tree">
             <ul>
                 <li>
-                    <contextual-pie-menu data="pieMenuModel.data1"></contextual-pie-menu>
+                    <div pie-menu-data="pieMenuModel.data1"></div>
                     <ul>
                         <li>
-                            <contextual-pie-menu data="pieMenuModel.data2"></contextual-pie-menu>
-                            <ul>
-                                <li>
-                                    <contextual-pie-menu data="pieMenuModel.data2"></contextual-pie-menu>
-                                </li>
-                                <li>
-                                    <contextual-pie-menu data="pieMenuModel.data1"></contextual-pie-menu>
-                                </li>
-                                <li>
-                                    <contextual-pie-menu data="pieMenuModel.data2"></contextual-pie-menu>
-                                </li>
-                            </ul>
+                            <div pie-menu-data="pieMenuModel.data1"></div>
+                        <ul>
+                            <li>
+                                <div pie-menu-data="pieMenuModel.data1"></div>
+                            </li>
+                            <li>
+                                <div pie-menu-data="pieMenuModel.data2"></div>
+                            </li>
+                            <li>
+                                <div pie-menu-data="pieMenuModel.data3"></div>
+                            </li>
+                        </ul>
                         </li>
                         <li>
-                            <contextual-pie-menu data="pieMenuModel.data1"></contextual-pie-menu>
+                            <div pie-menu-data="pieMenuModel.data1"></div>
                             <ul>
                                 <li>
-                                    <contextual-pie-menu data="pieMenuModel.data2"></contextual-pie-menu>
+                                    <div pie-menu-data="pieMenuModel.data1"></div>
                                 </li>
                                 <li>
-                                    <contextual-pie-menu data="pieMenuModel.data2"></contextual-pie-menu>
+                                    <div pie-menu-data="pieMenuModel.data1"></div>
                                     <ul>
                                         <li>
-                                            <contextual-pie-menu data="pieMenuModel.data3"></contextual-pie-menu>
+                                            <div pie-menu-data="pieMenuModel.data1"></div>
                                         </li>
                                         <li>
-                                            <contextual-pie-menu data="pieMenuModel.data3"></contextual-pie-menu>
+                                            <div pie-menu-data="pieMenuModel.data1"></div>
                                         </li>
                                         <li>
-                                            <contextual-pie-menu data="pieMenuModel.data3"></contextual-pie-menu>
+                                            <div pie-menu-data="pieMenuModel.data1"></div>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <contextual-pie-menu data="pieMenuModel.data1"></contextual-pie-menu>
+                            <div pie-menu-data="pieMenuModel.data1"></div>
                         </li>
                     </ul>
                 </li>
@@ -61,7 +61,7 @@
         <!--<script src="/experiment/pie-menu-d3/js/directives.js"></script>-->
         <script>
             angular.element(document).ready(function () {
-                angular.bootstrap('#pie-menu', ['pie-menu']);
+                angular.bootstrap('#pie-menu-d3', ['pie-menu-d3']);
             });
         </script>
     </div>

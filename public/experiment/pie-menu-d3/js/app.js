@@ -2,5 +2,5 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('pie-menu', ['pie-menu.filters', 'pie-menu.services', 'pie-menu.directives', 'pie-menu.controllers']);
+angular.module('pie-menu-d3', ['pie-menu-d3.filters', 'pie-menu-d3.services', 'pie-menu-d3.directives', 'pie-menu-d3.controllers']);
 

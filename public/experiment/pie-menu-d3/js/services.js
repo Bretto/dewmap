@@ -1,7 +1,7 @@
 'use strict';
 
 
-var services = angular.module('pie-menu.services', []);
+var services = angular.module('pie-menu-d3.services', []);
 
 
 

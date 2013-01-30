@@ -95,3 +95,4 @@ angular.forEach('hmTap:tap hmDoubletap:doubletap hmHold:hold hmTransformstart:tr
 });
 
 
+jQuery.ajaxSetup({ cache:true});
