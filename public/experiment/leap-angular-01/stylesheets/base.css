@@ -1,0 +1,30 @@
+/* line 11, ../sass/base.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 18, ../sass/base.scss */
+html, body {
+  background-color: #2a2d34;
+  color: #ffffff;
+}
+
+/* line 23, ../sass/base.scss */
+.h-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  top: 50%;
+}
+
+/* line 31, ../sass/base.scss */
+.v-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  height: 20%;
+  right: 50%;
+  top: 40%;
+}

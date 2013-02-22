@@ -1,0 +1,202 @@
+/* line 11, ../sass/base.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 18, ../sass/base.scss */
+html, body {
+  background-color: #2a2d34;
+  color: #ffffff;
+}
+
+/* line 23, ../sass/base.scss */
+.h-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  top: 50%;
+}
+
+/* line 31, ../sass/base.scss */
+.v-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  height: 20%;
+  right: 50%;
+  top: 40%;
+}
+
+/* line 3, ../sass/screen.scss */
+.finger {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  background-color: #2d6987;
+  border: 1px solid #ffffff;
+  opacity: .5;
+  z-index: 9999;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+/* line 24, ../sass/screen.scss */
+.data-vis-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  border: 1px solid rgba(106, 118, 133, 0.7);
+  margin: 20px;
+  height: 146px;
+}
+/* line 37, ../sass/screen.scss */
+.data-vis-wrap canvas {
+  display: block;
+  background-color: #000000;
+}
+/* line 42, ../sass/screen.scss */
+.data-vis-wrap .leap-planar {
+  float: left;
+  display: inline-block;
+  border-right: 1px solid rgba(106, 118, 133, 0.7);
+}
+/* line 48, ../sass/screen.scss */
+.data-vis-wrap .leap-graph {
+  float: left;
+  width: 200px;
+}
+
+/* line 55, ../sass/screen.scss */
+.menu-wrap {
+  margin-top: 250px;
+  text-align: center;
+}
+/* line 59, ../sass/screen.scss */
+.menu-wrap .btn-wrap {
+  display: inline-block;
+}
+/* line 61, ../sass/screen.scss */
+.menu-wrap .btn-wrap .btn {
+  margin: 40px;
+}
+
+/* line 67, ../sass/screen.scss */
+.gallery {
+  overflow: hidden;
+  width: 744px;
+  height: 281px;
+  margin: auto;
+  margin-bottom: 20px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+/* line 79, ../sass/screen.scss */
+.gallery .panes {
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  position: relative;
+  width: 4464px;
+}
+/* line 88, ../sass/screen.scss */
+.gallery .panes img {
+  position: relative;
+  float: left;
+}
+
+/* line 96, ../sass/screen.scss */
+.panesOffset1 {
+  left: 0;
+}
+
+/* line 100, ../sass/screen.scss */
+.panesOffset2 {
+  left: -744px;
+}
+
+/* line 104, ../sass/screen.scss */
+.panesOffset3 {
+  left: -1488px;
+}
+
+/* line 108, ../sass/screen.scss */
+.panesOffset4 {
+  left: -2232px;
+}
+
+/* line 112, ../sass/screen.scss */
+.panesOffset5 {
+  left: -2976px;
+}
+
+/* line 116, ../sass/screen.scss */
+.panesOffset6 {
+  left: -3720px;
+}
+
+/* line 121, ../sass/screen.scss */
+.gallery-hot {
+  -webkit-box-shadow: #6a7685 0 0 0 20px;
+  -moz-box-shadow: #6a7685 0 0 0 20px;
+  box-shadow: #6a7685 0 0 0 20px;
+}
+
+/* line 125, ../sass/screen.scss */
+.thumb-hot {
+  -webkit-box-shadow: #6a7685 0 0 0 10px;
+  -moz-box-shadow: #6a7685 0 0 0 10px;
+  box-shadow: #6a7685 0 0 0 10px;
+}
+
+/* line 129, ../sass/screen.scss */
+.thumbs {
+  display: inline-block;
+}
+/* line 133, ../sass/screen.scss */
+.thumbs .thumbnails {
+  margin: 0;
+}
+/* line 136, ../sass/screen.scss */
+.thumbs .thumbnails .thumbnail {
+  float: left;
+  margin: 8px;
+}
+/* line 140, ../sass/screen.scss */
+.thumbs .thumbnails .thumbnail img {
+  width: 100px;
+}
