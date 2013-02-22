@@ -207,8 +207,6 @@ directives.directive('leapPlanar', function ($log, $parse, $rootScope, $timeout)
 
     function link(scope, elem, attr, ctrl) {
 
-        $log.info('est');
-
         var canvasPlanar = elem[0];// elem.find("canvas:first")[0];
         var ctxPlanar = canvasPlanar.getContext("2d");
 
