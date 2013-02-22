@@ -11,7 +11,7 @@ directives.directive('dpHot', function ($log, $parse, $rootScope, $timeout, Main
         var css = attr.dpHot;
         var timeBegan;
         var elemPos = getPos(elem);
-        $log.info(elemPos);
+        //$log.info(elemPos);
 
         $rootScope.$on('leapData', function (e, leapData) {
 
