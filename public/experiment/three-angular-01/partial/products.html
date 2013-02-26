@@ -2,7 +2,7 @@
     <h4 class="sold-out" ng-show="isSoldOut">SOLD OUT</h4>
     <div scene-3d fov="68" near="1" far="5000" z="650" id="scene-3d">
         <section camera-3d id="camera-3d">
-            <ul id="sales-list" id="item-wrap-3d">
+            <ul>
                 <li ng-repeat="product in products | limitTo:6" class="item3d" render-3d-complete>
                     <div ng-include="'partial/product-thumb.html'" class="element"></div>
                 </li>

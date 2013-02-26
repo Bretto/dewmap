@@ -82,12 +82,12 @@ var productItemPromise = function($q, $route, GILT, $http, $log, productUri){
     var successCb = function (result)
     {
         deferred.resolve(result);
-        $log.info(result);
+        //$log.info(result);
     };
 
     var errorCb = function (error)
     {
-        $log.info(error);
+        //$log.info(error);
     };
 
 
@@ -128,12 +128,12 @@ var productDataPromise = function($q, $route, GILT, $http, $log){
     var successCb = function (result)
     {
         deferred.resolve(result);
-        $log.info(result);
+        //$log.info(result);
     };
 
     var errorCb = function (error)
     {
-        $log.info(error);
+        //$log.info(error);
     };
 
     var uri = $route.current.params.uri.replace(/_/g,'/');
@@ -151,12 +151,12 @@ var itemDataPromise = function($q, $route, GILT, $http, $log){
     var successCb = function (result)
     {
         deferred.resolve(result);
-        $log.info(result);
+        //$log.info(result);
     };
 
     var errorCb = function (error)
     {
-        $log.info(error);
+        //$log.info(error);
     };
 
     var id = $route.current.params.id.replace(/_/g,'/');
@@ -194,12 +194,12 @@ var saleDataPromise = function($q, $route, GILT, $http, $log){
     var successCb = function (result)
     {
         deferred.resolve(result);
-        $log.info(result);
+        //$log.info(result);
     };
 
     var errorCb = function (error)
     {
-        $log.info(error);
+        //$log.info(error);
     };
 
     var deferred = $q.defer();
@@ -214,12 +214,12 @@ var saleItemPromise = function($q, $route, GILT, $http, $log, result){
     var successCb = function (result)
     {
         deferred.resolve(result);
-        $log.info(result);
+        //$log.info(result);
     };
 
     var errorCb = function (error)
     {
-        $log.info(error);
+        //$log.info(error);
     };
 
     var deferred = $q.defer();

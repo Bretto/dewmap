@@ -41,15 +41,9 @@ directives.directive('render3dComplete', function ($log) {
 
 directives.directive('scene3d', function ($log, $timeout, $rootScope) {
 
-    console.log('directive scene3d');
-
     var camera, scene, renderer, controls, objects3D, projector;
-    var cameraEle, rendererEle, itemsEle;
-
-    var theta = 0;
+    var cameraEle, rendererEle, viewerWrap;
     var requestAnimationFrameId = null;
-
-    var viewerWrap;
 
     function onWindowResize() {
 
@@ -62,7 +56,6 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
             renderer.setSize( viewerWrap.width(), viewerWrap.height() );
             renderer.render(scene,camera)
         }
-
     }
 
     function setInitPosition(targets) {
@@ -83,7 +76,6 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
         }
     }
 
-
     function transform(targets, duration) {
 
         TWEEN.removeAll();
@@ -97,7 +89,6 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
                 .to({ x:target.position.x, y:target.position.y, z:target.position.z }, Math.random() * duration + duration)
                 .easing(TWEEN.Easing.Exponential.InOut)
                 .start();
-
 
             new TWEEN.Tween(object.rotation)
                 .to({ x:target.rotation.x, y:target.rotation.y, z:target.rotation.z }, Math.random() * duration + duration)
@@ -117,10 +108,10 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
 
         TWEEN.update();
 
-        render();
-
         if (controls)
             controls.update();
+
+        render();
     }
 
     function stopAnimate() {
@@ -134,7 +125,6 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
             renderer.render(scene, camera);
         }
     }
-
 
     function makeCamera(attr){
         var camera = new THREE.PerspectiveCamera(attr.fov, attr.width / attr.height, attr.near, attr.far);
@@ -160,7 +150,6 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
         return controls;
     }
 
-
     return {
         replace:false,
         restrict:'A',
@@ -180,8 +169,7 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
             projector = new THREE.Projector();
             renderer = makeRenderer(rendererEle, cameraEle, projector);
 
-            controls = makeControls(camera, renderer.domElement);
-            controls.constraintToAxis = 'none';
+            controls = makeControls(camera, rendererEle);
             controls.addEventListener('change', render);
 
 
@@ -195,7 +183,7 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
             scope.getControls = function(){return controls};
             scope.getCamera = function(){return camera};
 
-            animate();
+
 
             scope.addObj3D = function(elem){
 
@@ -210,7 +198,6 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
             scope.$on('$destroy', function(){
                 destroy();
             });
-
 
             function destroy(){
 
@@ -255,10 +242,10 @@ directives.directive('scene3d', function ($log, $timeout, $rootScope) {
                 window.removeEventListener( 'resize', onWindowResize );
             }
 
+            animate();
             onWindowResize();
         }
     }
-
 });
 
 
@@ -325,7 +312,7 @@ directives.directive('transView', function ($http, $templateCache, $route, $anch
             }
 
             function getInComplete() {
-                $log.info('fade-in content complete');
+                //$log.info('fade-in content complete');
             }
 
             function getOut() {
@@ -356,7 +343,7 @@ directives.directive('transView', function ($http, $templateCache, $route, $anch
 
                 if (template && template !== '') {
 
-                    $log.info('Content Loaded');
+                    //$log.info('Content Loaded');
 
                     if (state === 'fading-out-template') return;
 

@@ -1,23 +1,12 @@
 /*
-Syntax error: Undefined mixin 'perspective'.
-        on line 33 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss, in `perspective'
-        from line 33 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss
+Syntax error: Undefined mixin 'transition-property'.
+        on line 34 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss, in `transition-property'
+        from line 34 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss
 
 Backtrace:
-/Users/separ8/Sites/leap-three-navigation/sass/sales.scss:33:in `perspective'
-/Users/separ8/Sites/leap-three-navigation/sass/sales.scss:33
+/Users/separ8/Sites/leap-three-navigation/sass/sales.scss:34:in `transition-property'
+/Users/separ8/Sites/leap-three-navigation/sass/sales.scss:34
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:249:in `visit_mixin'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:107:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:119:in `with_environment'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:106:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:316:in `visit_rule'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
@@ -101,4 +90,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'perspective'.\A         on line 33 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss, in `perspective'\A         from line 33 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss"; }
+  content: "Syntax error: Undefined mixin 'transition-property'.\A         on line 34 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss, in `transition-property'\A         from line 34 of /Users/separ8/Sites/leap-three-navigation/sass/sales.scss"; }
