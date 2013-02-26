@@ -20,7 +20,6 @@ services.factory('MainModel', function ($http, $log, $rootScope, $routeParams, $
 
 services.factory('Leap', function ($log, $rootScope) {
     var leap;
-    var frameCnt = 0;
 
 // Support both the WebSocket and MozWebSocket objects
     if ((typeof(WebSocket) == 'undefined') &&

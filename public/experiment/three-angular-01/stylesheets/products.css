@@ -1,0 +1,26 @@
+/* line 5, ../sass/products.scss */
+#products .item3d {
+  width: 300px;
+  height: 400px;
+}
+/* line 10, ../sass/products.scss */
+#products .element {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  cursor: default;
+}
+/* line 19, ../sass/products.scss */
+#products section img {
+  width: 300px;
+  height: 400px;
+}
+/* line 25, ../sass/products.scss */
+#products section .rows img {
+  width: 91px !important;
+  height: 121px !important;
+}
+/* line 33, ../sass/products.scss */
+#products .sold-out {
+  padding-left: 20px;
+}

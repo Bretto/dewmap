@@ -1,0 +1,12 @@
+<a href="#/sale/{{MainModel.root}}/product/{{s.sale | cleanURL}}">
+    <div class="thumb">
+        <div class="thumbnail" ng-class="MainModel.thumbnailAccent()">
+            <img ng-src="{{s.image_urls.300x184[0].url}}"/>
+        </div>
+        <legend>
+            <img src="assets/img/gradient.png" class="gradient">
+            <h5>{{s.name}}</h5>
+        </legend>
+    </div>
+</a>
+

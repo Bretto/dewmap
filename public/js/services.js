@@ -14,8 +14,6 @@ services.constant('LAYOUT', {
 
 services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $location, LAYOUT) {
 
-
-
     function getGridLayout(showObjects, camera, objects3DWrap ){
 
         var layout = [];
@@ -152,7 +150,6 @@ services.factory('AppModel', function ($http, $log, $rootScope, $routeParams, $l
         {name:'', id:''},
         {name:'', id:''}
     ];
-
 
 
 //    for(var i=0; i<16; i++)

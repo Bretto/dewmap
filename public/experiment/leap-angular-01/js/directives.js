@@ -114,7 +114,6 @@ directives.directive('dpShot', function ($log, $parse, $rootScope, $timeout) {
 
         });
 
-
     }
 
     return {
@@ -215,7 +214,7 @@ directives.directive('leapPlanar', function ($log, $parse, $rootScope, $timeout)
         var y = d3.scale.linear().range([canvasPlanar.height, 0]).domain([0, 400]);
 
 
-        function renderPointablesPlanar(obj) {
+        function render(obj) {
 
             ctxPlanar.fillStyle = "rgba(0,0,0,.3)";
             ctxPlanar.fillRect(0, 0, canvasPlanar.width, canvasPlanar.height);
@@ -230,7 +229,7 @@ directives.directive('leapPlanar', function ($log, $parse, $rootScope, $timeout)
         };
 
         $rootScope.$on('leapData', function (e, leapData) {
-            renderPointablesPlanar(leapData);
+            render(leapData);
         });
 
     }
@@ -261,7 +260,7 @@ directives.directive('leapGraph', function ($log, $parse, $rootScope, $timeout) 
             ctx.putImageData(imageData, dx, dy);
         }
 
-        function renderPointablesPlanar(leapData) {
+        function render(leapData) {
 
             var r = (attr.color === 'r') ? 255 : 0;
             var g = (attr.color === 'g') ? 255 : 0;
@@ -289,7 +288,7 @@ directives.directive('leapGraph', function ($log, $parse, $rootScope, $timeout) 
         };
 
         $rootScope.$on('leapData', function (e, leapData) {
-            renderPointablesPlanar(leapData);
+            render(leapData);
         });
 
     }

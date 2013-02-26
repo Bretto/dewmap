@@ -1,0 +1,93 @@
+/* line 11, ../sass/base.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 18, ../sass/base.scss */
+html, body {
+  background-color: #2a2d34;
+  height: 100%;
+}
+
+/* line 23, ../sass/base.scss */
+img {
+  border: null;
+  background-color: white;
+}
+
+/* line 29, ../sass/base.scss */
+h1 {
+  font-weight: 200;
+  color: #ffffff;
+}
+
+/* line 34, ../sass/base.scss */
+.thumbnails {
+  margin-left: -16px;
+}
+
+/* line 39, ../sass/base.scss */
+.finger {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  background-color: #2d6987;
+  border: 1px solid #ffffff;
+  opacity: .5;
+  z-index: 9999;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+/* line 54, ../sass/base.scss */
+.h-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
+/* line 61, ../sass/base.scss */
+.v-line {
+  border: solid rgba(255, 0, 0, 0.5) 1px;
+  position: absolute;
+  height: 100%;
+  right: 50%;
+  top: 0;
+}
+
+/* line 70, ../sass/base.scss */
+#scene-3d {
+  overflow: hidden;
+  margin: auto;
+}
+
+/* line 75, ../sass/base.scss */
+#camera-3d {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+}
+
+/* line 80, ../sass/base.scss */
+#item-wrap-3d {
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+}
+
+/* line 86, ../sass/base.scss */
+.item3d {
+  position: absolute;
+  list-style: none;
+  -webkit-transition: opacity .3s ease-in-out .3s;
+}
+
+/* line 92, ../sass/base.scss */
+.element {
+  position: absolute;
+  cursor: default;
+}

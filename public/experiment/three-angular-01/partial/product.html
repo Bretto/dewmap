@@ -1,0 +1,27 @@
+<div id="product">
+    <div scene-3d fov="68" near="1" far="5000" z="650" id="scene-3d">
+        <section camera-3d id="camera-3d">
+            <div class="item3d" render-3d-complete>
+                <div class="element">
+                    <div class="pull-right img-wrap">
+                        <div class="thumbnail">
+                            <img ng-src="{{item.image_urls.420x560[0].url}}" class="product-img"/>
+                        </div>
+                    </div>
+                    <article>
+                        <h1>{{item.name}}</h1>
+                        <h3>{{item.skus[0].sale_price}}</h3>
+                        <h4>{{item.content.origin}}</h4>
+                        <h5>{{item.content.material}}</h5>
+                        <a class="btn btn-inverse">Add to Cart</a>
+                        <hr>
+                        <p class="product-description">{{item.content.description}}</p>
+                    </article>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+        <!--<div class="h-line"></div>-->
+        <!--<div class="v-line"></div>-->
+    </div>
+</div>
