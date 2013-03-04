@@ -1,0 +1,10 @@
+<div id="products" render-3d-complete class="item3d" >
+    <h4 class="sold-out" ng-show="isSoldOut">SOLD OUT</h4>
+    <div class="item-wrap" ng-class="{isOut:isOut()}">
+        <ul class="items">
+            <li ng-repeat="product in products">
+                <div ng-include="'partial/product-thumb.html'"></div>
+            </li>
+        </ul>
+    </div>
+</div>

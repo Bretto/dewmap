@@ -1,0 +1,10 @@
+<div id="sales" render-3d-complete class="item3d">
+    <div class="item-wrap" ng-class="{isOut:isOut()}">
+        <ul class="items">
+            <li ng-repeat="s in data.sales">
+                <div ng-include="'partial/sale-thumb.html'" class="thumb-wrap"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+

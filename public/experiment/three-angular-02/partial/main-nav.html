@@ -1,0 +1,26 @@
+<div id="main-nav">
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav">
+                    <li><a class="brand" href="#/">Gilt</a></li>
+                    <li class="nav-btn nav-btn-1" ng-class="MainModel.isNavActive('women')"><a href="#/sale/women"><i class="icon-star-empty icon-white"></i> Women<span></span></a>
+                    </li>
+                    <li class="nav-btn nav-btn-2" ng-class="MainModel.isNavActive('men')"><a href="#/sale/men"><i class="icon-star icon-white"></i> Men<span></span></a>
+                    </li>
+                    <li class="nav-btn nav-btn-3" ng-class="MainModel.isNavActive('kids')"><a href="#/sale/kids"><i class="icon-gift icon-white"></i> Kids & Babies<span></span></a>
+                    </li>
+                    <li class="nav-btn nav-btn-4" ng-class="MainModel.isNavActive('home')"><a href="#/sale/home"><i class="icon-home icon-white"></i> Home<span></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#/sale/{{MainModel.root}}">{{MainModel.rootCrumb}}</a></li>
+            <li><a href="#/sale/{{MainModel.root}}/product/{{MainModel.productURI | cleanURL}}">{{MainModel.productCrumb}}</a></li>
+            <li><a href="#/sale/{{MainModel.root}}/product/{{MainModel.productURI | cleanURL}}/item/{{ MainModel.productID | cleanURL}}">{{MainModel.itemCrumb}}</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+</div>
+

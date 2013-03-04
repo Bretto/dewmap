@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS ThreeJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="stylesheets/screen.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="MainCtrl">
+<a href="#/">
+<div ng-include="'partial/main-nav.html'" ng-controller="MainNavCtrl"></div>
+<div class="main-content" ng-controller="MainContentCtrl">
+    <div class="viewer-outer-wrap">
+        <div id="viewer-wrap">
+            <div scene-3d fov="68" near="1" far="5000" pos-x="0" pos-y="0" pos-z="700" rot-x="0" rot-y="0" rot-z="0" id="scene-3d">
+                <section camera-3d id="camera-3d">
+                    <div ui-view="sale"></div>
+                    <div ui-view="product" parent-state-name="sale"></div>
+                    <div ui-view="item" parent-state-name="sale.product"></div>
+                </section>
+            </div>
+            <div loader class="loading" ng-show="isVisible"></div>
+        </div>
+    </div>
+</div>
+</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="libs/three/three.js"></script>
+<script src="libs/three/tween.js"></script>
+<script src="libs/three/TrackballControls.js"></script>
+<script src="libs/three/CSS3DRenderer.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+<script src="libs/angular-ui-states.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+
+</body>
+</html>

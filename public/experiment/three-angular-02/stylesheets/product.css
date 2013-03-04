@@ -1,0 +1,43 @@
+/* line 1, ../sass/product.scss */
+#product {
+  padding-bottom: 20px;
+}
+/* line 3, ../sass/product.scss */
+#product .item3d {
+  width: 980px;
+  height: 650px;
+}
+/* line 8, ../sass/product.scss */
+#product .element {
+  position: absolute;
+  width: 980px;
+  height: 650px;
+  cursor: default;
+  opacity: 1;
+}
+/* line 18, ../sass/product.scss */
+#product article {
+  padding-top: 0;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+/* line 24, ../sass/product.scss */
+#product .img-wrap {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+/* line 30, ../sass/product.scss */
+#product img {
+  width: 420px !important;
+  height: 560px !important;
+}
+/* line 35, ../sass/product.scss */
+#product hr {
+  border-top: 1px solid rgba(238, 238, 238, 0.32);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+/* line 40, ../sass/product.scss */
+#product .btn {
+  margin-top: 20px;
+}
