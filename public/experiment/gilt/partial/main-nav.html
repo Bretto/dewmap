@@ -1,0 +1,55 @@
+<div id="main-nav">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav">
+                    <li><a class="brand" href="#/">Gilt</a></li>
+                    <li class="nav-btn nav-btn-1" ng-class="MainModel.isNavActive('women')"><a href="#/sale/women"><i class="icon-star-empty icon-white"></i> Women<span></span></a>
+
+                    </li>
+                    <li class="nav-btn nav-btn-2" ng-class="MainModel.isNavActive('men')"><a href="#/sale/men"><i class="icon-star icon-white"></i> Men<span></span></a>
+
+                    </li>
+                    <li class="nav-btn nav-btn-3" ng-class="MainModel.isNavActive('kids')"><a href="#/sale/kids"><i class="icon-gift icon-white"></i> Kids & Babies<span></span></a>
+
+                    </li>
+                    <li class="nav-btn nav-btn-4" ng-class="MainModel.isNavActive('home')"><a href="#/sale/home"><i class="icon-home icon-white"></i> Home<span></span></a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="extruder-wrap">
+            <div class="extruder">
+                <div class="navbar-inner">
+                    <div>
+                        <ul class="nav">
+                            <li class="nav-btn"><a class="brand invisible">Gilt</a></li>
+                            <li class="nav-btn edge-1" ng-class="MainModel.isEdgeActive('women')" is-mouse-over=".nav-btn-1"><div class="invisible"><i class="icon-star-empty icon-white"></i> Women</div></li>
+                            <li class="nav-btn edge-2" ng-class="MainModel.isEdgeActive('men')" is-mouse-over=".nav-btn-2"><div class="invisible"><i class="icon-star icon-white"></i> Men</div></li>
+                            <li class="nav-btn edge-3" ng-class="MainModel.isEdgeActive('kids')" is-mouse-over=".nav-btn-3"><div class="invisible"><i class="icon-gift icon-white"></i> Kids & Babies</div></li>
+                            <li class="nav-btn edge-4" ng-class="MainModel.isEdgeActive('home')" is-mouse-over=".nav-btn-4"><div class="invisible"><i class="icon-home icon-white"></i> Home</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-menu">
+            <ul class="nav">
+                <li><a class="user"><i class="icon-user icon-white"></i> Brett Coffin</a></li>
+                <li><a><i class="icon-shopping-cart icon-white"></i> Shopping Cart</a></li>
+                <li class="push-right" ng-hide="MainModel.isGrid"><a ng-click="onGrid()"><i class="icon-th icon-white"></i> Grid</a></li>
+                <li class="push-right" ng-show="MainModel.isGrid"><a ng-click="onList()"><i class="icon-th-list icon-white "></i> List</a></li>
+                <div class="clearfix"></div>
+            </ul>
+
+        </div>
+        <hr>
+            <ul class="breadcrumb">
+                <li><a href="#/sale/{{MainModel.root}}">{{MainModel.rootCrumb}}</a></li>
+                <li><a href="#/sale/{{MainModel.root}}/product/{{MainModel.productURI | cleanURL}}">{{MainModel.productCrumb}}</a></li>
+                <li><a href="#/sale/{{MainModel.root}}/product/{{MainModel.productURI | cleanURL}}/item/{{ MainModel.productID | cleanURL}}">{{MainModel.itemCrumb}}</a></li>
+            </ul>
+            <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div id="sales">
+    <sale-hero-shot data="item"></sale-hero-shot>
+    <section set-height-from="sales-list">
+        <ul id="sales-list" ng-class="MainModel.listLayout()">
+            <li ng-repeat="s in data.sales" ng-include="'partial/sale-thumb.html'"></li>
+        </ul>
+    </section>
+</div>

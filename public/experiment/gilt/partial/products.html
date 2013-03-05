@@ -1,0 +1,12 @@
+<div id="products">
+
+    <product-hero-shot data="data"></product-hero-shot>
+
+    <h4 class="sold-out" ng-show="isSoldOut">SOLD OUT</h4>
+    <section set-height-from="products-height-target">
+        <ul ng-class="MainModel.listLayout()" id="products-height-target">
+            <li ng-include="'partial/product-thumb.html'" ng-repeat="product in products | limitTo:9"></li>
+        </ul>
+    </section>
+
+</div>

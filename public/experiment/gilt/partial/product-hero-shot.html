@@ -1,0 +1,23 @@
+<div id="hero-shot">
+        <header>
+            <img ng-src="{{data.image_urls.744x281[0].url}}" class="pull-right"
+                 img-fade-in/>
+            <div class="dates begins">
+                <h4 class="timeago">{{data.begins | date:short}}</h4>
+                <span></span>
+            </div>
+            <div class="dates ends">
+                <h4 class="timeago">{{data.ends | date:short}}</h4>
+                <span></span>
+            </div>
+        </header>
+        <div class="extruder-wrap">
+            <div class="extruder"></div>
+        </div>
+
+    <article>
+        <h1 >{{data.name}}</h1>
+        <p>{{data.description}}</p>
+        <p ng-show="isSoldOut">SOLD OUT</p>
+    </article>
+</div>

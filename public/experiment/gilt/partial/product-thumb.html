@@ -1,0 +1,28 @@
+<div>
+    <div class="thumb-wrap" ng-show="MainModel.isGrid">
+        <a href="#/sale/{{MainModel.root}}/product/{{MainModel.productURI | cleanURL}}/item/{{ product.product | cleanURL}}">
+        <div class="thumb">
+            <div class="thumbnail" ng-class="MainModel.thumbnailAccent()">
+                <img ng-src="{{product.image_urls.300x400[0].url}}" img-fade-in/>
+            </div>
+            <legend>
+                <img src="assets/img/gradient.png" class="gradient">
+                <h5>{{product.name}}</h5>
+            </legend>
+        </div>
+        <div class="extruder-wrap">
+            <div class="extruder" ng-class="MainModel.extruderAccent()"></div>
+        </div>
+        </a>
+    </div>
+    <a class="thumb-listing" ng-hide="MainModel.isGrid" href="#/sale/{{MainModel.root}}/product/{{MainModel.productURI | cleanURL}}/item/{{ product.product | cleanURL}}">
+        <div class="thumb-listing-holder" ng-class="MainModel.extruderAccent()">
+            <div class="thumbnail pull-left">
+                <img ng-src="{{product.image_urls.91x121[0].url}}" img-fade-in/>
+            </div>
+            <h2 class="pull-left">{{product.name}}</h2>
+            <div class="clearfix"></div>
+        </div>
+    </a>
+</div>
+
