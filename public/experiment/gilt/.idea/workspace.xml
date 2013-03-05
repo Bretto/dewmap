@@ -83,19 +83,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="welcome.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partial/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="6" selection-start="209" selection-end="209" vertical-scroll-proportion="-3.125">
+            <state line="5" column="6" selection-start="276" selection-end="276" vertical-scroll-proportion="0.090361446">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="directives.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.47423887">
+            <state line="27" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,7 +121,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/partial/product-hero-shot.html" />
-        <option value="$PROJECT_DIR$/partial/welcome.html" />
         <option value="$PROJECT_DIR$/partial/product-thumb.html" />
         <option value="$PROJECT_DIR$/partial/product.html" />
         <option value="$PROJECT_DIR$/partial/sale-thumb.html" />
@@ -132,6 +131,7 @@
         <option value="$PROJECT_DIR$/partial/products.html" />
         <option value="$PROJECT_DIR$/js/directives.js" />
         <option value="$PROJECT_DIR$/partial/sale-hero-shot.html" />
+        <option value="$PROJECT_DIR$/partial/welcome.html" />
       </list>
     </option>
   </component>
@@ -427,16 +427,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partial/welcome.html">
+    <entry file="file://$PROJECT_DIR$/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="209" selection-end="209" vertical-scroll-proportion="-3.125">
+        <state line="27" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
+    <entry file="file://$PROJECT_DIR$/partial/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.47423887">
+        <state line="5" column="6" selection-start="276" selection-end="276" vertical-scroll-proportion="0.090361446">
           <folding />
         </state>
       </provider>
