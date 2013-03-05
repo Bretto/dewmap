@@ -140,33 +140,24 @@ directives.directive('viewer', function ($http, $templateCache, $route, $anchorS
     };
 });
 
-directives.directive('productHeroShot', function ($log, $parse, MainModel) {
-
-    function link(scope, elem, attr, ctrl) {
-        scope.MainModel = MainModel;
-    }
-
+directives.directive('productHeroShot', function ($log, $parse) {
     return {
         replace:true,
         scope:{data:"="},
         restrict:'E',
-        templateUrl:'partial/product-hero-shot.html',
-        link:link
+        templateUrl:'partial/product-hero-shot.html'
     }
 });
 
-directives.directive('saleHeroShot', function ($log, $parse, MainModel) {
-
-    function link(scope, elem, attr, ctrl) {
-        scope.MainModel = MainModel;
-    }
-
+directives.directive('saleHeroShot', function ($log, $parse) {
     return {
         replace:true,
-        scope:{data:"="},
+        scope:{
+            data:"=",
+            model:"="
+        },
         restrict:'E',
-        templateUrl:'partial/sale-hero-shot.html',
-        link:link
+        templateUrl:'partial/sale-hero-shot.html'
     }
 });
 

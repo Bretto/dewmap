@@ -20,15 +20,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sale-hero-shot.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partial/sale-hero-shot.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-18.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="sale-popup.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partial/sale-popup.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -47,33 +38,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="54" selection-start="747" selection-end="747" vertical-scroll-proportion="-13.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stylesheets/screen.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="696" column="10" selection-start="15308" selection-end="15308" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product-hero-shot.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partial/product-hero-shot.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="720" selection-end="720" vertical-scroll-proportion="-14.375">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="product-thumb.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partial/product-thumb.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -83,19 +47,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="directives.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/directives.js">
+      <file leaf-file-name="products.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partial/products.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="207" column="5" selection-start="5808" selection-end="5808" vertical-scroll-proportion="3.6358314">
+            <state line="12" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="products.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partial/products.html">
+      <file leaf-file-name="product-hero-shot.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partial/product-hero-shot.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="-7.5">
+            <state line="19" column="35" selection-start="653" selection-end="653" vertical-scroll-proportion="-11.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sale-hero-shot.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partial/sale-hero-shot.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="1107" selection-end="1107" vertical-scroll-proportion="-18.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sales.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partial/sales.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="-5.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="welcome.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/partial/welcome.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="6" selection-start="209" selection-end="209" vertical-scroll-proportion="-3.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="directives.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/directives.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.47423887">
               <folding />
             </state>
           </provider>
@@ -123,14 +123,15 @@
         <option value="$PROJECT_DIR$/partial/product-hero-shot.html" />
         <option value="$PROJECT_DIR$/partial/welcome.html" />
         <option value="$PROJECT_DIR$/partial/product-thumb.html" />
-        <option value="$PROJECT_DIR$/partial/products.html" />
-        <option value="$PROJECT_DIR$/partial/sales.html" />
-        <option value="$PROJECT_DIR$/partial/sale-hero-shot.html" />
         <option value="$PROJECT_DIR$/partial/product.html" />
         <option value="$PROJECT_DIR$/partial/sale-thumb.html" />
         <option value="$PROJECT_DIR$/stylesheets/screen.css" />
+        <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/partial/sales.html" />
+        <option value="$PROJECT_DIR$/partial/products.html" />
         <option value="$PROJECT_DIR$/js/directives.js" />
+        <option value="$PROJECT_DIR$/partial/sale-hero-shot.html" />
       </list>
     </option>
   </component>
@@ -328,44 +329,51 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/partial/welcome.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="209" selection-end="209" vertical-scroll-proportion="-3.125">
+        <state line="35" column="0" selection-start="1174" selection-end="1174" vertical-scroll-proportion="-21.875">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="195" column="28" selection-start="5038" selection-end="5038" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partial/sales.html">
+    <entry file="file://$PROJECT_DIR$/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="-5.0">
+        <state line="45" column="5" selection-start="1098" selection-end="1197" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/filters.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="3" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="75" column="0" selection-start="2202" selection-end="2202" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partial/main-nav.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.4583333">
+        <state line="19" column="18" selection-start="1097" selection-end="1097" vertical-scroll-proportion="-11.875">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partial/product-hero-shot.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="720" selection-end="720" vertical-scroll-proportion="-14.375">
+        <state line="19" column="35" selection-start="653" selection-end="653" vertical-scroll-proportion="-11.875">
           <folding />
         </state>
       </provider>
@@ -393,7 +401,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/partial/sale-hero-shot.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="1015" selection-end="1015" vertical-scroll-proportion="-18.125">
+        <state line="29" column="0" selection-start="1107" selection-end="1107" vertical-scroll-proportion="-18.125">
           <folding />
         </state>
       </provider>
@@ -412,23 +420,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stylesheets/screen.css">
+    <entry file="file://$PROJECT_DIR$/partial/sales.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="696" column="10" selection-start="15308" selection-end="15308" vertical-scroll-proportion="0.0">
+        <state line="8" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="-5.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/partial/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="54" selection-start="747" selection-end="747" vertical-scroll-proportion="-13.125">
+        <state line="5" column="6" selection-start="209" selection-end="209" vertical-scroll-proportion="-3.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="5" selection-start="5808" selection-end="5808" vertical-scroll-proportion="3.6358314">
+        <state line="27" column="5" selection-start="970" selection-end="970" vertical-scroll-proportion="0.47423887">
           <folding />
         </state>
       </provider>

@@ -13,10 +13,10 @@
 
 </head>
 
-<body ng-controller="MainCtrl">
+<body>
 
 <div ng-include="'partial/main-nav.html'" ng-controller="MainNavCtrl"></div>
-<div class="container main-content" ng-controller="MainContentCtrl">
+<div class="container main-content">
     <viewer class="viewer"></viewer>
 </div>
 <div loader class="loading" ng-show="isVisible"></div>
