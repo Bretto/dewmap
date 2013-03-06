@@ -21,7 +21,6 @@ services.factory('MainModel', function ($http, $log, $rootScope, $routeParams, $
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-
     var mainModel = {
          root: ''
         ,productURI: ''
@@ -30,7 +29,6 @@ services.factory('MainModel', function ($http, $log, $rootScope, $routeParams, $
         ,productCrumb: ''
         ,itemCrumb: ''
         ,isGrid: true
-
     };
 
     mainModel.breadcrumbs = function (rootCrumb, productCrumb,itemCrumb ){
@@ -63,4 +61,6 @@ services.factory('MainModel', function ($http, $log, $rootScope, $routeParams, $
 
     return mainModel;
 });
+
+
 
