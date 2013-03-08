@@ -26,7 +26,7 @@ angular.module('App', ['App.filters', 'App.services', 'App.directives', 'App.con
                     }
                 },
                 resolve:{
-                    promiseData:salePromise
+                    promiseData:getSales
                 },
                 onEnter:function ($rootScope, $state, $log) {
                     $log.info('Sale:onEnter');
@@ -45,7 +45,7 @@ angular.module('App', ['App.filters', 'App.services', 'App.directives', 'App.con
                     }
                 },
                 resolve:{
-                    promiseData:productPromise
+                    promiseData:getProducts
                 },
                 onEnter:function ($rootScope, $state, $stateParams, $log) {
                     $log.info('Product:onEnter');
@@ -64,7 +64,7 @@ angular.module('App', ['App.filters', 'App.services', 'App.directives', 'App.con
                     }
                 },
                 resolve:{
-                    promiseData:itemPromise
+                    promiseData:getProduct
                 },
                 onEnter:function ($rootScope, $state, $log) {
                     $log.info('Item:onEnter');
@@ -84,324 +84,98 @@ angular.module('App', ['App.filters', 'App.services', 'App.directives', 'App.con
     });
 ;
 
-
-var productPromise = function ($q, $route, GILT, $http, $log, $stateParams) {
-
-    var deferred = $q.defer();
-    var promiseData = {};
-
-    var productData = productDataPromise($q, $route, GILT, $http, $log, $stateParams);
-    productData.then(function (result) {
-        promiseData.data = result;
-        if (result.products) {
-            var products = productsPromise($q, $route, GILT, $http, $log, result, $stateParams);
-            products.then(function (result) {
-                promiseData.products = result;
-                deferred.resolve(promiseData);
+app.factory('giltRequest', function (GILT, $http, $log) {
+    return function (uri) {
+        return $http({method:GILT.METHOD, url:uri}).then(
+            function (response) {
+                $log.info(response.data);
+                return response.data;
+            },
+            function (error) {
+                $log.info(error);
             });
-        } else {
-            deferred.resolve(promiseData);
-        }
-
-    });
+    };
+});
 
 
-    return deferred.promise;
-}
-
-
-var productsPromise = function ($q, $route, GILT, $http, $log, result, $stateParams) {
+var getSales = function ($q, $route, GILT, giltRequest) {
 
     var deferred = $q.defer();
-    var finished = 0;
-    var products = [];
+    var promiseData = {};
+    var saleUrl = GILT.SALE + $route.current.params.type + GILT.ACTIVE + GILT.APIKEY + GILT.CALLBACK;
 
-    if (result.products) {
-        var limit = Math.min(9, result.products.length);
+    giltRequest(saleUrl)
+        .then(function (data) {
+            promiseData.data = data;
+            var index = Math.floor(Math.random() * data.sales.length);
+            var productURI = data.sales[index].sale + GILT.APIKEY + GILT.CALLBACK;
 
-        for (var i = 0; i < limit; i++) {
-            (function (i) {
-                var productUri = result.products[i];
-                productItemPromise($q, $route, GILT, $http, $log, productUri).then(function (result) {
-                    products.push(result);
-                    if (++finished === limit) {
-                        deferred.resolve(products);
-                    }
+            giltRequest(productURI)
+                .then(function (data) {
+                    promiseData.item = data;
+                    deferred.resolve(promiseData);
                 });
-            }(i));
-        }
-    }
+        });
 
     return deferred.promise;
-}
+};
 
-var productItemPromise = function ($q, $route, GILT, $http, $log, productUri) {
-
-    var deferred = $q.defer();
-
-    var successCb = function (result) {
-        deferred.resolve(result);
-        //$log.info(result);
-    };
-
-    var errorCb = function (error) {
-        //$log.info(error);
-    };
-
-
-    var itemURI = productUri + GILT.APIKEY + GILT.CALLBACK;
-    $http({method:GILT.METHOD, url:itemURI}).success(successCb).error(errorCb);
-
-    return deferred.promise;
-}
-
-
-var itemPromise = function ($q, $route, GILT, $http, $log, $stateParams) {
+var getProducts = function ($q, $route, GILT, giltRequest) {
 
     var deferred = $q.defer();
     var promiseData = {};
 
-    var productData = productDataPromise($q, $route, GILT, $http, $log, $stateParams);
-    productData.then(function (result) {
-        promiseData.data = result;
-
-        var itemData = itemDataPromise($q, $route, GILT, $http, $log, result, $stateParams);
-        itemData.then(function (result) {
-            promiseData.item = result;
-            deferred.resolve(promiseData);
-        });
-
-    });
-
-
-    return deferred.promise;
-}
-
-var productDataPromise = function ($q, $route, GILT, $http, $log, $stateParams) {
-
-    var deferred = $q.defer();
-
-
-    var successCb = function (result) {
-        deferred.resolve(result);
-        //$log.info(result);
-    };
-
-    var errorCb = function (error) {
-        //$log.info(error);
-    };
-
-    var uri = $stateParams.uri.replace(/_/g, '/');
+    var uri = $route.current.params.uri.replace(/_/g, '/');
     var productURI = GILT.API + uri + GILT.APIKEY + GILT.CALLBACK;
-    $http({method:GILT.METHOD, url:productURI}).success(successCb).error(errorCb);
+    giltRequest(productURI)
+
+        .then(function (data) {
+            promiseData.data = data;
+            if (data.products) {
+
+                var limit = Math.min(9, data.products.length);
+                var productsPromises = [];
+                promiseData.products = [];
+
+                for (var i = 0; i < limit; i++) {
+
+                    var product = data.products[i] + GILT.APIKEY + GILT.CALLBACK;
+                    productsPromises.push(giltRequest(product)
+                        .then(function (data) {
+                            promiseData.products.push(data);
+                        }));
+                }
+
+                $q.all(productsPromises)
+                    .then(function (data) {
+                        deferred.resolve(promiseData);
+                    })
+            }
+        });
 
     return deferred.promise;
-}
+};
 
-var itemDataPromise = function ($q, $route, GILT, $http, $log, result, $stateParams) {
-
-    var deferred = $q.defer();
-
-
-    var successCb = function (result) {
-        deferred.resolve(result);
-        //$log.info(result);
-    };
-
-    var errorCb = function (error) {
-        //$log.info(error);
-    };
-
-    var id = $stateParams.id.replace(/_/g, '/');
-    var itemURI = GILT.API + id + GILT.APIKEY + GILT.CALLBACK;
-    $http({method:GILT.METHOD, url:itemURI}).success(successCb).error(errorCb);
-
-    return deferred.promise;
-}
-
-
-var salePromise = function ($q, $route, GILT, $http, $log, $stateParams) {
+var getProduct = function ($q, $route, GILT, giltRequest) {
 
     var deferred = $q.defer();
     var promiseData = {};
 
-    var saleData = saleDataPromise($q, $route, GILT, $http, $log, $stateParams);
-    saleData.then(function (result) {
-        promiseData.data = result;
+    var uri = $route.current.params.uri.replace(/_/g, '/');
+    var productURI = GILT.API + uri + GILT.APIKEY + GILT.CALLBACK;
 
-        var itemData = saleItemPromise($q, $route, GILT, $http, $log, result);
-        itemData.then(function (result) {
-            promiseData.item = result;
-            deferred.resolve(promiseData);
+    giltRequest(productURI)
+        .then(function (data) {
+            promiseData.data = data;
+            var id = $route.current.params.id.replace(/_/g, '/');
+            var itemURI = GILT.API + id + GILT.APIKEY + GILT.CALLBACK;
+
+            giltRequest(itemURI)
+                .then(function (data) {
+                    promiseData.item = data;
+                    deferred.resolve(promiseData);
+                });
         });
 
-    });
-
     return deferred.promise;
-}
-
-
-var saleDataPromise = function ($q, $route, GILT, $http, $log, $stateParams) {
-
-    var successCb = function (result) {
-        deferred.resolve(result);
-        //$log.info(result);
-    };
-
-    var errorCb = function (error) {
-        //$log.info(error);
-    };
-
-    var deferred = $q.defer();
-    var saleUrl = GILT.SALE + $stateParams.type + GILT.ACTIVE + GILT.APIKEY + GILT.CALLBACK;
-    //var saleUrl = GILT.SALE + $route.current.params.type + GILT.ACTIVE + GILT.APIKEY + GILT.CALLBACK;
-    $http({method:GILT.METHOD, url:saleUrl}).success(successCb).error(errorCb);
-
-    return deferred.promise;
-}
-
-var saleItemPromise = function ($q, $route, GILT, $http, $log, result) {
-
-    var successCb = function (result) {
-        deferred.resolve(result);
-        //$log.info(result);
-    };
-
-    var errorCb = function (error) {
-        //$log.info(error);
-    };
-
-    var deferred = $q.defer();
-    var index = Math.floor(Math.random() * result.sales.length);
-    var productURI = result.sales[index].sale + GILT.APIKEY + GILT.CALLBACK;
-    $http({method:GILT.METHOD, url:productURI}).success(successCb).error(errorCb);
-
-    return deferred.promise;
-}
-
-
-
-
-
-
-//angular.module('App', ['App.filters', 'App.services', 'App.directives', 'App.controllers', 'ui.compat']).
-//    config(function ($stateProvider, $urlRouterProvider, $routeProvider, $locationProvider) {
-//
-//        $stateProvider
-//            .state('products', {
-//                url:'/products',
-//                views:{
-//                    'products':{
-//                        templateUrl:'partial/products.html',
-//                        controller:'ProductsCtrl'
-//                    }
-//                },
-//                resolve:{
-//                    promiseData:productsPromise
-//                },
-//                onEnter:function ($rootScope, $state, $log) {
-//                    $rootScope.$broadcast('PRODUCTS:onEnter');
-//                },
-//                onExit:function ($rootScope, $state) {
-//                    $rootScope.$broadcast('PRODUCTS:onExit');
-//                }
-//            })
-//            .state('products.product', {
-//                url:'/:id',
-//                views:{
-//                    'product':{
-//                        templateUrl:'partial/product.html',
-//                        controller:'ProductCtrl'
-//                    }
-//                },
-//                resolve:{
-//                    promiseData:productPromise
-//                },
-//                onEnter:function ($rootScope, $state, $log) {
-//                    $rootScope.$broadcast('PRODUCT:onEnter');
-//                },
-//                onExit:function ($rootScope, $state) {
-//                    $rootScope.$broadcast('PRODUCT:onExit');
-//                }
-//            })
-//
-//        //$urlRouterProvider.otherwise('/');
-//
-//    })
-//    .run(
-//    function ($rootScope, $state, $stateParams) {
-//        $rootScope.$state = $state;
-//        $rootScope.$stateParams = $stateParams;
-//    });
-
-
-//var productsPromise = function ($q, $route, $http, $log, $stateParams, $timeout) {
-//
-//    function makeObj(i){
-//        return {title:'Product: ' + i}
-//    }
-//
-//    var deferred = $q.defer();
-//    var promiseData = [];
-//
-//    for (var i = 0; i < 10; i++) {
-//        promiseData.push(makeObj(i));
-//    }
-//
-//    $timeout(function(){deferred.resolve(promiseData); },0);
-//
-//    return deferred.promise;
-//}
-
-
-//var productsPromise = function ($q, $route, $http, $log, $stateParams, $timeout) {
-//
-//    var api_key, deferred, params, url;
-//    deferred = $q.defer();
-//    api_key = '2bb0b524a3e3cbb9ceaea74b30dabf93';
-//    url = 'http://api.flickr.com/services/rest/';
-//    params = {
-//        method: 'flickr.photos.search',
-//        api_key: api_key,
-//        text: 'cameleon',
-//        per_page: 22,
-//        content_type: 1,
-//        in_gallery: true,
-//        format: 'json',
-//        page: 1,
-//        jsoncallback: 'JSON_CALLBACK'
-//    };
-//    $http.jsonp(url, {
-//        params: params
-//    }).success(function(data, status, headers, config) {
-//            var page_info, photos;
-//            page_info = {};
-//            page_info.page = data.photos.page;
-//            page_info.pages = data.photos.pages;
-//
-//            photos = $.map(data.photos.photo, function(photo) {
-//                return {
-//                    title: photo.title,
-//                    thumb_src: "http://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_s.jpg",
-//                    src: "http://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg"
-//                };
-//            });
-//            return deferred.resolve(photos);
-//        });
-//    return deferred.promise;
-//}
-
-
-
-
-
-
-//var productPromise = function ($q, $route, $http, $log, $stateParams, $timeout) {
-//
-//    var deferred = $q.defer();
-//    var promiseData = {title:$stateParams.id};
-//
-//    $timeout(function(){deferred.resolve(promiseData); },0);
-//
-//    return deferred.promise;
-//}
+};
