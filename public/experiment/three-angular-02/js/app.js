@@ -4,7 +4,7 @@
 
 'use strict';
 
-angular.module('App', ['App.filters', 'App.services', 'App.directives', 'App.controllers', 'ui.compat']).
+var app = angular.module('App', ['App.filters', 'App.services', 'App.directives', 'App.controllers', 'ui.compat']).
     config(function ($stateProvider, $urlRouterProvider, $routeProvider, $locationProvider) {
 
         $stateProvider
@@ -98,11 +98,11 @@ app.factory('giltRequest', function (GILT, $http, $log) {
 });
 
 
-var getSales = function ($q, $route, GILT, giltRequest) {
+var getSales = function ($q, $stateParams, GILT, giltRequest) {
 
     var deferred = $q.defer();
     var promiseData = {};
-    var saleUrl = GILT.SALE + $route.current.params.type + GILT.ACTIVE + GILT.APIKEY + GILT.CALLBACK;
+    var saleUrl = GILT.SALE + $stateParams.type + GILT.ACTIVE + GILT.APIKEY + GILT.CALLBACK;
 
     giltRequest(saleUrl)
         .then(function (data) {
@@ -120,12 +120,12 @@ var getSales = function ($q, $route, GILT, giltRequest) {
     return deferred.promise;
 };
 
-var getProducts = function ($q, $route, GILT, giltRequest) {
+var getProducts = function ($q, $stateParams, GILT, giltRequest) {
 
     var deferred = $q.defer();
     var promiseData = {};
 
-    var uri = $route.current.params.uri.replace(/_/g, '/');
+    var uri = $stateParams.uri.replace(/_/g, '/');
     var productURI = GILT.API + uri + GILT.APIKEY + GILT.CALLBACK;
     giltRequest(productURI)
 
@@ -156,18 +156,18 @@ var getProducts = function ($q, $route, GILT, giltRequest) {
     return deferred.promise;
 };
 
-var getProduct = function ($q, $route, GILT, giltRequest) {
+var getProduct = function ($q, $stateParams, GILT, giltRequest) {
 
     var deferred = $q.defer();
     var promiseData = {};
 
-    var uri = $route.current.params.uri.replace(/_/g, '/');
+    var uri = $stateParams.uri.replace(/_/g, '/');
     var productURI = GILT.API + uri + GILT.APIKEY + GILT.CALLBACK;
 
     giltRequest(productURI)
         .then(function (data) {
             promiseData.data = data;
-            var id = $route.current.params.id.replace(/_/g, '/');
+            var id = $stateParams.id.replace(/_/g, '/');
             var itemURI = GILT.API + id + GILT.APIKEY + GILT.CALLBACK;
 
             giltRequest(itemURI)
