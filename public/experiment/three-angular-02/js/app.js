@@ -151,6 +151,9 @@ var getProducts = function ($q, $stateParams, GILT, giltRequest) {
                         deferred.resolve(promiseData);
                     })
             }
+            else{
+                deferred.resolve(promiseData);
+            }
         });
 
     return deferred.promise;

@@ -4,11 +4,14 @@
     <list default="true" id="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" name="Default" comment="" />
     <ignored path="gilt.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362699866923" ignored="false" />
+    <file path="/Dummy.txt" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362705274200" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../three-cubes/js/directives.js" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362699880053" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../three-cubes/js/app.js" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362703371035" ignored="false" />
     <file path="/app.js" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362703237290" ignored="false" />
     <file path="$PROJECT_DIR$/../three-angular-02/js/app.js" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362703456277" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../leap-test/sass/screen.scss" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362710916929" ignored="false" />
+    <file path="/screen.scss" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362710659573" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../../leap-test/index.html" changelist="40cbbc1a-5aa1-43b9-80df-e0fe9fdec621" time="1362712645601" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +248,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../three-cubes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../three-leap" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">

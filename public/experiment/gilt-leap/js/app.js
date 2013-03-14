@@ -2,24 +2,24 @@
 
 var app = angular.module('GiltApp', ['GiltApp.filters', 'GiltApp.services', 'GiltApp.directives', 'GiltApp.controllers']).
     config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-    $routeProvider.
-        when('/', {templateUrl:'partial/welcome.html', controller:'WelcomeCtrl'}).
-        when('/sale/:type', {templateUrl:'partial/sales.html', controller:'SalesCtrl', resolve:{promiseData:getSales}}).
-        when('/sale/:type/product/:uri', {templateUrl:'partial/products.html', controller:'ProductsCtrl', resolve:{promiseData:getProducts}}).
-        when('/sale/:type/product/:uri/item/:id', {templateUrl:'partial/product.html', controller:'ProductCtrl', resolve:{promiseData:getProduct}}).
-        otherwise({redirectTo:'/'});
-    $locationProvider.html5Mode(false);
-}]);
+        $routeProvider.
+            when('/', {templateUrl:'partial/welcome.html', controller:'WelcomeCtrl'}).
+            when('/sale/:type', {templateUrl:'partial/sales.html', controller:'SalesCtrl', resolve:{promiseData:getSales}}).
+            when('/sale/:type/product/:uri', {templateUrl:'partial/products.html', controller:'ProductsCtrl', resolve:{promiseData:getProducts}}).
+            when('/sale/:type/product/:uri/item/:id', {templateUrl:'partial/product.html', controller:'ProductCtrl', resolve:{promiseData:getProduct}}).
+            otherwise({redirectTo:'/'});
+        $locationProvider.html5Mode(false);
+    }]);
 
 app.factory('giltRequest', function (GILT, $http, $log) {
     return function (uri) {
         return $http({method:GILT.METHOD, url:uri}).then(
             function (response) {
-                $log.info(response.data);
+                //$log.info(response.data);
                 return response.data;
             },
             function (error) {
-                $log.info(error);
+                //$log.info(error);
             });
     };
 });
@@ -77,8 +77,7 @@ var getProducts = function ($q, $route, GILT, giltRequest) {
                     .then(function (data) {
                         deferred.resolve(promiseData);
                     })
-            }
-            else{
+            }else{
                 deferred.resolve(promiseData);
             }
         });
@@ -109,4 +108,3 @@ var getProduct = function ($q, $route, GILT, giltRequest) {
 
     return deferred.promise;
 };
-

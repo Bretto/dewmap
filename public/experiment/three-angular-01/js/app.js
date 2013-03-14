@@ -78,6 +78,9 @@ var getProducts = function ($q, $route, GILT, giltRequest) {
                         deferred.resolve(promiseData);
                     })
             }
+            else{
+                deferred.resolve(promiseData);
+            }
         });
 
     return deferred.promise;

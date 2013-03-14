@@ -1,0 +1,166 @@
+/* line 11, ../sass/base.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 18, ../sass/base.scss */
+html, body {
+  background-color: #2a2d34;
+  height: 100%;
+}
+
+/* line 23, ../sass/base.scss */
+img {
+  opacity: 0;
+  border: null;
+  background-color: white;
+}
+
+/* line 29, ../sass/base.scss */
+h1 {
+  font-weight: 200;
+  color: #ffffff;
+}
+
+/* line 34, ../sass/base.scss */
+.thumbnails {
+  margin-left: -16px;
+}
+
+/* line 38, ../sass/base.scss */
+.push-right {
+  float: right !important;
+}
+
+/* line 43, ../sass/base.scss */
+.finger {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  background-color: #2d6987;
+  border: 1px solid #ffffff;
+  opacity: .5;
+  z-index: 9999;
+}
+
+/* line 104, ../sass/base.scss */
+.arrow-right-w {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #ffffff;
+}
+
+/* line 113, ../sass/base.scss */
+.arrow-left-w {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #ffffff;
+}
+
+/* line 122, ../sass/base.scss */
+.arrow-right-b {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #1C1D22;
+}
+
+/* line 131, ../sass/base.scss */
+.arrow-left-b {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #1C1D22;
+}
+
+/* line 142, ../sass/base.scss */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px !important;
+  margin-top: -50px !important;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100px;
+  height: 100px;
+  border: 13px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 2px;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+  color: rgba(179, 179, 179, 0.7);
+  border-right-color: transparent;
+  border-top-color: transparent;
+  -webkit-animation: spin-right 1s linear infinite;
+  margin: 30px auto 0;
+}
+
+@-webkit-keyframes spin-right {
+  /* line 167, ../sass/base.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+    opacity: 0.2;
+  }
+
+  /* line 171, ../sass/base.scss */
+  50% {
+    -webkit-transform: rotate(180deg);
+    opacity: 1.0;
+  }
+
+  /* line 175, ../sass/base.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+/* line 183, ../sass/base.scss */
+#leap-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  padding: 20px;
+}
+/* line 190, ../sass/base.scss */
+#leap-overlay canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: .5;
+}
+/* line 199, ../sass/base.scss */
+#leap-overlay label {
+  color: #ffffff;
+}
+
+/* line 205, ../sass/base.scss */
+.leap-focus {
+  -webkit-box-shadow: rgba(255, 0, 0, 0.7) 0 0 0 20px;
+  -moz-box-shadow: rgba(255, 0, 0, 0.7) 0 0 0 20px;
+  box-shadow: rgba(255, 0, 0, 0.7) 0 0 0 20px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  border-radius: 25px;
+}

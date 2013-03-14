@@ -1,0 +1,29 @@
+    <div id="hero-shot">
+        <a href="#/sale/{{model.root}}/product/{{data.sale | cleanURL}}">
+            <div class="hero-wrap" leap-click="leap-focus">
+                <header>
+                    <img ng-src="{{data.image_urls.744x281[0].url}}" class="pull-right"
+                         img-fade-in/>
+
+                    <div class="dates begins">
+                        <h4 class="timeago">{{data.begins | date:short}}</h4>
+                        <span></span>
+                    </div>
+                    <div class="dates ends">
+                        <h4 class="timeago">{{data.ends | date:short}}</h4>
+                        <span></span>
+                    </div>
+                </header>
+                <div class="extruder-wrap">
+                    <div class="extruder" ng-class="model.extruderAccent()"></div>
+                </div>
+            </div>
+        </a>
+        <article>
+            <h1>{{data.name}}</h1>
+            <p>{{data.description}}</p>
+            <a href="#/sale/{{model.root}}/product/{{data.sale | cleanURL}}" class="btn btn-inverse">View</a>
+        </article>
+    </div>
+
+
