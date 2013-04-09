@@ -459,9 +459,9 @@ h1 {
   position: relative;
   width: 100%;
   height: 100%;
-  max-width: 980px;
+   /* max-width: 980px; */
 }
-/* line 36, ../sass/screen.scss */
+/* line 36, ../sass/screen.scss 
 .main-content #viewer-wrap .viewer {
   display: block;
   position: relative;
